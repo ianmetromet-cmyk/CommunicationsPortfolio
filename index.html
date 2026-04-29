@@ -1,1636 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a0a0a">
-    <title>Ian Mark Newman | Strategy & Communications</title>
-    <meta name="description" content="Portfolio of Ian Mark Newman. Expert in Labor Communications, Public Affairs, and Crisis Management.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@400;700;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-    
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ian Mark Newman | Strategy & Communications</title>
+  <meta name="description" content="Portfolio of Ian Mark Newman – Strategy, Labor Communications, and Public Affairs." />
 
-    <script>
-        function handleImageError(img) {
-            if(img && img.parentElement) img.parentElement.style.display = 'none';
-            const section = img.closest('.about-section');
-            if (section) section.style.gridTemplateColumns = '1fr';
-        }
-    </script>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" />
 
-    <style>
-        :root {
-            --brand-blue: #2563eb; 
-            --brand-red: #e11d48
-            --bg-main: #0a0a0a;
-            --bg-card: #141414;
-            --border-color: #262626;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-            --overlay: rgba(0, 0, 0, 0.90);
-            
-            --neon-cyan: #0891b2;
-            --neon-magenta: #c026d3;
-            --neon-cyan-bright: #06b6d4;
-            --neon-magenta-bright: #d946ef;
-            
-            --font-display: 'Outfit', 'Inter', sans-serif;
-            --font-body: 'DM Sans', 'Inter', sans-serif;
-            
-            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
-        body {
-            font-family: var(--font-body);
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
+  <style>
+    :root {
+      --blue: #2563eb;
+      --red: #e11d48;
+      --bg: #0a0a0a;
+      --card: #141414;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+    }
 
-        /* --- ACCESSIBILITY & FORM FOCUS --- */
-        *:focus-visible { outline: 3px solid var(--brand-blue); outline-offset: 2px; }
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--brand-blue);
-            background: rgba(255,255,255,0.1); 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(37, 99, 235, 0.3);
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* --- BACKGROUND ELEMENTS --- */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url("https://grainy-gradients.vercel.app/noise.svg");
-            opacity: 0.05;
-            pointer-events: none;
-            z-index: 9999;
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-        .orb {
-            position: fixed;
-            width: 50vw;
-            height: 50vw;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            z-index: -1;
-            pointer-events: none;
-        }
-        .orb-1 { top: -10%; left: -10%; background: var(--brand-red); }
-        .orb-2 { bottom: -10%; right: -10%; background: var(--brand-blue); }
+    a { color: inherit; text-decoration: none; }
 
-        /* --- NAVIGATION --- */
-        nav.glass-nav {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            z-index: 1000;
-            /* TRANSLUCENT GRADIENT FADE */
-            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.4) 60%, rgba(10, 10, 10, 0) 100%);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: none; /* Removed hard line for a smoother blend */
-        }
-        
-        .nav-brand a {
-            font-family: var(--font-display);
-            font-weight: 900;
-            font-size: 1.25rem;
-            color: #fff;
-            text-decoration: none;
-            letter-spacing: 1px;
-            min-height: 44px;
-            display: inline-flex;
-            align-items: center;
-        }
+    header {
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .nav-links a, .lang-toggle {
-            font-family: var(--font-display);
-            font-size: 0.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            text-decoration: none;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0 10px;
-            min-height: 44px;
-            min-width: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .nav-links a:hover, .lang-toggle:hover {
-            color: var(--brand-blue);
-        }
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
 
-        .lang-toggle {
-            color: var(--brand-red);
-        }
+    section {
+      padding: 5rem 5%;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
+    h1, h2 {
+      font-weight: 800;
+      text-transform: uppercase;
+    }
 
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 5px;
-            z-index: 1001;
-            min-width: 44px;
-            min-height: 44px;
-        }
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: #fff;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; margin-bottom: 2rem; }
 
-        /* --- VERTICAL LINED HEADER --- */
-        .lined-header {
-            display: flex;
-            width: 100%;
-            height: 60vh; 
-            border-bottom: 1px solid var(--border-color);
-            margin-top: 60px;
-            overflow: hidden;
-        }
-        .lined-col {
-            flex: 1;
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 40px 20px;
-            position: relative;
-            transition: background 0.4s ease;
-        }
-        .lined-col:hover {
-            /* Subtle translucent gradient hover effect */
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
-        }
-        .vertical-text {
-            font-family: var(--font-display);
-            font-weight: 900;
-            font-size: clamp(2.5rem, 6vw, 6.5rem);
-            text-transform: uppercase;
-            writing-mode: vertical-rl;
-            white-space: nowrap;
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) rotate(180deg);
-        }
-        .col-index { position: absolute; top: 40px; left: 20px; font-family: var(--font-display); font-weight: 700; color: var(--brand-red); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
 
-        /* --- IMPACT NUMBERS --- */
-        .impact-strip {
-            background: #fff;
-            color: #0a0a0a;
-            padding: 60px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 6rem; 
-            margin-bottom: 4rem;
-        }
-        .impact-stat { text-align: center; flex: 1; padding: 0 15px; position: relative; cursor: default; transition: var(--transition-smooth); }
-        .impact-stat::after {
-            content: attr(data-org);
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: var(--font-display);
-            font-size: 0.85rem;
-            color: var(--brand-red);
-            font-weight: 800;
-            opacity: 0;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            pointer-events: none;
-        }
-        .impact-stat:hover { transform: translateY(-5px); }
-        .impact-stat:hover::after {
-            opacity: 1;
-            transform: translateX(-50%) translateY(5px);
-        }
-        .stat-num { font-family: var(--font-display); font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 900; line-height: 1; transition: color 0.3s ease; }
-        .impact-stat:hover .stat-num { color: var(--brand-blue); }
-        .stat-label { font-family: var(--font-display); text-transform: uppercase; font-weight: 800; font-size: 0.8rem; margin-top: 10px; color: #404040; letter-spacing: 1px; }
+    .card {
+      background: var(--card);
+      border: 1px solid #222;
+      padding: 1.5rem;
+      transition: 0.3s;
+    }
 
-        /* --- SECTION STYLING --- */
-        .section-padding { padding: 8rem 5%; }
-        .section-header { text-align: center; margin-bottom: 5rem; }
-        .section-header h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; text-transform: uppercase; color: var(--text-main); margin-bottom: 10px; }
-        .divider { width: 60px; height: 4px; background: var(--brand-red); margin: 15px auto 0; }
+    .card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+    }
 
-        /* --- CAMPAIGNS (3 Columns) --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            text-decoration: none;
-            color: inherit;
-            cursor: pointer;
-            border: 2px solid transparent;
-            padding: 1.5rem;
-            background: var(--bg-card);
-            border-radius: 2px;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-        }
-        .project-card:hover {
-            border-color: var(--brand-blue); 
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-        }
-        .project-image {
-            width: 100%;
-            aspect-ratio: 1 / 1; 
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            border-radius: 2px;
-            position: relative;
-        }
-        .project-image img, .project-image video { 
-            width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.2) contrast(1.1); transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease; 
-        }
-        .project-card:hover .project-image img { transform: scale(1.05); filter: grayscale(0) contrast(1); }
-        .video-indicator { position: absolute; top: 20px; right: 20px; background: var(--brand-red); color: #fff; padding: 5px 12px; font-size: 0.75rem; font-weight: bold; border-radius: 2px; text-transform: uppercase; z-index: 2; }
-        .project-meta { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 0.5rem; }
-        .project-meta h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; text-transform: uppercase; line-height: 1.2; }
-        .project-icon { width: 40px; height: 40px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: grid; place-items: center; transition: var(--transition-smooth); flex-shrink: 0; }
-        .project-card:hover .project-icon { background: var(--brand-blue); border-color: var(--brand-blue); transform: rotate(45deg); }
-        .project-desc { font-size: 0.95rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5; }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
 
-        /* --- MEDIA COVERAGE GRID (3 Columns) --- */
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .media-card {
-            border: 1px solid var(--border-color);
-            background: var(--bg-card);
-            display: flex;
-            flex-direction: column;
-            border-radius: 2px;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-            position: relative;
-        }
-        .media-card:hover {
-            border-color: var(--brand-blue); 
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-        }
-        .media-thumb-box { 
-            background: #fff; padding: 20px; display: flex; align-items: center; justify-content: center; 
-            border-bottom: 1px solid var(--border-color); flex-shrink: 0; height: 180px; width: 100%; aspect-ratio: 1/1; position: relative;
-        }
-        .media-thumbnail { object-fit: contain; filter: grayscale(1) opacity(0.8); max-height: 100px; width: 100%; transition: filter 0.4s ease, opacity 0.4s ease; }
-        .media-card:hover .media-thumbnail { filter: grayscale(0) opacity(1); }
-        
-        /* --- NEW: MEDIA LOGO BADGE --- */
-        .media-logo-badge {
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            height: 32px;
-            max-width: 100px;
-            object-fit: contain;
-            z-index: 3;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            padding: 5px 8px;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .media-card:hover .media-logo-badge {
-            transform: scale(1.08);
-        }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1rem;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
 
-        .media-content { padding: 25px; display: flex; flex-direction: column; justify-content: center; flex: 1; }
-        .media-label { font-family: var(--font-display); font-size: 0.65rem; font-weight: 900; color: var(--brand-red); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
-        .media-title { font-family: var(--font-display); font-size: 1rem; font-weight: 800; margin: 0; text-transform: uppercase; line-height: 1.3; color: var(--text-main); }
-        .link-arrow { color: var(--brand-blue); text-decoration: none; font-weight: bold; font-size: 0.75rem; margin-top: 15px; display: inline-flex; align-items: center; min-height: 44px; transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 1px; }
-        .media-card:hover .link-arrow { color: var(--brand-red); }
+    footer {
+      padding: 3rem 5%;
+      border-top: 1px solid #222;
+      text-align: center;
+      color: var(--muted);
+    }
 
-        /* --- AUDIO MODULE --- */
-        .audio-section { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 40px; border-radius: 2px; margin: 0 auto 4rem auto; max-width: 1400px; }
-        .audio-image { width: 100%; height: 100%; min-height: 300px; object-fit: cover; filter: grayscale(0.5); border-radius: 2px; }
-        .custom-player-wrapper { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: 4px; padding: 10px 15px; display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .play-pause-btn { background: var(--brand-blue); border: none; color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition-smooth); }
-        .play-pause-btn:hover { background: var(--neon-cyan-bright); transform: scale(1.1); }
-        .progress-container { flex: 1; height: 6px; background: rgba(255, 255, 255, 0.1); border-radius: 3px; cursor: pointer; position: relative; }
-        .progress-bar { height: 100%; background: var(--brand-red); border-radius: 3px; width: 0%; pointer-events: none; }
-        .time-display { font-family: var(--font-display); font-size: 0.8rem; color: var(--text-muted); min-width: 45px; text-align: right; }
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
 
-        /* --- HERO SPLIT (BOTTOM) --- */
-        .split-hero { display: flex; min-height: 80vh; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); position: relative; }
-        .hero-img { flex: 1; background: url('smco-rally-032823-003-2048x399.jpeg') center/cover no-repeat; position: relative; }
-        .hero-text { flex: 1; background-color: var(--brand-blue); display: flex; flex-direction: column; justify-content: center; padding: 6rem 5% 4rem; box-sizing: border-box; }
-        .hero-text h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.95; margin: 0; text-transform: uppercase; font-weight: 900; color: #fff; }
-        .typing p { overflow: hidden; white-space: nowrap; border-right: 2px solid #fff; animation: typing 2s steps(107, end), blink-caret .75s step-end infinite; color: rgba(255,255,255,0.85); font-size: clamp(0.7rem, 1.8vw, 1.15rem); margin: 0; }
-        .typing p.no-anim { animation: none; width: 100%; border-right: none; }
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #fff; } }
+    .modal.active { display: flex; }
 
-        /* --- ABOUT / PROFILE & GALLERY --- */
-        .about-section { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start; max-width: 1400px; margin: 0 auto; }
-        .headshot-container { filter: grayscale(1); transition: filter 0.5s ease; overflow: hidden; border-radius: 2px; }
-        .headshot-container:hover { filter: grayscale(0.2); }
-        .headshot-container img { width: 100%; display: block; border: 4px solid var(--border-color); }
-        .about-text p { font-size: 1.15rem; line-height: 1.8; color: var(--text-muted); margin-top: 0; margin-bottom: 25px; }
-        
-        .cred-list { margin-top: 40px; border-top: 4px solid var(--brand-red); padding-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .cred-item { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 1.2rem; margin-bottom: 5px; color: var(--text-main); }
-        .cred-sub { color: var(--text-muted); font-size: 0.9rem; font-weight: 600; }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+    }
 
-        .swipe-gallery { display: flex; overflow-x: auto; gap: 30px; margin-top: 40px; padding-bottom: 20px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent; }
-        .swipe-gallery::-webkit-scrollbar { height: 6px; }
-        .swipe-gallery::-webkit-scrollbar-track { background: transparent; }
-        .swipe-gallery::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
-        .gallery-item { flex: 0 0 auto; width: 250px; height: 350px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 2px; overflow: hidden; scroll-snap-align: start; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; filter: grayscale(0.4); transition: transform 0.6s ease, filter 0.6s ease; }
-        .gallery-item img:hover { transform: scale(1.05); filter: grayscale(0); }
-
-        /* --- CORE COMPETENCIES --- */
-        .comp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .comp-card {
-            background: var(--bg-card);
-            padding: 40px;
-            border: 1px solid var(--border-color);
-            border-radius: 2px;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            cursor: pointer;
-        }
-        .comp-card:hover { 
-            border-color: var(--brand-blue); 
-            transform: translateY(-6px); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-        }
-        .comp-card h3 {
-            font-family: var(--font-display);
-            text-transform: uppercase;
-            font-weight: 900;
-            font-size: 1.25rem;
-            margin: 0 0 15px 0;
-            color: var(--brand-blue);
-        }
-        .comp-card p { font-size: 1rem; color: var(--text-muted); margin: 0; line-height: 1.6; }
-
-        /* --- CONTACT FORM --- */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: start;
-        }
-        .contact-info h3 { font-family: var(--font-display); font-size: 2.2rem; line-height: 1.2; margin-bottom: 1.5rem; }
-        .contact-details p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 0.5rem; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color);
-            color: #fff; font-family: inherit; font-size: 1rem; border-radius: 2px; transition: var(--transition-smooth);
-        }
-        .contact-submit-btn {
-            background-color: var(--brand-red); color: #fff; border: none; cursor: pointer; width: 100%;
-            padding: 1.2rem; font-size: 1rem; font-family: var(--font-display); font-weight: 800;
-            transition: var(--transition-smooth); border-radius: 2px;
-            min-height: 44px;
-        }
-        .contact-submit-btn:hover { background-color: #be123c; transform: translateY(-2px); }
-
-        /* --- MODAL --- */
-        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--overlay); backdrop-filter: blur(8px); justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
-        .modal.active { display: flex; opacity: 1; }
-        .modal-content { max-width: 90vw; max-height: 90vh; border: 4px solid #fff; border-radius: 2px; transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); background: #000; }
-        .close-btn { position: absolute; top: 25px; right: 40px; color: #fff; font-size: 45px; cursor: pointer; z-index: 2001; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
-        .close-btn:hover { transform: rotate(90deg); color: var(--brand-red); }
-
-        /* --- FOOTER --- */
-        footer { padding: 50px 5%; background: var(--bg-card); text-align: left; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
-
-        @media (max-width: 1024px) {
-            .project-grid, .media-grid { grid-template-columns: repeat(2, 1fr); }
-            .gallery-item { width: 85vw; } 
-            .split-hero { flex-direction: column-reverse; }
-            .hero-img { min-height: 40vh; }
-            .nav-links { display: none; width: 100%; flex-direction: column; position: absolute; top: 100%; left: 0; background: rgba(10,10,10,0.98); padding: 2rem 0; text-align: center; border-bottom: 1px solid var(--border-color); }
-            .nav-links.active { display: flex; }
-            .hamburger { display: flex; }
-            .about-section, .contact-content { grid-template-columns: 1fr; gap: 3rem; }
-            .cred-list { grid-template-columns: 1fr; }
-            .impact-strip { flex-direction: column; gap: 40px; }
-            .audio-section { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            .project-grid, .media-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
+<header>
+  <h1>Ian Newman</h1>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#media">Media</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
 
-    <nav class="glass-nav">
-        <div class="nav-brand"><a href="#">Ian Mark Newman</a></div>
-        <div class="nav-links" id="navLinks">
-            <a href="#work" data-t="nav_campaigns">Campaigns</a>
-            <a href="#media" data-t="nav_media">Media</a>
-            <a href="#about" data-t="nav_profile">Profile</a>
-            <a href="#expertise" data-t="nav_expertise">Expertise</a>
-            <a href="LPJWM-FINAL.pdf" target="_blank" data-t="nav_resume" aria-label="View or download Resume">Resume</a>
-        </div>
-        <div class="nav-controls">
-            <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn" aria-label="Toggle language between English and Spanish">[ES]</button>
-            <div class="hamburger" id="hamburger" aria-label="Open navigation menu"><span></span><span></span><span></span></div>
-        </div>
-    </nav>
+<section id="work">
+  <h2>Campaigns</h2>
+  <div class="grid">
 
-    <section class="lined-header">
-        <a href="#about" class="lined-col" style="text-decoration: none; color: inherit;">
-            <span class="col-index">01</span><div class="vertical-text" data-t="line_01">Strategy</div>
-        </a>
-        <a href="#media" class="lined-col" style="text-decoration: none; color: inherit;">
-            <span class="col-index">02</span><div class="vertical-text" data-t="line_02">Narrative</div>
-        </a>
-        <a href="#media" class="lined-col" style="text-decoration: none; color: inherit;">
-            <span class="col-index">03</span><div class="vertical-text" data-t="line_03">Impact</div>
-        </a>
-        <div class="lined-col">
-            <span class="col-index">04</span>
-            <div class="header-image-box"></div>
-            <div class="header-desc-block" data-t="header_desc">Ian Mark Newman is a senior communications strategist delivering high-stakes narratives for labor, racial justice, and public policy campaigns across the SF Bay Area and New York City.</div>
-        </div>
-    </section>
-
-    <div class="impact-strip reveal">
-        <div class="impact-stat" data-org="Statewide Coalitions">
-            <div class="stat-num">6M+</div>
-            <div class="stat-label" data-t="stat_01">Verified Audience Reach</div>
-        </div>
-        <div class="impact-stat" data-org="SEIU 521 & UFCW Local 5">
-            <div class="stat-num">98.6%</div>
-            <div class="stat-label" data-t="stat_02">Average Strike Authorization Vote Success</div>
-        </div>
-        <div class="impact-stat" data-org="Digital Advocacy Networks">
-            <div class="stat-num">87.1%</div>
-            <div class="stat-label" data-t="stat_03">Average Online Action Conversion Rate</div>
-        </div>
-        <div class="impact-stat" data-org="CWA Local 9423, Teamsters & SEIU">
-            <div class="stat-num">200K</div>
-            <div class="stat-label" data-t="stat_04">Impacted Workforce Members</div>
-        </div>
+    <div class="card" data-file="assets/video/fair-san-mateo.mp4" data-type="video">
+      <img src="assets/images/fair-san-mateo.jpg" alt="Fair San Mateo campaign" />
+      <h3>Strike Averted</h3>
+      <p>Crisis communications and rapid response campaign.</p>
+      <span class="btn">View</span>
     </div>
 
-    <section class="work-section section-padding" id="work">
-        <div class="section-header reveal">
-            <h2><span class="neon-text-cyan">//</span> <span data-t="sec_campaigns">CAMPAIGNS</span> <span class="neon-text-magenta">_</span></h2>
-            <div class="divider"></div>
-        </div>
-
-        <div class="project-grid">
-            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('fair-san-mateo.mp4', 'video')">
-                <div class="project-image">
-                    <div class="video-indicator">▶ WATCH CAMPAIGN</div>
-                    <img src="_MG_8813.jpg" loading="lazy" alt="Union workers holding signs at a Fair San Mateo rally">
-                </div>
-                <div class="project-meta">
-                    <div>
-                        <h3 data-t="p1_title">Strike Averted & Won</h3>
-                        <p data-t="p1_cat">Crisis Comms / Fair San Mateo</p>
-                    </div>
-                    <div class="project-icon"><i data-lucide="play"></i></div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" role="button" tabindex="0" style="transition-delay: 0.1s;" onclick="openModal('mcc-sequence.mov', 'video')">
-                <div class="project-image">
-                    <div class="video-indicator">▶ VIEW PLATFORM</div>
-                    <img src="Screenshot 2025-10-07 at 3.05.30 PM.png" loading="lazy" alt="Monterey County Can digital campaign dashboard interface">
-                </div>
-                <div class="project-meta">
-                    <div>
-                        <h3 data-t="p2_title">Monterey County Can!</h3>
-                        <p data-t="p2_cat">Digital Advocacy & Infrastructure</p>
-                    </div>
-                    <div class="project-icon"><i data-lucide="play"></i></div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('cant-afford-to-live.mp4', 'video')">
-                <div class="project-image">
-                    <div class="video-indicator">▶ WATCH DOC</div>
-                    <img src="_MG_9335-Abby.jpg" loading="lazy" alt="Portrait of Abby for Living Wage Narrative">
-                </div>
-                <div class="project-meta">
-                    <div>
-                        <h3 data-t="p3_title">Living Wage Narrative</h3>
-                        <p data-t="p3_cat">Frontline Storytelling & Ghostwriting</p>
-                    </div>
-                    <div class="project-icon"><i data-lucide="play"></i></div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('santa-cruz-hsa-poster.jpg')">
-                <div class="project-image">
-                    <img src="santa-cruz-hsa-poster.jpg" loading="lazy" alt="Campaign poster to protect Santa Cruz essential public services">
-                </div>
-                <div class="project-meta">
-                    <div>
-                        <h3 data-t="p8_title">Services Protected</h3>
-                        <p data-t="p8_cat">Legislative Affairs / Action Collateral</p>
-                        <div class="project-desc">Drove a successful narrative campaign leading the Santa Cruz County Board of Supervisors to buck staff advice and preserve vital in-house radiology services.</div>
-                    </div>
-                    <div class="project-icon"><i data-lucide="arrow-up-right"></i></div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('contract-safety-language-spanish.png')">
-                <div class="project-image">
-                    <img src="Marnie.jpg" loading="lazy" alt="Construction worker portrait night shift">
-                </div>
-                <div class="project-meta">
-                    <div>
-                        <h3 data-t="p9_title">Essential Worker Protections</h3>
-                        <p data-t="p9_cat">Contract Campaign / Print Assets</p>
-                        <div class="project-desc" data-t="p9_desc">Designed print and digital assets emphasizing safety language and scheduling rights during high-stakes grocery worker negotiations.</div>
-                    </div>
-                    <div class="project-icon"><i data-lucide="arrow-up-right"></i></div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" role="button" tabindex="0" style="transition-delay: 0.1s;" onclick="openModal('bilingual-rally.MP4', 'video')">
-                <div class="project-image">
-                    <div class="video-indicator">▶ WATCH RALLY</div>
-                    <img src="MG-6656-2.jpg" loading="lazy" alt="UFCW organizer with megaphone">
-                </div>
-                <div class="project-meta">
-                    <div>
-                        <h3 data-t="p10_title">Bilingual Contract Advocacy</h3>
-                        <p data-t="p10_cat">Member Mobilization</p>
-                        <div class="project-desc" data-t="p10_desc">Executed targeted Spanish-language communications and leaflet distribution to mobilize union membership around securing historic wage increases.</div>
-                    </div>
-                    <div class="project-icon"><i data-lucide="play"></i></div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('justice-for-janitors-poster.pdf','pdf')">
-                <div class="project-image">
-                    <img src="Equality and Justice are Tremendous.png" loading="lazy" alt="justice-for-janitors-poster.pdf">
-                </div>
-                <div class="project-meta">
-                    <div>
-                        <h3 data-t="p11_title">Justice For Janitors</h3>
-                        <p data-t="p11_cat">Stop Contracting Out</p>
-                        <div class="project-desc" data-t="p11_desc">Led a multi-modal campaign to protect essential jobs and stop the outsourcing of hospital heroes.</div>
-                    </div>
-                    <div class="project-icon"><i data-lucide="arrow-up-right"></i></div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" role="button" tabindex="0" style="transition-delay: 0.1s;" onclick="openModal('scotts-valley-contract.pdf', 'pdf')">
-                <div class="project-image">
-                    <img src="_MG_9628.jpg" loading="lazy" alt="Phil digging public works trench">
-                </div>
-                <div class="project-meta">
-                    <div>
-                        <h3>Scotts Valley Contract</h3>
-                        <p>Public Works & Member Mobilization</p>
-                        <div class="project-desc">Highlighted hazardous working conditions and short-staffing to pressure the City Council into necessary public service investments.</div>
-                    </div>
-                    <div class="project-icon"><i data-lucide="arrow-up-right"></i></div>
-                </div>
-            </div>
-
-            <div class="project-card reveal" role="button" tabindex="0" style="transition-delay: 0.2s;" onclick="openModal('i-believe-we-will-win.mov', 'video')">
-                <div class="project-image">
-                    <div class="video-indicator">▶ WATCH ACTION</div>
-                    <img src="SCZ Strike-CareNotExodus.png" loading="lazy" alt="Care Not Exodus strike graphic for Santa Cruz city workers">
-                </div>
-                <div class="project-meta">
-                    <div>
-                        <h3 data-t="p12_title">City Strike Action</h3>
-                        <p data-t="p12_cat">Direct Action / SEIU 521</p>
-                        <div class="project-desc" data-t="p12_desc">Designed mobilization collateral and digital strike graphics that helped drive an 80%+ strike authorization vote among municipal workers.</div>
-                    </div>
-                    <div class="project-icon"><i data-lucide="play"></i></div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <div class="section-header reveal" style="margin-top: 8rem; margin-bottom: 3rem;">
-        <h2 class="section-title" style="border:none; padding:0; text-align:center; margin-bottom:10px;">
-            <span class="neon-text-cyan">//</span> <span>VOICES FROM THE FRONTLINE</span> <span class="neon-text-magenta">_</span>
-        </h2>
-        <div class="divider"></div>
+    <div class="card" data-file="assets/video/living-wage.mp4" data-type="video">
+      <img src="assets/images/living-wage.jpg" alt="Living wage campaign" />
+      <h3>Living Wage Narrative</h3>
+      <p>Frontline storytelling and narrative strategy.</p>
+      <span class="btn">View</span>
     </div>
 
-    <div class="audio-section reveal">
-        <img src="IMG_1165.jpg" alt="Close-up of professional audio mixing equipment for campaign storytelling" class="audio-image">
-        <div class="audio-content">
-            <h3>Multi-Modal Storytelling</h3>
-            <p>Incorporating raw, on-the-ground testimonies and polished radio mixdowns to build momentum and humanize policy fights.</p>
-            
-            <span class="audio-label">Raw Testimony: Paraeducator</span>
-            <div class="custom-player-wrapper" data-audio-src="para-testimony.mp3">
-                <button class="play-pause-btn" aria-label="Play Audio for Raw Testimony"><i data-lucide="play" style="width: 18px; height: 18px;"></i></button>
-                <div class="progress-container">
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="time-display">0:00</div>
-            </div>
-            
-            <span class="audio-label">Polished Spot: Campaign Mixdown</span>
-            <div class="custom-player-wrapper" data-audio-src="campaign-mixdownUntitled Session 1_mixdown.mp3">
-                <button class="play-pause-btn" aria-label="Play Audio for Campaign Mixdown"><i data-lucide="play" style="width: 18px; height: 18px;"></i></button>
-                <div class="progress-container">
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="time-display">0:00</div>
-            </div>
-            
-            <span class="audio-label">Earned Media Broadcast: CBS Radio</span>
-            <div class="custom-player-wrapper" data-audio-src="cbs-strike-averted-story.wav">
-                <button class="play-pause-btn" aria-label="Play Audio for CBS Radio Earned Media"><i data-lucide="play" style="width: 18px; height: 18px;"></i></button>
-                <div class="progress-container">
-                    <div class="progress-bar"></div>
-                </div>
-                <div class="time-display">0:00</div>
-            </div>
+  </div>
+</section>
 
-            <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
-                <button onclick="openModal('craig.mp4', 'video')" style="min-height: 44px; background: var(--brand-red); color: white; border: none; padding: 10px 20px; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 8px; border-radius: 2px; transition: var(--transition-smooth);" aria-label="Watch Craig's video testimony">
-                    <i data-lucide="play" style="width: 16px; height: 16px;"></i> Watch Craig Testimony
-                </button>
-                <button onclick="openModal('dsc-field-footage.mp4', 'video')" style="min-height: 44px; background: transparent; color: white; border: 1px solid var(--border-color); padding: 10px 20px; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 8px; border-radius: 2px; transition: var(--transition-smooth);" aria-label="Watch raw field footage video">
-                    <i data-lucide="play" style="width: 16px; height: 16px;"></i> Watch Field Footage
-                </button>
-                <button onclick="openModal('Draft-Rowan.mov', 'video')" style="min-height: 44px; background: transparent; color: white; border: 1px solid var(--border-color); padding: 10px 20px; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 8px; border-radius: 2px; transition: var(--transition-smooth);" aria-label="Watch Rowan draft video">
-                    <i data-lucide="play" style="width: 16px; height: 16px;"></i> Watch Rowan Draft
-                </button>
-            </div>
-        </div>
-    </div>
+<section id="media">
+  <h2>Media Coverage</h2>
+  <div class="grid">
 
-    <!-- NEW: Op-Ed List -->
-    <div class="op-ed-list-container reveal" style="margin: 5rem auto; width: 90%; max-width: 1400px; background: var(--bg-card); border: 1px solid var(--border-color); padding: 40px; border-radius: 2px;">
-        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 900; text-transform: uppercase; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; color: var(--brand-blue);">OP-EDS</h3>
-        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 20px;">
-            <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <div style="flex: 1; padding-right: 20px;">
-                    <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">San José Spotlight • 2025</div>
-                    <a href="#" onclick="openModal('Op-ed_ Public education in Santa Clara County needs a defender - San José Spotlight.pdf', 'opd-education-scc-spotlight.pdf'); return false;" style="color: var(--text-main); text-decoration: none; font-size: 1.15rem; font-weight: bold; transition: color 0.3s ease;">Public education in Santa Clara County needs a defender — by Dolores Huerta</a>
-                </div>
-                <a href="#" onclick="openModal('Op-ed_ Public education in Santa Clara County needs a defender - San José Spotlight.pdf', 'opd-education-scc-spotlight.pdf'); return false;" class="link-arrow" style="color: var(--brand-blue); text-decoration: none; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; flex-shrink: 0;" aria-label="Read Op-Ed: Public education in Santa Clara County needs a defender">Read ↗</a>
-            </li>
-            <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                <div style="flex: 1; padding-right: 20px;">
-                    <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Lookout Santa Cruz • 2025</div>
-                    <a href="#" onclick="openModal('Santa Cruz County’s push to reduce hybrid work for health care workers defies data — and common sens.pdf', 'pdf'); return false;" style="color: var(--text-main); text-decoration: none; font-size: 1.15rem; font-weight: bold; transition: color 0.3s ease;">County's push to reduce hybrid work for health care workers defies data — by Max Olkowski-Laetz, SEIU 521 Santa Cruz County President</a>
-                </div>
-                <a href="#" onclick="openModal('Santa Cruz County’s push to reduce hybrid work for health care workers defies data — and common sens.pdf', 'pdf'); return false;" class="link-arrow" style="color: var(--brand-blue); text-decoration: none; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; flex-shrink: 0;" aria-label="Read Op-Ed: County's push to reduce hybrid work for health care workers defies data">Read ↗</a>
-            </li>
-            <li style="display: flex; justify-content: space-between; align-items: center;">
-                <div style="flex: 1; padding-right: 20px;">
-                    <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">National Press • SF Chronicle & NYT • 2026</div>
-                    <a href="#" onclick="openModal('PPMM-SFChronicleOP+NYtimes.pdf', 'ppmm-sfchronicleop+nytimes.pdf'); return false;" style="color: var(--text-main); text-decoration: none; font-size: 1.15rem; font-weight: bold; transition: color 0.3s ease;">Defending Planned Parenthood: Budget Threatens Abortion Safe Haven</a>
-                </div>
-                <a href="#" onclick="openModal('PPMM-SFChronicleOP+NYtimes.pdf, 'pdf'); return false;" class="link-arrow" style="color: var(--brand-blue); text-decoration: none; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; flex-shrink: 0;" aria-label="Read Coverage: Defending Planned Parenthood: Budget Threatens Abortion Safe Haven">Read ↗</a>
-            </li>
-        </ul>
-    </div>
+    <a class="card" href="https://kqed.org" target="_blank">
+      <img src="assets/images/kqed.jpg" alt="KQED coverage" />
+      <h3>KQED Feature</h3>
+      <p>Public radio coverage of campaign impact.</p>
+    </a>
 
-    <div id="media" class="section-padding">
-        <div class="section-header reveal">
-            <h2><span class="neon-text-cyan">//</span> <span data-t="sec_media">MEDIA COVERAGE</span> <span class="neon-text-magenta">_</span></h2>
-            <div class="divider"></div>
-        </div>
-        <div class="media-grid">
-            
-            <div class="media-card reveal" role="button" tabindex="0">
-                <div class="media-thumb-box">
-                    <img src="P1000056.jpg" loading="lazy" class="media-thumbnail" alt="KION Spanish news broadcast covering the Santa Cruz strike">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m18_lab">Bilingual Broadcast / KION</div>
-                        <h3 class="media-title" data-t="m18_tit">ESTALLA HUELGA EN SANTA CRUZ: SE PARALIZAN SERVICIOS PÚBLICOS</h3>
-                    </div>
-                    <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px; border-top: 1px solid var(--border-color); padding-top: 15px;">
-                        <a href="https://kioncentralcoast.com/video/2022/10/13/estalla-huelga-en-santa-cruz-se-paralizan-servicios-publicos/" target="_blank" style="text-decoration: none; display: block;" aria-label="Read initial report on KION: Estalla huelga en Santa Cruz">
-                            <div style="font-family: var(--font-display); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 800; margin-bottom: 2px;" data-t="m18_sub1">Initial Report</div>
-                            <div class="link-arrow" style="margin-top: 0;" data-t="m_read">READ FULL STORY ↗</div>
-                        </a>
-                        <a href="https://youtu.be/k_2y-1YR61c" target="_blank" style="text-decoration: none; display: block;" aria-label="Watch follow-up video segment on KION">
-                            <div style="font-family: var(--font-display); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 800; margin-bottom: 2px;" data-t="m18_sub2">Follow-up Segment</div>
-                            <div class="link-arrow" style="margin-top: 0;" data-t="m_watch_video">WATCH VIDEO ↗</div>
-                        </a>
-                    </div>
-                </div>
-            </div>
+  </div>
+</section>
 
-            <a href="https://www.kazu.org/kazu-news/2022-10-14/santa-cruz-city-workers-plan-to-strike-next-week" target="_blank" class="media-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Listen to KAZU public radio story about Santa Cruz city workers strike">
-                <div class="media-thumb-box">
-                    <img src="_MG_8813.jpg" loading="lazy" class="media-thumbnail" alt="KAZU public radio coverage of Santa Cruz city workers strike">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m19_lab">Public Radio / KAZU</div>
-                        <h3 class="media-title" data-t="m19_tit">SANTA CRUZ CITY WORKERS PLAN TO STRIKE NEXT WEEK</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_listen">LISTEN TO STORY ↗</div>
-                </div>
-            </a>
+<section id="about">
+  <h2>About</h2>
+  <p>
+    Communications strategist focused on labor, public policy, and crisis response.
+    Experience across union campaigns, media strategy, and narrative development.
+  </p>
+</section>
 
-            <a href="https://www.kazu.org/kazu-news/2022-11-15/uc-santa-cruz-academic-workers-are-on-strike-for-higher-pay" target="_blank" class="media-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Listen to KAZU public radio story about UC Santa Cruz academic workers strike">
-                <div class="media-thumb-box">
-                    <img src="_MG_9333.jpg" loading="lazy" class="media-thumbnail" alt="UC Santa Cruz academic workers striking for higher pay">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m20_lab">Public Radio / KAZU</div>
-                        <h3 class="media-title" data-t="m20_tit">UC SANTA CRUZ ACADEMIC WORKERS STRIKE FOR HIGHER PAY</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_listen">LISTEN TO STORY ↗</div>
-                </div>
-            </a>
+<footer>
+  <p>© 2026 Ian Mark Newman</p>
+</footer>
 
-            <a href="#" onclick="openModal('cbs-strike-story-velazquez.mp4', 'video'); return false;" class="media-card reveal" role="button" tabindex="0" aria-label="Watch CBS broadcast about Santa Cruz County averting strike">
-                <div class="media-thumb-box">
-                    <div class="video-indicator" style="position: absolute; top: 10px; right: 10px; background: var(--brand-red); color: white; padding: 3px 8px; font-size: 0.6rem; font-weight: bold; border-radius: 2px;">▶ WATCH</div>
-                    <img src="_MG_9240.jpg" loading="lazy" class="media-thumbnail" alt="CBS News coverage of Santa Cruz County averting a worker strike">
-                    <img src="CBS.svg" class="media-logo-badge" alt="CBS Logo">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m21_lab">Broadcast News / CBS SF</div>
-                        <h3 class="media-title" data-t="m21_tit">SANTA CRUZ COUNTY AVERTS STRIKE WITH WORKERS</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_watch_video">WATCH BROADCAST ↗</div>
-                </div>
-            </a>
+<!-- Modal -->
+<div class="modal" id="modal">
+  <span class="close" id="close">&times;</span>
+  <div id="modalContent"></div>
+</div>
 
-            <a href="https://sanjosespotlight.com/santa-clara-county-official-resigns-more-than-year-after-infant-dies-of-overdose/" target="_blank" class="media-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read San Jose Spotlight investigative report on official resigning">
-                <div class="media-thumb-box">
-                    <img src="240114-SCCDCFS-JG-5-1020x680-3.jpg" loading="lazy" class="media-thumbnail" alt="San Jose Spotlight investigative report on Santa Clara County child welfare">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m17_lab">Investigative / San Jose Spotlight</div>
-                        <h3 class="media-title" data-t="m17_tit">SANTA CLARA COUNTY OFFICIAL RESIGNS AFTER INFANT TRAGEDY</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_read">READ FULL STORY ↗</div>
-                </div>
-            </a>
+<script>
+  const modal = document.getElementById('modal');
+  const modalContent = document.getElementById('modalContent');
+  const closeBtn = document.getElementById('close');
 
-            <a href="https://www.sfgate.com/news/bayarea/article/santa-clara-county-special-education-workers-face-20208037.php" target="_blank" class="media-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Read SFGATE story about Santa Clara County special education workers">
-                <div class="media-thumb-box">
-                    <img src="ratio4x3_960.webp" loading="lazy" class="media-thumbnail" alt="SFGATE article on Santa Clara County special education workers">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m15_lab">Labor Action / SFGATE</div>
-                        <h3 class="media-title" data-t="m15_tit">SANTA CLARA COUNTY SPECIAL EDUCATION WORKERS FACE LAYOFFS</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_read">READ FULL STORY ↗</div>
-                </div>
-            </a>
+  document.querySelectorAll('.card[data-file]').forEach(card => {
+    card.addEventListener('click', () => {
+      const file = card.dataset.file;
+      const type = card.dataset.type;
 
-            <a href="https://www.kqed.org/news/12022256/santa-clara-county-social-workers-demand-more-staffing-support-in-troubled-agency/" target="_blank" class="media-card reveal" role="button" tabindex="0" aria-label="Listen to KQED feature about Santa Clara County social workers">
-                <div class="media-thumb-box">
-                    <img src="240114-SCCDCFS-JG-5-1020x680-3.jpg" loading="lazy" class="media-thumbnail" alt="KQED feature on Santa Clara County social workers demanding support">
-                    <img src="KQED.webp" class="media-logo-badge" alt="KQED Logo">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m16_lab">Public Radio Feature / KQED</div>
-                        <h3 class="media-title" data-t="m16_tit">SANTA CLARA COUNTY SOCIAL WORKERS DEMAND MORE STAFFING SUPPORT</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_listen">LISTEN TO STORY ↗</div>
-                </div>
-            </a>
+      if (type === 'video') {
+        modalContent.innerHTML = `<video src="${file}" controls autoplay class="modal-content"></video>`;
+      } else {
+        modalContent.innerHTML = `<img src="${file}" class="modal-content"/>`;
+      }
 
-            <a href="https://www.kqed.org/news/12063796/government-reopens-but-santa-cruz-head-start-families-still-face-child-care-crisis" target="_blank" class="media-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Listen to KQED story about Santa Cruz Head Start child care crisis">
-                <div class="media-thumb-box">
-                    <img src="20251112_HEADSTART_SANTACRUZ_GH-1-KQED.jpg" loading="lazy" class="media-thumbnail" alt="KQED report thumbnail showing a Head Start facility in Santa Cruz">
-                    <img src="KQED.webp" class="media-logo-badge" alt="KQED Logo">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m12_lab">Public Radio Feature / KQED</div>
-                        <h3 class="media-title" data-t="m12_tit">GOVERNMENT REOPENS, BUT SANTA CRUZ HEAD START FAMILIES STILL FACE CHILD CARE CRISIS</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_listen">LISTEN TO STORY ↗</div>
-                </div>
-            </a>
+      modal.classList.add('active');
+    });
+  });
 
-            <a href="https://www.kqed.org/news/12063796/government-reopens-but-santa-cruz-head-start-families-still-face-child-care-crisis" target="_blank" class="media-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Listen to KQED story about families navigating Head Start shortages">
-                <div class="media-thumb-box">
-                    <img src="Daisy1.jpg" loading="lazy" class="media-thumbnail" alt="KQED coverage of Santa Cruz families navigating child care shortages">
-                    <img src="KQED.webp" class="media-logo-badge" alt="KQED Logo">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m13_lab">Public Radio Feature / KQED</div>
-                        <h3 class="media-title" data-t="m13_tit">SANTA CRUZ FAMILIES NAVIGATE HEAD START CHILD CARE SHORTAGES</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_listen">LISTEN TO STORY ↗</div>
-                </div>
-            </a>
+  closeBtn.onclick = () => modal.classList.remove('active');
+  modal.onclick = e => { if (e.target === modal) modal.classList.remove('active'); };
+</script>
 
-            <a href="https://www.sfgate.com/news/bayarea/article/palo-alto-protesters-rally-outside-office-of-20807528.php" target="_blank" class="media-card reveal" role="button" tabindex="0" aria-label="Read SFGATE story about Palo Alto protesters rallying">
-                <div class="media-thumb-box">
-                    <img src="ratio4x3_960.webp" loading="lazy" class="media-thumbnail" alt="Palo Alto protesters rallying outside office on SFGATE">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m14_lab">Direct Action / SFGATE</div>
-                        <h3 class="media-title" data-t="m14_tit">PALO ALTO PROTESTERS RALLY OUTSIDE OFFICE</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_read">READ FULL STORY ↗</div>
-                </div>
-            </a>
-
-            <a href="https://www.santacruzsentinel.com/2025/10/14/editorial-making-the-downtown-santa-cruz-library-safe/" target="_blank" class="media-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read Santa Cruz Sentinel editorial about downtown library safety">
-                <div class="media-thumb-box">
-                    <img src="STC-L-ASLIBRARY-1004-02_241491274.jpg.webp" loading="lazy" class="media-thumbnail" alt="Santa Cruz Library Editorial about Safety">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label">Editorial / 2025</div>
-                        <h3 class="media-title">SANTA CRUZ LIBRARY EDITORIAL ABOUT SAFETY</h3>
-                    </div>
-                    <div class="link-arrow">READ EDITORIAL ↗</div>
-                </div>
-            </a>
-
-            <a href="https://www.sfchronicle.com/" target="_blank" class="media-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Read SF Chronicle story about VTA shooting crisis response">
-                <div class="media-thumb-box">
-                    <img src="P1150911.jpg" loading="lazy" class="media-thumbnail" alt="SF Chronicle coverage of the VTA shooting crisis response">
-                    <img src="SFChronicle.webp" class="media-logo-badge" alt="SF Chronicle Logo">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label">Crisis Communications / SF Chronicle</div>
-                        <h3 class="media-title">VTA SHOOTING: COUNTY WORKERS RESPOND TO TRAGEDY</h3>
-                    </div>
-                    <div class="link-arrow">READ FULL STORY ↗</div>
-                </div>
-            </a>
-            
-            <a href="https://www.kqed.org" target="_blank" class="media-card reveal" role="button" tabindex="0" aria-label="Listen to KQED feature about A Day Without Childcare">
-                <div class="media-thumb-box">
-                    <img src="250512-DAY-WITHOUT-CHILDCARE-MD-02-KQED-1536x1025.jpg" loading="lazy" class="media-thumbnail" alt="A Day Without Childcare protest covered by KQED">
-                    <img src="KQED.webp" class="media-logo-badge" alt="KQED Logo">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label">Public Radio Feature / KQED</div>
-                        <h3 class="media-title">A DAY WITHOUT CHILDCARE: PROVIDERS DEMAND LIVING WAGES</h3>
-                    </div>
-                    <div class="link-arrow">LISTEN TO STORY ↗</div>
-                </div>
-            </a>
-
-            <a href="LPJWM-FINAL.pdf" target="_blank" class="media-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read Mercury News story about City of Santa Cruz workers strike">
-                <div class="media-thumb-box">
-                    <img src="STC-L-ASDAYTWO-1019-01_101285624.jpg.webp" loading="lazy" class="media-thumbnail" alt="Mercury News coverage of Santa Cruz city workers strike">
-                    <img src="SJM.png.webp" class="media-logo-badge" alt="San Jose Mercury News Logo">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m1_lab">Press Hit / The Mercury News</div>
-                        <h3 class="media-title" data-t="m1_tit">CITY OF SANTA CRUZ WORKERS WILL STRIKE NEXT WEEK</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_listen">READ FULL STORY ↗</div>
-                </div>
-            </a>
-
-            <a href="Guest Commentary _ The push to outsource Santa Cruz County Public Health – Santa Cruz Sentinel.pdf" target="_blank" class="media-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Read Santa Cruz Sentinel op-ed about outsourcing public health">
-                <div class="media-thumb-box">
-                    <img src="P1150827.jpg" loading="lazy" class="media-thumbnail" alt="Santa Cruz Sentinel op-ed piece on county public health outsourcing">
-                    <img src="SantaCruzSentinel.png" class="media-logo-badge" alt="Santa Cruz Sentinel Logo">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m2_lab">Op-Ed Strategy / Sentinel</div>
-                        <h3 class="media-title" data-t="m2_tit">THE PUSH TO OUTSOURCE SANTA CRUZ COUNTY PUBLIC HEALTH</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_read">READ FULL STORY ↗</div>
-                </div>
-            </a>
-
-            <a href="Op-Ed Santa Cruz Animal Shelter.pdf" target="_blank" class="media-card reveal" role="button" tabindex="0" aria-label="Read Lookout SC story about animal shelter understaffing">
-                <div class="media-thumb-box">
-                    <img src="animal-shelter-screenshot.jpg" loading="lazy" class="media-thumbnail" alt="Lookout Santa Cruz investigative piece on the animal shelter crisis">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m5_lab">Investigative / Lookout SC</div>
-                        <h3 class="media-title" data-t="m5_tit">ANIMAL SHELTER HAS TOO MANY PETS AND TOO LITTLE STAFF</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_read">READ FULL STORY ↗</div>
-                </div>
-            </a>
-
-            <a href="UTF-8Book Apr 26, 2025.pdf" target="_blank" class="media-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read bilingual organizing letters from Head Start parents">
-                <div class="media-thumb-box">
-                    <img src="P1040473.jpg" loading="lazy" class="media-thumbnail" alt="Bilingual organizing letters from Head Start parents">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m6_lab">Bilingual Organizing</div>
-                        <h3 class="media-title" data-t="m6_tit">HEAD START PARENTS DEMAND PROGRAM PROTECTION</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_read">READ LETTERS ↗</div>
-                </div>
-            </a>
-
-            <a href="SHARED - FAMILIES FIRST Turnout Flier (8.5x11).pdf" target="_blank" class="media-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="View Families First National Day of Action turnout flyer">
-                <div class="media-thumb-box">
-                    <img src="IMG_0710.jpg" loading="lazy" class="media-thumbnail" alt="Families First National Day of Action turnout flyer">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label" data-t="m3_lab">Coalition Strategy</div>
-                        <h3 class="media-title" data-t="m3_tit">FAMILIES FIRST: NATIONAL DAY OF ACTION TURNOUT</h3>
-                    </div>
-                    <div class="link-arrow" data-t="m_watch">VIEW FLYER ↗</div>
-                </div>
-            </a>
-            
-            <a href="#" onclick="openModal('historical-press-2017.jpg', 'image'); return false;" class="media-card reveal" role="button" tabindex="0" aria-label="View 2017 historical press coverage archive artifact">
-                <div class="media-thumb-box">
-                    <img src="Screen Shot 2017-09-22 at 9.07.18 PM.tiff" loading="lazy" class="media-thumbnail" alt="2017 Digital Archive Press Hit">
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="media-label">Digital Archive / 2017</div>
-                        <h3 class="media-title">HISTORICAL PRESS COVERAGE ARCHIVE</h3>
-                    </div>
-                    <div class="link-arrow">VIEW ARTIFACT ↗</div>
-                </div>
-            </a>
-
-        </div>
-    </div>
-
-    <div id="about" class="section-padding">
-        <div class="section-header reveal">
-            <h2 class="section-title" style="border:none; padding:0; text-align:center; margin-bottom:10px;">
-                <span class="neon-text-cyan">//</span> <span data-t="sec_profile">PROFILE & EXPERTISE</span> <span class="neon-text-magenta">_</span>
-            </h2>
-            <div class="divider"></div>
-        </div>
-        <div class="about-section" id="aboutSectionGrid">
-            <div class="headshot-container reveal" id="headshotContainer">
-                <img src="79-JDM03769.jpg" loading="lazy" alt="Ian Mark Newman professional profile headshot" onerror="handleImageError(this)">
-            </div>
-            <div class="about-text reveal" style="transition-delay: 0.1s;">
-                <p data-t="profile_p1">I am a strategic communications and media professional with over a decade of experience advancing labor, racial justice, and public interest campaigns. My work spans successful local, statewide, and regional political initiatives, including minimum wage campaigns, hospital tax efforts, and helping to develop a new healthcare plan serving over 10,000 working families within a monopolized insurance market.</p>
-                <p data-t="profile_p2">With deep experience navigating the complex political landscapes of both New York City and the San Francisco Bay Area, I specialize in earned media strategies that elevate frontline voices and bring visibility to racial and economic justice issues, shaping public narratives and influencing policy outcomes.</p>
-                
-                <a href="https://www.linkedin.com/in/ian-newman-219a3518/" target="_blank" style="display:inline-flex; align-items:center; min-height:44px; border:1px solid #fff; color:#fff; padding:10px 30px; text-decoration:none; font-family:var(--font-display); font-weight:800; text-transform:uppercase; letter-spacing:1px; margin-bottom: 2rem; transition: background 0.3s ease, color 0.3s ease;" onmouseover="this.style.background='#fff'; this.style.color='var(--brand-red)';" onmouseout="this.style.background='transparent'; this.style.color='#fff';" data-t="btn_linkedin" aria-label="Connect with Ian Mark Newman on LinkedIn">CONNECT ON LINKEDIN ↗</a>
-                
-                <div class="cred-list">
-                    <div>
-                        <div class="cred-item" data-t="c1_tit">MFA, Digital Arts & New Media</div>
-                        <div class="cred-sub">University of California, Santa Cruz</div>
-                    </div>
-                    <div>
-                        <div class="cred-item" data-t="c2_tit">Advanced Spanish Proficiency</div>
-                        <div class="cred-sub" data-t="c2_sub">Expert in Bilingual Communications Strategy</div>
-                    </div>
-                    <div>
-                        <div class="cred-item" data-t="c3_tit">Earned Media Strategy</div>
-                        <div class="cred-sub" data-t="c3_sub">Front-Page Public Affairs Campaigns</div>
-                    </div>
-                    <div>
-                        <div class="cred-item" data-t="c4_tit">High-Impact Production</div>
-                        <div class="cred-sub" data-t="c4_sub">End-to-End Media & Web Implementation</div>
-                    </div>
-                </div>
-
-                <div class="swipe-gallery" style="margin-top: 40px;">
-                    <div class="gallery-item" role="button" tabindex="0"><img src="90.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Action shot of a worker speaking at a rally"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="_MG_9240.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Campaign rally gathering outdoors"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="SCZ-Strike-WeStand-FB2.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="We Stand Strike Graphic"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Jaime Lopez.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Portrait of frontline worker Jaime Lopez"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Caspers copy.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Creative photography of an urban street scene"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Caspers.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Creative photography of an urban street scene alternative"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="P1000015.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field notes and strategic planning documents"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="_MG_9333.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Rally shot of academic workers on strike"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="early-organizing-graphic.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Early organizing graphic for fair wages"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="StacksofLabor.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Towering pallets"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Self-Portrait-Driving.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="360 Night Driving"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Screen_Shot_2018-04-28_at_12.48.57_PM.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="SF Bay Portrait"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="MG-6716.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Tacoma is a Union Town"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="MG-6703.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Our Pension"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="MG-6655-2.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Teamsters Local 313"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="_MG_8790.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Action shot"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="_MG_8755.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Action shot"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="_MG_7720.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Action shot"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Santa Clara - Workers - Baby Phoenix.jpg.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Baby Phoenix Protest"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Santa Clara County Workers - Baby Phoenix Protestors 2.jpg.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Baby Phoenix Protestors 2"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Santa Clara County Workers - Baby Phoenix Protestors.jpg.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Baby Phoenix Protestors"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Informational Picket.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Informational Picket"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="STC-L-ASLIBRARY-1004-02_241491274.jpg.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Library Action"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="STC-L-NIUCHOMELESS-04XX-01.jpg.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Homelessness Action"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="David.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Portrait of David"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Farm-2.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Farm Workers Environment"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="AviprintAdjustedJMG.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Environmental Print Setup"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="_MG_6130.JPG" loading="lazy" onclick="openModal(this.src, 'image')" alt="Campaign Portrait"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="_MG_6212.JPG" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field Action Portrait"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="38.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field Documentation 38"></div>
-                    <div class="gallery-item" role="button" tabindex="0"><img src="Screen Shot 64.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Digital Archive 64"></div>
-                </div>
-            </div>
-        </div>
-
-        <h3 id="expertise" class="reveal" style="font-family:var(--font-display); font-size: 2rem; font-weight: 900; text-transform: uppercase; color: var(--text-main); margin: 6rem 0 2.5rem; text-align: center;" data-t="sec_competencies">Core Competencies</h3>
-        <div class="comp-grid">
-            <a href="LPJWM-FINAL.pdf" target="_blank" class="comp-card reveal" role="button" tabindex="0" aria-label="Read document about Public Policy & Systems Impact">
-                <h3 data-t="comp1_tit">Public Policy & Systems Impact</h3>
-                <p data-t="comp1_des">Strategically prevented thousands of layoffs and improved worker safety through public policy framing. Architected a new healthcare program serving 10,000+ working families within a monopolized insurance market.</p>
-            </a>
-            <a href="San Mateo Co NewsletterSpring 2024.pdf" target="_blank" class="comp-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read document about Internal & Bilingual Strategy">
-                <h3 data-t="comp2_tit">Internal & Bilingual Strategy</h3>
-                <p data-t="comp2_des">Architecting full-spectrum communications for Spanish-language outlets and internal member mobilization. Driving initiatives ensuring equity for people of color in the workplace and labor policies.</p>
-            </a>
-            <a href="#work" class="comp-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="View examples of High-Impact Media Production">
-                <h3 data-t="comp3_tit">High-Impact Media Production</h3>
-                <p data-t="comp3_des">Executing professional photography, videography, and full-suite editing. Delivering comprehensive media packages in competitive environments and on tight timelines to drive campaign narratives.</p>
-            </a>
-            <a href="Guest Commentary _ The push to outsource Santa Cruz County Public Health – Santa Cruz Sentinel.pdf" target="_blank" class="comp-card reveal" role="button" tabindex="0" aria-label="Read Thought Leadership document">
-                <h3 data-t="comp4_tit">Thought Leadership</h3>
-                <p data-t="comp4_des">Positioning organizations, frontline workers, and executives as authoritative voices on labor, equity, and public policy through high-impact op-eds, executive messaging, and strategic public positioning.</p>
-            </a>
-            <a href="data-reporting-screenshot.png" target="_blank" class="comp-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="View Data Analysis & Reporting examples">
-                <h3 data-t="comp5_tit">Data Analysis & Reporting</h3>
-                <p data-t="comp5_des">Translating complex campaign datasets into actionable insights, providing high-level reporting on digital engagement, reach, and conversion metrics for leadership stakeholders.</p>
-            </a>
-            <a href="mcc-dashboard.png" target="_blank" class="comp-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="View Technical Content Systems examples">
-                <h3 data-t="comp6_tit">Technical Content Systems</h3>
-                <p data-t="comp6_des">Directing full-cycle media production paired with HTML/CSS development and website structuring to optimize digital infrastructure for sophisticated advocacy campaigns.</p>
-            </a>
-        </div>
-    </div>
-
-    <header class="split-hero">
-        <div class="hero-img"></div>
-        <div class="hero-text">
-            <div class="hero-content reveal">
-                <h1 data-t="hero_title">DRIVING<br>NARRATIVES.<br>WINNING<br>CAMPAIGNS.</h1>
-                <div class="typing">
-                    <p data-t="hero_typing">Crafting bold visual experiences that blend strategy and creativity to strengthen political and policy impact.</p>
-                </div>
-                <div class="hero-tag" data-t="hero_tag">Senior Communications Strategist</div>
-            </div>
-        </div>
-    </header>
-
-    <section id="contact" class="section-padding" style="background:var(--bg-main);">
-        <div class="section-header reveal">
-            <h2 class="section-title" style="border:none; padding:0; text-align:center; margin-bottom:10px;">
-                <span class="neon-text-cyan">//</span> <span data-t="sec_contact">CONTACT</span> <span class="neon-text-magenta">_</span>
-            </h2>
-            <div class="divider" style="margin: 15px auto 0;"></div>
-        </div>
-        <div class="contact-content reveal">
-            <div class="contact-info">
-                <h3 style="color: var(--text-main);" data-t="contact_head">Let's drive the narrative together.</h3>
-                <div class="contact-details">
-                    <p><strong style="color: var(--text-main);">Email:</strong> <a href="mailto:Ian.metromet@gmail.com" style="color: var(--brand-blue); text-decoration: none;">Ian.metromet@gmail.com</a></p>
-                </div>
-            </div>
-            <form action="https://formsubmit.co/Ian.metromet@gmail.com" method="POST" class="contact-form">
-                <input type="hidden" name="_subject" value="New Contact Form Submission - Portfolio">
-                <input type="hidden" name="_captcha" value="false">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name" required data-t-placeholder="ph_name">
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email" required data-t-placeholder="ph_email">
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Your Message" rows="5" required style="resize: vertical;" data-t-placeholder="ph_msg"></textarea>
-                </div>
-                <button type="submit" class="contact-submit-btn" data-t="btn_send">SEND MESSAGE</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div style="font-family:var(--font-display); font-weight:900; font-size:1.2rem; text-transform:uppercase; color:#fff;">Ian Mark Newman</div>
-        <div style="color:var(--text-muted); font-size:0.85rem; font-weight:600; letter-spacing:1px;" data-t="footer_rights">© 2026 • ALL RIGHTS RESERVED</div>
-    </footer>
-
-    <div id="mediaModal" class="modal">
-        <span class="close-btn" onclick="closeModal()" aria-label="Close modal">&times;</span>
-        <img class="modal-content" id="modalImg" alt="Enlarged view" style="display:none;">
-        <video class="modal-content" id="modalVideo" preload="none" controls style="display:none; width: 100%; max-height: 85vh; border:none; outline:none;"></video>
-        <iframe class="modal-content" id="modalPdf" style="display:none; width: 100%; height: 85vh; border:none; background: white;"></iframe>
-    </div>
-
-    <script>
-        const translations = {
-            en: {
-                nav_campaigns: "Campaigns",
-                nav_media: "Media",
-                nav_profile: "Profile",
-                nav_expertise: "Expertise",
-                nav_resume: "Resume",
-                line_01: "Strategy",
-                line_02: "Narrative",
-                line_03: "Impact",
-                header_desc: "Ian Mark Newman is a senior communications strategist delivering high-stakes narratives for labor, racial justice, and public policy campaigns across the SF Bay Area and New York City.",
-                hero_title: "DRIVING<br>NARRATIVES.<br>WINNING<br>CAMPAIGNS.",
-                hero_typing: "Crafting bold visual experiences that blend strategy and creativity to strengthen political and policy impact.",
-                hero_tag: "Senior Communications Strategist",
-                scroll: "↓ SCROLL ↓",
-                stat_01: "Verified Audience Reach",
-                stat_02: "Average Strike Authorization Vote Success",
-                stat_03: "Average Online Action Conversion Rate",
-                stat_04: "Impacted Workforce Members",
-                sec_campaigns: "CAMPAIGNS",
-                campaign_sub: "Advocacy and public affairs work that drives real impact.",
-                p1_title: "Strike Averted & Won",
-                p1_cat: "Crisis Comms / Fair San Mateo",
-                p2_title: "Monter County Can!",
-                p2_cat: "Digital Advocacy & Infrastructure",
-                p3_title: "Living Wage Narrative",
-                p3_cat: "Frontline Storytelling & Ghostwriting",
-                p8_title: "Services Protected",
-                p8_cat: "Legislative Affairs / Action Collateral",
-                p9_title: "Essential Worker Protections",
-                p9_cat: "Contract Campaign / Print Assets",
-                p9_desc: "Designed print and digital assets emphasizing safety language and scheduling rights during high-stakes grocery worker negotiations.",
-                p10_title: "Bilingual Contract Advocacy",
-                p10_cat: "Member Mobilization",
-                p10_desc: "Executed targeted Spanish-language communications and leaflet distribution to mobilize union membership around securing historic wage increases.",
-                p11_title: "Justice For Janitors",
-                p11_cat: "Stop Contracting Out",
-                p11_desc: "Led a multi-modal campaign to protect essential jobs and stop the outsourcing of hospital heroes.",
-                p12_title: "City Strike Action",
-                p12_cat: "Direct Action / SEIU 521",
-                p12_desc: "Designed mobilization collateral and digital strike graphics that helped drive an 80%+ strike authorization vote among municipal workers.",
-                sec_media: "MEDIA COVERAGE",
-                m1_lab: "Press Hit / The Mercury News",
-                m1_tit: "CITY OF SANTA CRUZ WORKERS WILL STRIKE NEXT WEEK",
-                m2_lab: "Op-Ed Strategy / Sentinel",
-                m2_tit: "THE PUSH TO OUTSOURCE SANTA CRUZ COUNTY PUBLIC HEALTH",
-                m3_lab: "Coalition Strategy",
-                m3_tit: "FAMILIES FIRST: NATIONAL DAY OF ACTION TURNOUT",
-                m5_lab: "Investigative / Lookout SC",
-                m5_tit: "ANIMAL SHELTER HAS TOO MANY PETS AND TOO LITTLE STAFF",
-                m6_lab: "Bilingual Organizing",
-                m6_tit: "HEAD START PARENTS DEMAND PROGRAM PROTECTION",
-                m12_lab: "Public Radio Feature / KQED",
-                m12_tit: "GOVERNMENT REOPENS, BUT SANTA CRUZ HEAD START FAMILIES STILL FACE CHILD CARE CRISIS",
-                m13_lab: "Public Radio Feature / KQED",
-                m13_tit: "SANTA CRUZ FAMILIES NAVIGATE HEAD START CHILD CARE SHORTAGES",
-                m14_lab: "Direct Action / SFGATE",
-                m14_tit: "PALO ALTO PROTESTERS RALLY OUTSIDE OFFICE",
-                m15_lab: "Labor Action / SFGATE",
-                m15_tit: "SANTA CLARA COUNTY SPECIAL EDUCATION WORKERS FACE LAYOFFS",
-                m16_lab: "Public Radio Feature / KQED",
-                m16_tit: "SANTA CLARA COUNTY SOCIAL WORKERS DEMAND MORE STAFFING SUPPORT",
-                m17_lab: "Investigative / San Jose Spotlight",
-                m17_tit: "SANTA CLARA COUNTY OFFICIAL RESIGNS AFTER INFANT TRAGEDY",
-                m18_lab: "Bilingual Broadcast / KION",
-                m18_tit: "ESTALLA HUELGA EN SANTA CRUZ: SE PARALIZAN SERVICIOS PÚBLICOS",
-                m18_sub1: "Initial Report",
-                m18_sub2: "Follow-up Segment",
-                m_watch_video: "WATCH VIDEO ↗",
-                m19_lab: "Public Radio / KAZU",
-                m19_tit: "SANTA CRUZ CITY WORKERS PLAN TO STRIKE NEXT WEEK",
-                m20_lab: "Public Radio / KAZU",
-                m20_tit: "UC SANTA CRUZ ACADEMIC WORKERS STRIKE FOR HIGHER PAY",
-                m21_lab: "Broadcast News / CBS SF",
-                m21_tit: "SANTA CRUZ COUNTY AVERTS STRIKE WITH WORKERS",
-                m22_lab: "Broadcast Segment / KION 46",
-                m22_tit: "ESTALLA HUELGA EN SANTA CRUZ (VIDEO SEGMENT)",
-                m_listen: "LISTEN TO STORY ↗",
-                m_read: "READ FULL STORY ↗",
-                m_watch: "VIEW FLYER ↗",
-                sec_profile: "PROFILE & EXPERTISE",
-                profile_p1: "I am a strategic communications and media professional with over a decade of experience advancing labor, racial justice, and public interest campaigns. My work spans successful local, statewide, and regional political initiatives, including minimum wage campaigns, hospital tax efforts, and helping to develop a new healthcare plan serving over 10,000 working families within a monopolized insurance market.",
-                profile_p2: "With deep experience navigating the complex political landscapes of both New York City and the San Francisco Bay Area, I specialize in earned media strategies that elevate frontline voices and bring visibility to racial and economic justice issues, shaping public narratives and influencing policy outcomes.",
-                btn_linkedin: "CONNECT ON LINKEDIN ↗",
-                c1_tit: "MFA, Digital Arts & New Media",
-                c2_tit: "Advanced Spanish Proficiency",
-                c2_sub: "Expert in Bilingual Communications Strategy",
-                c3_tit: "Earned Media Strategy",
-                c3_sub: "Front-Page Public Affairs Campaigns",
-                c4_tit: "High-Impact Production",
-                c4_sub: "End-to-End Media & Web Implementation",
-                sec_competencies: "Core Competencies",
-                comp1_tit: "Public Policy & Systems Impact",
-                comp1_des: "Strategically prevented thousands of layoffs and improved worker safety through public policy framing. Architected a new healthcare program serving 10,000+ working families within a monopolized insurance market.",
-                comp2_tit: "Internal & Bilingual Strategy",
-                comp2_des: "Architecting full-spectrum communications for Spanish-language outlets and internal member mobilization. Driving initiatives ensuring equity for people of color in the workplace and labor policies.",
-                comp3_tit: "High-Impact Media Production",
-                comp3_des: "Executing professional photography, videography, and full-suite editing. Delivering comprehensive media packages in competitive environments and on tight timelines to drive campaign narratives.",
-                comp4_tit: "Thought Leadership",
-                comp4_des: "Positioning organizations, frontline workers, and executives as authoritative voices on labor, equity, and public policy through high-impact op-eds, executive messaging, and strategic public positioning.",
-                comp5_tit: "Data Analysis & Reporting",
-                comp5_des: "Translating complex campaign datasets into actionable insights, providing high-level reporting on digital engagement, reach, and conversion metrics for leadership stakeholders.",
-                comp6_tit: "Technical Content Systems",
-                comp6_des: "Directing full-cycle media production paired with HTML/CSS development and website structuring to optimize digital infrastructure for sophisticated advocacy campaigns.",
-                sec_contact: "CONTACT",
-                contact_head: "Let's drive the narrative together.",
-                ph_name: "Your Name",
-                ph_email: "Your Email",
-                ph_msg: "Your Message",
-                btn_send: "SEND MESSAGE",
-                footer_rights: "© 2026 • ALL RIGHTS RESERVED"
-            },
-            es: {
-                nav_campaigns: "Campañas",
-                nav_media: "Prensa",
-                nav_profile: "Perfil",
-                nav_expertise: "Experiencia",
-                nav_resume: "Currículum",
-                line_01: "Estrategia",
-                line_02: "Narrativa",
-                line_03: "Impacto",
-                header_desc: "Ian Mark Newman es un estratega senior de comunicaciones que ofrece narrativas de alto impacto para campañas laborales, de justicia racial y políticas públicas en el Área de la Bahía y Nueva York.",
-                hero_title: "IMPULSANDO<br>NARRATIVAS.<br>GANANDO<br>CAMPAÑAS.",
-                hero_typing: "Creando experiencias visuales audaces que combinan estrategia y creatividad para fortalecer el impacto político.",
-                hero_tag: "Estratega Senior de Comunicaciones",
-                scroll: "↓ DESLIZA ↓",
-                stat_01: "Alcance de Audiencia Verificado",
-                stat_02: "Éxito Promedio en Votos de Autorización de Huelga",
-                stat_03: "Tasa Promedio de Conversión de Acción en Línea",
-                stat_04: "Miembros de la Fuerza Laboral Impactados",
-                sec_campaigns: "CAMPAÑAS",
-                campaign_sub: "Trabajo de abogacía y asuntos públicos que genera un impacto real.",
-                p1_title: "Huelga Evitada & Ganada",
-                p1_cat: "Comunicaciones de Crisis / San Mateo",
-                p2_title: "¡El Condado de Monterey Puede!",
-                p2_cat: "Estrategia Digital e Infraestructura",
-                p3_title: "Narrativa de Salario Digno",
-                p3_cat: "Redacción Ejecutiva & Testimonios",
-                p8_title: "Servicios Protegidos",
-                p8_cat: "Asuntos Legislativos / Acción",
-                p9_title: "Protecciones para Trabajadores Esenciales",
-                p9_cat: "Campaña de Contrato / Materiales Impresos",
-                p9_desc: "Diseño de recursos impresos y digitales enfatizando el lenguaje de seguridad y derechos de programación durante negociaciones críticas.",
-                p10_title: "Defensa de Contrato Bilingüe",
-                p10_cat: "Movilización de Miembros",
-                p10_desc: "Ejecución de comunicaciones en español y distribución de volantes para movilizar a la membresía sindical hacia aumentos salariales históricos.",
-                p11_title: "Justicia para los Conserjes",
-                p11_cat: "Alto a la Subcontratación",
-                p11_desc: "Dirigió una campaña multimodal para proteger trabajos esenciales y detener la subcontratación de los héroes del hospital.",
-                p12_title: "Huelga de la Ciudad",
-                p12_cat: "Acción Directa / SEIU 521",
-                p12_desc: "Diseño de material de movilización y gráficos digitales de huelga que ayudaron a impulsar un voto de autorización de huelga de más del 80% entre los trabajadores municipales.",
-                sec_media: "COBERTURA DE PRENSA",
-                m1_lab: "Cobertura de Prensa / Mercury News",
-                m1_tit: "TRABAJADORES DE LA CIUDAD DE SANTA CRUZ IRÁN A HUELGA LA PRÓXIMA SEMANA",
-                m2_lab: "Artículo de Opinión / Sentinel",
-                m2_tit: "EL EMPUJE PARA SUBCONTRATAR LA SALUD PÚBLICA DEL CONDADO",
-                m3_lab: "Estrategia de Coalición",
-                m3_tit: "FAMILIAS PRIMERO: DÍA DE ACCIÓN NACIONAL",
-                m5_lab: "Reportaje Investigativo / Lookout SC",
-                m5_tit: "EL REFUGIO DE ANIMALES TIENE DEMASIADAS MASCOTAS Y POCO PERSONAL",
-                m6_lab: "Organización Bilingüe",
-                m6_tit: "PADRES DE HEAD START EXIGEN PROTECCIÓN AL PROGRAMA",
-                m12_lab: "Reportaje en Radio Pública / KQED",
-                m12_tit: "EL GOBIERNO REABRE, PERO FAMILIAS DE HEAD START EN SANTA CRUZ AÚN ENFRENTAN CRISIS",
-                m13_lab: "Reportaje en Radio Pública / KQED",
-                m13_tit: "FAMILIAS DE SANTA CRUZ NAVEGAN ESCASEZ DE CUIDADO INFANTIL DE HEAD START",
-                m14_lab: "Acción Directa / SFGATE",
-                m14_tit: "MANIFESTANTES EN PALO ALTO SE REÚNEN AFUERA DE OFICINA",
-                m15_lab: "Acción Laboral / SFGATE",
-                m15_tit: "TRABAJADORES DE EDUCACIÓN ESPECIAL ENFRENTAN DESPIDOS EN SANTA CLARA",
-                m16_lab: "Reportaje en Radio Pública / KQED",
-                m16_tit: "TRABAJADORES SOCIALES DE SANTA CLARA EXIGEN MÁS APOYO DE PERSONAL",
-                m17_lab: "Investigativo / San Jose Spotlight",
-                m17_tit: "FUNCIONARIO DEL CONDADO DE SANTA CLARA RENUNCIA TRAS TRAGEDIA INFANTIL",
-                m18_lab: "Emisión Bilingüe / KION",
-                m18_tit: "ESTALLA HUELGA EN SANTA CRUZ: SE PARALIZAN SERVICIOS PÚBLICOS",
-                m18_sub1: "Reporte Inicial",
-                m18_sub2: "Segmento de Seguimiento",
-                m_watch_video: "VER VIDEO ↗",
-                m19_lab: "Radio Pública / KAZU",
-                m19_tit: "TRABAJADORES DE LA CIUDAD DE SANTA CRUZ PLANEAN HUELGA LA PRÓXIMA SEMANA",
-                m20_lab: "Radio Pública / KAZU",
-                m20_tit: "TRABAJADORES ACADÉMICOS DE UC SANTA CRUZ EN HUELGA POR MEJOR SALARIO",
-                m21_lab: "Noticias de Transmisión / CBS SF",
-                m21_tit: "EL CONDADO DE SANTA CRUZ EVITA HUELGA DE TRABAJADORES",
-                m22_lab: "Segmento de Noticias / KION 46",
-                m22_tit: "ESTALLA HUELGA EN SANTA CRUZ (SEGMENTO EN VIDEO)",
-                m_listen: "ESCUCHAR HISTORIA ↗",
-                m_read: "LEER HISTORIA COMPLETA ↗",
-                m_watch: "VER VOLANTE ↗",
-                sec_profile: "PERFIL Y EXPERIENCIA",
-                profile_p1: "Soy un profesional de comunicaciones estratégicas y medios con más de una década de experiencia impulsando campañas laborales, de justicia racial e interés público. Mi trabajo abarca iniciativas políticas locales, estatales y regionales, incluyendo campañas de salario mínimo y la creación de un nuevo plan de salud para 10,000 familias trabajadoras.",
-                profile_p2: "Con una profunda experiencia navegando los complejos paisajes políticos de la ciudad de Nueva York y el Área de la Bahía de San Francisco, me especializo en estrategias de medios que elevan las voces de los trabajadores y dan visibilidad a temas de justicia económica.",
-                btn_linkedin: "CONECTAR EN LINKEDIN ↗",
-                c1_tit: "Maestría en Artes Digitales",
-                c2_tit: "Dominio Avanzado del Español",
-                c2_sub: "Experto en Estrategia de Comunicaciones Bilingües",
-                c3_tit: "Estrategia de Medios Ganados",
-                c3_sub: "Campañas de Portada en Asuntos Públicos",
-                c4_tit: "Producción de Alto Impacto",
-                c4_sub: "Implementación Integral de Medios y Web",
-                sec_competencies: "Competencias Principales",
-                comp1_tit: "Política Pública e Impacto de Sistemas",
-                comp1_des: "Evitó estratégicamente miles de despidos y mejoró la seguridad de los trabajadores mediante el encuadre de políticas públicas.",
-                comp2_tit: "Estrategia Interna y Bilingüe",
-                comp2_des: "Arquitecto de comunicaciones integrales para medios en español y garantizando la equidad para personas de color en el lugar de trabajo.",
-                comp3_tit: "Producción de Medios de Alto Impacto",
-                comp3_des: "Ejecución de fotografía profesional, videografía y edición completa para impulsar narrativas de campaña en plazos ajustados.",
-                comp4_tit: "Liderazgo de Opinión",
-                comp4_des: "Posicionamiento de organizaciones, trabajadores y ejecutivos como voces autorizadas en temas laborales, de equidad y políticas públicas mediante artículos de opinión y mensajes estratégicos.",
-                comp5_tit: "Análisis de Datos e Informes",
-                comp5_des: "Traducción de conjuntos de datos de campañas complejos en conocimientos prácticos, proporcionando informes de alto nivel sobre el compromiso digital, el alcance y las métricas de conversión.",
-                comp6_tit: "Sistemas Técnicos de Contenido",
-                comp6_des: "Dirección de la producción de medios de ciclo completo combinada con desarrollo HTML/CSS y estructuración de sitios web para optimizar la infraestructura digital en campañas de incidencia.",
-                sec_contact: "CONTACTO",
-                contact_head: "Impulsemos la narrativa juntos.",
-                ph_name: "Su Nombre",
-                ph_email: "Su Correo",
-                ph_msg: "Su Mensaje",
-                btn_send: "ENVIAR MENSAJE",
-                footer_rights: "© 2026 • TODOS LOS DERECHOS RESERVADOS"
-            }
-        };
-
-        // Initialize language from localStorage if available
-        let currentLang = localStorage.getItem('userLang') || 'en';
-        
-        function applyLanguage() {
-            document.getElementById('langBtn').innerText = currentLang === 'en' ? '[ES]' : '[EN]';
-            document.querySelectorAll('[data-t]').forEach(el => {
-                const key = el.getAttribute('data-t');
-                if (translations[currentLang][key]) el.innerHTML = translations[currentLang][key];
-            });
-            document.querySelectorAll('[data-t-placeholder]').forEach(el => {
-                const key = el.getAttribute('data-t-placeholder');
-                if (translations[currentLang][key]) el.placeholder = translations[currentLang][key];
-            });
-        }
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'es' : 'en';
-            localStorage.setItem('userLang', currentLang);
-            applyLanguage();
-        }
-        
-        // Apply language on load
-        applyLanguage();
-
-        lucide.createIcons();
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        /* --- Custom Audio Player Logic --- */
-        document.querySelectorAll('.custom-player-wrapper').forEach(wrapper => {
-            const audioSrc = wrapper.getAttribute('data-audio-src');
-            const audio = new Audio(audioSrc);
-            const playBtn = wrapper.querySelector('.play-pause-btn');
-            const playIcon = playBtn.querySelector('i');
-            const progressBar = wrapper.querySelector('.progress-bar');
-            const progressContainer = wrapper.querySelector('.progress-container');
-            const timeDisplay = wrapper.querySelector('.time-display');
-            
-            let isPlaying = false;
-
-            function formatTime(seconds) {
-                if (isNaN(seconds)) return "0:00";
-                const mins = Math.floor(seconds / 60);
-                const secs = Math.floor(seconds % 60);
-                return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-            }
-
-            playBtn.addEventListener('click', () => {
-                // Pause all other audios
-                document.querySelectorAll('audio').forEach(a => {
-                    if(a !== audio) {
-                        a.pause();
-                        const otherWrapper = a.closest('.custom-player-wrapper');
-                        if(otherWrapper) {
-                            const otherIcon = otherWrapper.querySelector('.play-pause-btn i');
-                            otherIcon.setAttribute('data-lucide', 'play');
-                            lucide.createIcons();
-                            otherWrapper.dataset.playing = 'false';
-                        }
-                    }
-                });
-
-                if (isPlaying) {
-                    audio.pause();
-                    playIcon.setAttribute('data-lucide', 'play');
-                } else {
-                    audio.play();
-                    playIcon.setAttribute('data-lucide', 'pause');
-                }
-                isPlaying = !isPlaying;
-                wrapper.dataset.playing = isPlaying;
-                lucide.createIcons();
-            });
-
-            audio.addEventListener('timeupdate', () => {
-                const percent = (audio.currentTime / audio.duration) * 100;
-                progressBar.style.width = `${percent}%`;
-                timeDisplay.textContent = formatTime(audio.currentTime);
-            });
-            
-            audio.addEventListener('loadedmetadata', () => {
-                timeDisplay.textContent = formatTime(0);
-            });
-
-            audio.addEventListener('ended', () => {
-                isPlaying = false;
-                playIcon.setAttribute('data-lucide', 'play');
-                progressBar.style.width = `0%`;
-                timeDisplay.textContent = formatTime(0);
-                lucide.createIcons();
-            });
-
-            progressContainer.addEventListener('click', (e) => {
-                const rect = progressContainer.getBoundingClientRect();
-                const pos = (e.clientX - rect.left) / rect.width;
-                audio.currentTime = pos * audio.duration;
-            });
-        });
-
-        /* --- UPDATED MODAL SCRIPT TO HANDLE VIDEO AND PDF --- */
-        const modal = document.getElementById("mediaModal");
-        const modalImg = document.getElementById("modalImg");
-        const modalVideo = document.getElementById("modalVideo");
-        const modalPdf = document.getElementById("modalPdf");
-
-        function openModal(src, type = 'image') {
-            const lsrc = src.toLowerCase();
-            const isVideo = type === 'video' || lsrc.endsWith('.mov') || lsrc.endsWith('.mp4');
-            const isPdf = type === 'pdf' || lsrc.endsWith('.pdf');
-
-            // --- NEW: Mobile PDF Handling ---
-            if (isPdf && window.innerWidth <= 768) {
-                window.open(src, '_blank');
-                return;
-            }
-            // --------------------------------
-
-            modalImg.style.display = "none";
-            modalVideo.style.display = "none";
-            modalPdf.style.display = "none";
-            modalVideo.pause();
-
-            if (isVideo) {
-                modalVideo.style.display = "block";
-                modalVideo.src = src;
-                modalVideo.play();
-            } else if (isPdf) {
-                modalPdf.style.display = "block";
-                // Append hash to force PDF to fit width for quick scrolling
-                modalPdf.src = src + "#view=FitH&toolbar=0"; 
-            } else {
-                modalImg.style.display = "block";
-                modalImg.src = src;
-            }
-            modal.classList.add("active");
-            document.body.style.overflow = "hidden"; 
-        }
-
-        function closeModal() {
-            modal.classList.remove("active");
-            setTimeout(() => { 
-                modalImg.src = ""; 
-                modalVideo.pause();
-                modalVideo.src = "";
-                modalPdf.src = ""; // Stop PDF rendering
-            }, 300); 
-            document.body.style.overflow = "auto";
-        }
-
-        window.onclick = function(event) { if (event.target == modal) closeModal(); }
-        document.addEventListener('keydown', function(event) { if (event.key === "Escape" && modal.classList.contains("active")) closeModal(); });
-
-        // Intercept PDF links to open in modal
-        document.querySelectorAll('a[href$=".pdf"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    this.target = '_blank';
-                    return;
-                }
-                e.preventDefault();
-                openModal(this.href, 'pdf');
-            });
-        });
-
-        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            el.style.opacity = "0";
-            el.style.transform = "translateY(40px)";
-            el.style.transition = "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
-            observer.observe(el);
-        });
-
-        // Typing Animation Session Storage Check
-        document.addEventListener('DOMContentLoaded', () => {
-            const typingEl = document.querySelector('.typing p');
-            if (sessionStorage.getItem('heroTyped')) {
-                typingEl.classList.add('no-anim');
-            } else {
-                sessionStorage.setItem('heroTyped', 'true');
-            }
-
-            // Keyboard Accessibility for Enter Key
-            document.querySelectorAll('[role="button"]').forEach(el => {
-                el.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') {
-                        el.click();
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
