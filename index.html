@@ -198,6 +198,10 @@
             position: relative; overflow: hidden; padding: 0; gap: 0;
         }
 
+        .media-card.featured {
+            grid-column: span 2;
+        }
+
         .project-image, .media-thumb-box { 
             width: 100%; aspect-ratio: 16 / 9; overflow: hidden; 
             border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; background: #050508; 
@@ -366,6 +370,7 @@
         /* --- COMPREHENSIVE MOBILE OPTIMIZATION --- */
         @media (max-width: 1024px) {
             .project-grid, .media-grid { grid-template-columns: repeat(2, 1fr); }
+            .media-card.featured { grid-column: span 2; }
             .gallery-item { width: 85vw; } 
             .nav-links { display: none; width: 100%; flex-direction: column; position: absolute; top: 100%; left: 0; background: rgba(10,10,10,0.98); padding: 2rem 0; text-align: center; border-bottom: 1px solid var(--border-color); }
             .nav-links.active { display: flex; }
@@ -378,6 +383,7 @@
 
         @media (max-width: 768px) {
             .project-grid, .media-grid { grid-template-columns: 1fr; }
+            .media-card.featured { grid-column: span 1; }
             .section-padding { padding: 4rem 5%; }
             .impact-strip { flex-direction: column; gap: 4rem; text-align: center; }
             .impact-stat::after { opacity: 1; transform: translateX(-50%) translateY(15px); }
@@ -417,7 +423,7 @@
             <a href="#media" data-t="nav_media">Media</a>
             <a href="#about" data-t="nav_profile">Profile</a>
             <a href="#expertise" data-t="nav_expertise">Expertise</a>
-            <a href="LPJWM-FINAL.pdf" target="_blank" data-t="nav_resume" aria-label="View or download Resume">Resume</a>
+            <a href="site-148.pdf" target="_blank" data-t="nav_resume" aria-label="View or download Resume">Resume</a>
         </div>
         <div class="nav-controls">
             <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn" aria-label="Toggle language between English and Spanish">[ES]</button>
@@ -468,10 +474,10 @@
         </div>
 
         <div class="project-grid">
-            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('fair-san-mateo.mp4', 'video')">
+            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('site-278.mp4', 'video')">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
-                    <img src="_MG_8813.jpg" class="card-img-bg" loading="lazy" alt="Union workers holding signs at a Fair San Mateo rally">
+                    <img src="site-242.jpg" class="card-img-bg" loading="lazy" alt="America Needs Union Jobs rally">
                     <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(225, 29, 72, 0.8); border-color: rgba(225, 29, 72, 0.3); box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);">
@@ -481,17 +487,17 @@
                 </div>
                 <div class="project-meta">
                     <div>
-                        <div class="card-label" data-t="p1_cat">Crisis Comms / Fair San Mateo</div>
-                        <h3 class="card-title" data-t="p1_title">Strike Averted & Won</h3>
+                        <div class="card-label" data-t="p1_cat">Healthcare & Social Services | Crisis Comms</div>
+                        <h3 class="card-title" data-t="p1_title">Contingent Labor Success</h3>
                     </div>
                     <div class="link-arrow">WATCH CAMPAIGN ↗</div>
                 </div>
             </div>
 
-            <div class="project-card reveal" role="button" tabindex="0" style="transition-delay: 0.1s;" onclick="openModal('mccsequence-1.mp4', 'video')">
+            <div class="project-card reveal" role="button" tabindex="0" style="transition-delay: 0.1s;" onclick="openModal('site-275.mp4', 'video')">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
-                    <img src="Screenshot 2025-10-07 at 3.05.30 PM.png" class="card-img-bg" loading="lazy" alt="Monterey County Can digital campaign dashboard interface">
+                    <img src="site-244.jpg" class="card-img-bg" loading="lazy" alt="Monterey County Can digital campaign dashboard interface">
                     <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(225, 29, 72, 0.8); border-color: rgba(225, 29, 72, 0.3); box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);">
@@ -501,14 +507,14 @@
                 </div>
                 <div class="project-meta">
                     <div>
-                        <div class="card-label" data-t="p2_cat">Digital Advocacy & Infrastructure</div>
+                        <div class="card-label" data-t="p2_cat">Public Safety & Services | Digital Advocacy</div>
                         <h3 class="card-title" data-t="p2_title">Monterey County Can!</h3>
                     </div>
                     <div class="link-arrow">VIEW PLATFORM ↗</div>
                 </div>
             </div>
 
-            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('cant-afford-to-live.mp4', 'video')">
+            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('site-280.mp4', 'video')">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
                     <img src="_MG_9335-Abby.jpg" class="card-img-bg" loading="lazy" alt="Portrait of Abby for Living Wage Narrative">
@@ -521,17 +527,18 @@
                 </div>
                 <div class="project-meta">
                     <div>
-                        <div class="card-label" data-t="p3_cat">Frontline Storytelling & Ghostwriting</div>
+                        <div class="card-label" data-t="p3_cat">Healthcare & Public Works | Narrative</div>
                         <h3 class="card-title" data-t="p3_title">Living Wage Narrative</h3>
+                        <p class="card-desc" data-t="p3_desc">(Counties: Yakima, WA Santa Cruz, Monterey, San Mateo, Santa Clara, CA. Cities: Tacoma, WA Salinas, Palo Alto, Santa Cruz, Redwood City, Sunnyvale)</p>
                     </div>
                     <div class="link-arrow">WATCH DOC ↗</div>
                 </div>
             </div>
 
-            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('santa-cruz-hsa-poster.jpg')">
+            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('site-174.jpg')">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
-                    <img src="santa-cruz-hsa-poster.jpg" class="card-img-bg" loading="lazy" alt="Campaign poster to protect Santa Cruz essential public services">
+                    <img src="site-174.jpg" class="card-img-bg" loading="lazy" alt="Campaign poster to protect Santa Cruz essential public services">
                     <div class="vmp-title-badge" style="background: var(--brand-blue);">DOCUMENT</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(37, 99, 235, 0.8); border-color: rgba(37, 99, 235, 0.3); box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);">
@@ -541,18 +548,21 @@
                 </div>
                 <div class="project-meta">
                     <div>
-                        <div class="card-label" data-t="p8_cat">Legislative Affairs / Action Collateral</div>
+                        <div class="card-label" data-t="p8_cat">Healthcare & Public Transit | Legislative Affairs</div>
                         <h3 class="card-title" data-t="p8_title">Services Protected</h3>
-                        <p class="card-desc">Drove a successful narrative campaign leading the Santa Cruz County Board of Supervisors to buck staff advice and preserve vital in-house radiology services.</p>
+                        <p class="card-desc" data-t="p8_desc">Drove a successful narrative campaigns in coordination with our Political Department to preserve vital in-house clinic services; Tax Measure AA for local Transportation, and Progressive Candidate Slates throughout the Bay Area</p>
                     </div>
-                    <div class="link-arrow">VIEW ASSET ↗</div>
+                    <div style="display: flex; gap: 15px; margin-top: auto;">
+                        <div class="link-arrow">VIEW ASSET ↗</div>
+                        <div class="link-arrow">WATCH DOC ↗</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('contract-safety-scheduling-spanish.png')">
+            <div class="project-card reveal" role="button" tabindex="0" onclick="openModal('Screenshot 2026-04-29 at 1.50.24 AM.png')">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
-                    <img src="Marnie.jpg" class="card-img-bg" loading="lazy" alt="Construction worker portrait night shift">
+                    <img src="site-234.jpg" class="card-img-bg" loading="lazy" alt="Grocery worker moving pallets">
                     <div class="vmp-title-badge" style="background: var(--brand-blue);">DOCUMENT</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(37, 99, 235, 0.8); border-color: rgba(37, 99, 235, 0.3); box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);">
@@ -562,7 +572,7 @@
                 </div>
                 <div class="project-meta">
                     <div>
-                        <div class="card-label" data-t="p9_cat">Contract Campaign / Print Assets</div>
+                        <div class="card-label" data-t="p9_cat">Skilled Trades & Contracts | Print Assets</div>
                         <h3 class="card-title" data-t="p9_title">Essential Worker Protections</h3>
                         <p class="card-desc" data-t="p9_desc">Designed print and digital assets emphasizing safety language and scheduling rights during high-stakes grocery worker negotiations.</p>
                     </div>
@@ -570,10 +580,10 @@
                 </div>
             </div>
 
-            <div class="project-card reveal" role="button" tabindex="0" style="transition-delay: 0.1s;" onclick="openModal('p1022273.mp4', 'video')">
+            <div class="project-card reveal" role="button" tabindex="0" style="transition-delay: 0.1s;" onclick="openModal('site-279.mov', 'video')">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
-                    <img src="MG-6656-2.jpg" class="card-img-bg" loading="lazy" alt="UFCW organizer with megaphone">
+                    <img src="site-252.jpg" class="card-img-bg" loading="lazy" alt="UFCW organizer with megaphone">
                     <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(225, 29, 72, 0.8); border-color: rgba(225, 29, 72, 0.3); box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);">
@@ -583,7 +593,7 @@
                 </div>
                 <div class="project-meta">
                     <div>
-                        <div class="card-label" data-t="p10_cat">Member Mobilization</div>
+                        <div class="card-label" data-t="p10_cat">Education & Public Policy | Mobilization</div>
                         <h3 class="card-title" data-t="p10_title">Bilingual Contract Advocacy</h3>
                         <p class="card-desc" data-t="p10_desc">Executed targeted Spanish-language communications and leaflet distribution to mobilize union membership around securing historic wage increases.</p>
                     </div>
@@ -601,13 +611,13 @@
     </div>
 
     <div class="audio-section reveal">
-        <img src="_MG_9240.jpg" alt="Campaign rally gathering outdoors" class="audio-image">
+        <img src="06e60573-98e5-4960-b71c-8d99381b3c8b.jpg" alt="Campaign rally gathering outdoors" class="audio-image">
         <div class="audio-content">
             <h3>Multi-Modal Storytelling</h3>
             <p>Incorporating multi-modal raw, on-the-ground testimonies with polished radio member stories to build narrative solidarity, increase campaign momentum, and humanize policy fights.</p>
             
             <span class="audio-label">Raw Testimony: Paraeducator</span>
-            <div class="custom-player-wrapper" data-audio-src="para-testimony-e.mp3">
+            <div class="custom-player-wrapper" data-audio-src="site-274.mp3">
                 <button class="play-pause-btn" aria-label="Play Audio for Raw Testimony"><i data-lucide="play" style="width: 18px; height: 18px;"></i></button>
                 <div class="progress-container">
                     <div class="progress-bar"></div>
@@ -616,7 +626,7 @@
             </div>
             
             <span class="audio-label">Polished Spot: Campaign Mixdown</span>
-            <div class="custom-player-wrapper" data-audio-src="untitled-session-1-mixdown.mp3">
+            <div class="custom-player-wrapper" data-audio-src="site-276.wav">
                 <button class="play-pause-btn" aria-label="Play Audio for Campaign Mixdown"><i data-lucide="play" style="width: 18px; height: 18px;"></i></button>
                 <div class="progress-container">
                     <div class="progress-bar"></div>
@@ -625,7 +635,7 @@
             </div>
             
             <span class="audio-label">Earned Media Broadcast: CBS Radio</span>
-            <div class="custom-player-wrapper" data-audio-src="cbs-strike-averted.mp3">
+            <div class="custom-player-wrapper" data-audio-src="site-274.mp3">
                 <button class="play-pause-btn" aria-label="Play Audio for CBS Radio Earned Media"><i data-lucide="play" style="width: 18px; height: 18px;"></i></button>
                 <div class="progress-container">
                     <div class="progress-bar"></div>
@@ -637,8 +647,8 @@
             <div class="void-player-grid">
                 
                 <!-- Player 1 -->
-                <div class="vmp-container" onclick="openModal('craig.mp4', 'video')" title="Watch Craig Testimony" role="button" tabindex="0">
-                    <div class="vmp-poster" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDxg1jypzKYaa-4mxuZA43xMpirE1z5fs1In1-9pimdbN3N6iBEg0eex-b1A_hxvoiNlkU12bk2CYnsDkVkzCNMWrQgQI6n7a0S6e6LJLV-UUzNlA6njnS0D61u8VBo8GPCks7CoPgCcxJqiYrVd4CNgDAdDE3_z4zmntAIB3W8ehBf_sV8E1P90oVxAADGmC3vb_D9sQmAEK1MwnSO14m4WHyFl-m421HoZFuoOfWebRM_83dPzIzV2oYVmX21ruxDP36nCCZYs0g');"></div>
+                <div class="vmp-container" onclick="openModal('site-275.mp4', 'video')" title="Watch Craig Testimony" role="button" tabindex="0">
+                    <div class="vmp-poster" style="background-image: url('site-215.jpg');"></div>
                     <div class="vmp-overlay"></div>
                     <div class="vmp-title-badge" style="position: absolute; top: 12px; left: 12px; z-index: 5;" data-t="vmp_craig">Craig Testimony</div>
                     
@@ -668,8 +678,8 @@
                 </div>
 
                 <!-- Player 2 -->
-                <div class="vmp-container" onclick="openModal('dsc-0044.mp4', 'video')" title="Watch Field Footage" role="button" tabindex="0">
-                    <div class="vmp-poster" style="background-image: url('38.jpg'); background-position: center 20%;"></div>
+                <div class="vmp-container" onclick="openModal('site-279.mov', 'video')" title="Watch Field Footage" role="button" tabindex="0">
+                    <div class="vmp-poster" style="background-image: url('site-210.jpg'); background-position: center 20%;"></div>
                     <div class="vmp-overlay"></div>
                     <div class="vmp-title-badge" style="position: absolute; top: 12px; left: 12px; z-index: 5;" data-t="vmp_field">Field Footage</div>
                     
@@ -699,8 +709,8 @@
                 </div>
 
                 <!-- Player 3 -->
-                <div class="vmp-container" onclick="openModal('draft-rowan.mp4', 'video')" title="Watch Rowan Draft" role="button" tabindex="0">
-                    <div class="vmp-poster" style="background-image: url('david.jpg'); background-position: center 20%;"></div>
+                <div class="vmp-container" onclick="openModal('site-277.mp4', 'video')" title="Watch Rowan Draft" role="button" tabindex="0">
+                    <div class="vmp-poster" style="background-image: url('site-217.jpg'); background-position: center 20%;"></div>
                     <div class="vmp-overlay"></div>
                     <div class="vmp-title-badge" style="position: absolute; top: 12px; left: 12px; z-index: 5;" data-t="vmp_rowan">Rowan Draft</div>
                     
@@ -747,44 +757,44 @@
             <!-- Clickable Op-Ed List -->
             <div class="max-w-[1000px] w-full mx-auto">
                 <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
-                    <li onclick="loadIntoViewer('oped-public-education.pdf', 'Public_Education_Defender.pdf')" class="op-ed-list-item">
+                    <li onclick="loadIntoViewer('site-136.pdf', 'Public_Education_Defender.pdf')" class="op-ed-list-item">
                         <div style="flex: 1; padding-right: 20px;">
-                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">San José Spotlight • 2025</div>
+                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">San José Spotlight • Education & Policy</div>
                             <div style="color: var(--text-main); font-size: 1.15rem; font-weight: bold;">Public education in Santa Clara County needs a defender — by Dolores Huerta</div>
                         </div>
                         <div class="link-arrow" style="color: var(--brand-blue); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; flex-shrink: 0; margin-top: 0;">LOAD DOCUMENT ↘</div>
                     </li>
-                    <li onclick="loadIntoViewer('santa-cruz-hybrid-work.pdf', 'Hybrid_Work_Defies_Data.pdf')" class="op-ed-list-item">
+                    <li onclick="loadIntoViewer('site-139.pdf', 'Hybrid_Work_Defies_Data.pdf')" class="op-ed-list-item">
                         <div style="flex: 1; padding-right: 20px;">
-                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Lookout Santa Cruz • 2025</div>
+                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Lookout Santa Cruz • Social Services & Health</div>
                             <div style="color: var(--text-main); font-size: 1.15rem; font-weight: bold;">County's push to reduce hybrid work for health care workers defies data — by Max Olkowski-Laetz</div>
                         </div>
                         <div class="link-arrow" style="color: var(--brand-blue); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; flex-shrink: 0; margin-top: 0;">LOAD DOCUMENT ↘</div>
                     </li>
-                    <li onclick="loadIntoViewer('ppmm-sfchronicle-nytimes.pdf', 'Defending_Planned_Parenthood.pdf')" class="op-ed-list-item">
+                    <li onclick="loadIntoViewer('site-137.pdf', 'Defending_Planned_Parenthood.pdf')" class="op-ed-list-item">
                         <div style="flex: 1; padding-right: 20px;">
-                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">National Press • SF Chronicle & NYT • 2026</div>
+                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">National Press • Healthcare Access</div>
                             <div style="color: var(--text-main); font-size: 1.15rem; font-weight: bold;">Defending Planned Parenthood: Budget Threatens Abortion Safe Haven</div>
                         </div>
                         <div class="link-arrow" style="color: var(--brand-blue); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; flex-shrink: 0; margin-top: 0;">LOAD DOCUMENT ↘</div>
                     </li>
-                    <li onclick="loadIntoViewer('santa-cruz-library-safety.pdf', 'Santa_Cruz_Library_Editorial.pdf')" class="op-ed-list-item">
+                    <li onclick="loadIntoViewer('site-142.pdf', 'Santa_Cruz_Library_Editorial.pdf')" class="op-ed-list-item">
                         <div style="flex: 1; padding-right: 20px;">
-                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Editorial • 2025</div>
+                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Editorial • Public Works & Safety</div>
                             <div style="color: var(--text-main); font-size: 1.15rem; font-weight: bold;">Santa Cruz Library Editorial About Safety</div>
                         </div>
                         <div class="link-arrow" style="color: var(--brand-blue); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; flex-shrink: 0; margin-top: 0;">LOAD DOCUMENT ↘</div>
                     </li>
-                    <li onclick="loadIntoViewer('guest-commentary-public-health.pdf', 'Outsource_Public_Health.pdf')" class="op-ed-list-item">
+                    <li onclick="loadIntoViewer('site-135.pdf', 'Outsource_Public_Health.pdf')" class="op-ed-list-item">
                         <div style="flex: 1; padding-right: 20px;">
-                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Santa Cruz Sentinel • Op-Ed Strategy</div>
+                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Santa Cruz Sentinel • Public Health</div>
                             <div style="color: var(--text-main); font-size: 1.15rem; font-weight: bold;">The push to outsource Santa Cruz County Public Health</div>
                         </div>
                         <div class="link-arrow" style="color: var(--brand-blue); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; flex-shrink: 0; margin-top: 0;">LOAD DOCUMENT ↘</div>
                     </li>
-                    <li onclick="loadIntoViewer('oped-animal-shelter.pdf', 'Animal_Shelter_Staffing.pdf')" class="op-ed-list-item">
+                    <li onclick="loadIntoViewer('site-138.pdf', 'Animal_Shelter_Staffing.pdf')" class="op-ed-list-item">
                         <div style="flex: 1; padding-right: 20px;">
-                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Lookout SC • Investigative</div>
+                            <div style="font-size: 0.8rem; color: var(--brand-red); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">Lookout SC • Public Services</div>
                             <div style="color: var(--text-main); font-size: 1.15rem; font-weight: bold;">Animal shelter has too many pets and too little staff</div>
                         </div>
                         <div class="link-arrow" style="color: var(--brand-blue); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; flex-shrink: 0; margin-top: 0;">LOAD DOCUMENT ↘</div>
@@ -829,7 +839,7 @@
 
                 <!-- Content Area (iframe) -->
                 <div class="doc-content-area" style="padding:0; overflow:hidden;">
-                    <iframe id="inlineDocViewer" src="oped-public-education.pdf#view=FitH&toolbar=0" style="width:100%; height:100%; border:none; background:#141414;"></iframe>
+                    <iframe id="inlineDocViewer" src="site-136.pdf#view=FitH&toolbar=0" style="width:100%; height:100%; border:none; background:#141414;" title="Interactive Document Viewer"></iframe>
                 </div>
             </div>
         </div>
@@ -841,43 +851,48 @@
             <div class="divider"></div>
         </div>
         
-        <!-- NEW: MEDIA LOGO STRIP -->
+        <!-- MEDIA LOGO STRIP -->
         <div class="media-logo-strip reveal">
-            <img src="nytimes.png" alt="The New York Times" class="media-logo-item" title="The New York Times">
-            <img src="sanjosespotlight.png" alt="San José Spotlight" class="media-logo-item" title="San José Spotlight">
-            <img src="sfgate.png" alt="SF Gate" class="media-logo-item" title="SF Gate">
-            <img src="nbcbayarea.png" alt="NBC Bay Area" class="media-logo-item" title="NBC Bay Area">
-            <img src="cbs.png" alt="CBS" class="media-logo-item" title="CBS">
-            <img src="kqed.png" alt="KQED / NPR" class="media-logo-item" title="KQED / NPR">
+            <img src="site-ab.png" alt="The New York Times" class="media-logo-item" title="The New York Times">
+            <img src="site-adc.png.jpeg" alt="San José Spotlight" class="media-logo-item" title="San José Spotlight">
+            <img src="site-file999.png" alt="SF Gate" class="media-logo-item" title="SF Gate">
+            <img src="site-218.jpeg" alt="NBC Bay Area" class="media-logo-item" title="NBC Bay Area">
+            <img src="site-cba.jpg" alt="CBS" class="media-logo-item" title="CBS">
+            <img src="site-164.png" alt="KQED / NPR" class="media-logo-item" title="KQED / NPR">
+            <img src="site-232.png" alt="Santa Cruz Sentinel" class="media-logo-item" title="Santa Cruz Sentinel">
         </div>
 
-        <div class="media-grid">
-            
-            <a href="https://kioncentralcoast.com/video/2022/10/13/estalla-huelga-en-santa-cruz-se-paralizan-servicios-publicos/" target="_blank" class="media-card reveal" role="button" tabindex="0" aria-label="Read and watch KION report on Santa Cruz strike">
-                <div class="media-thumb-box">
+        <!-- CENTERED HERO MEDIA HIT -->
+        <div class="reveal w-full flex justify-center mb-12">
+            <a href="https://www.nytimes.com/" target="_blank" class="media-card w-full max-w-[900px] text-center" style="border-top: 4px solid var(--brand-red); border-left: 1px solid rgba(255,255,255,0.08);" role="button" tabindex="0" aria-label="Read NYT story about VTA shooting crisis response">
+                <div class="media-thumb-box" style="aspect-ratio: 21/9; min-height: 250px;">
                     <div class="vmp-overlay"></div>
-                    <img src="P1000056.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="KION Spanish news broadcast covering the Santa Cruz strike">
-                    <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
+                    <img src="site-a.jpg.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="NYT coverage of the VTA shooting crisis response">
+                    <img src="site-ab.png" loading="lazy" class="media-logo-badge" style="right: 0; left: 0; margin-left: auto; margin-right: auto; bottom: 15px;" alt="The New York Times Logo">
+                    <div class="vmp-title-badge" style="background: #444;">ARTICLE</div>
                     <div class="vmp-play-wrapper">
-                        <div class="vmp-play-btn" style="background: rgba(225, 29, 72, 0.8); border-color: rgba(225, 29, 72, 0.3); box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);">
-                            <i data-lucide="play" style="width:24px;height:24px;color:white;margin-left:2px;"></i>
+                        <div class="vmp-play-btn" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);">
+                            <i data-lucide="external-link" style="width:24px;height:24px;color:white;"></i>
                         </div>
                     </div>
                 </div>
-                <div class="media-content">
+                <div class="media-content" style="align-items: center;">
                     <div>
-                        <div class="card-label" data-t="m18_lab">Bilingual Broadcast / KION</div>
-                        <h3 class="card-title" data-t="m18_tit">ESTALLA HUELGA EN SANTA CRUZ: SE PARALIZAN SERVICIOS PÚBLICOS</h3>
+                        <div class="card-label">Crisis Communications / The New York Times</div>
+                        <h3 class="card-title" style="font-size: 1.5rem; margin-bottom: 10px;">VTA SHOOTING: COUNTY WORKERS RESPOND TO TRAGEDY</h3>
                     </div>
-                    <div class="link-arrow" data-t="m_read_watch">READ / WATCH ↗</div>
+                    <div class="link-arrow">READ FULL STORY ↗</div>
                 </div>
             </a>
+        </div>
 
-            <a href="#" onclick="openModal('cbs-strike-story-v2.mp4', 'video'); return false;" class="media-card reveal" role="button" tabindex="0" aria-label="Watch CBS broadcast about Santa Cruz County averting strike">
+        <div class="media-grid">
+
+            <a href="#" onclick="openModal('site-278.mp4', 'video'); return false;" class="media-card reveal featured" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Watch CBS broadcast about Santa Cruz County averting strike">
                 <div class="media-thumb-box">
                     <div class="video-indicator" style="position: absolute; top: 10px; right: 10px; background: var(--brand-red); color: white; padding: 3px 8px; font-size: 0.6rem; font-weight: bold; border-radius: 2px;">▶ WATCH</div>
-                    <img src="_MG_9240.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="CBS News coverage of Santa Cruz County averting a worker strike">
-                    <img src="CBS.svg" loading="lazy" class="media-logo-badge" alt="CBS Logo">
+                    <img src="Screenshot 2026-04-29 at 1.50.49 AM.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="CBS News coverage of Santa Cruz County averting a worker strike">
+                    <img src="site-cba.jpg" loading="lazy" class="media-logo-badge" alt="CBS Logo">
                     <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(225, 29, 72, 0.8); border-color: rgba(225, 29, 72, 0.3); box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);">
@@ -894,10 +909,50 @@
                 </div>
             </a>
 
+            <a href="https://kioncentralcoast.com/video/2022/10/13/estalla-huelga-en-santa-cruz-se-paralizan-servicios-publicos/" target="_blank" class="media-card reveal" role="button" tabindex="0" aria-label="Read and watch KION report on Santa Cruz strike">
+                <div class="media-thumb-box">
+                    <div class="vmp-overlay"></div>
+                    <img src="site-269.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="KION Spanish news broadcast covering the Santa Cruz strike">
+                    <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
+                    <div class="vmp-play-wrapper">
+                        <div class="vmp-play-btn" style="background: rgba(225, 29, 72, 0.8); border-color: rgba(225, 29, 72, 0.3); box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);">
+                            <i data-lucide="play" style="width:24px;height:24px;color:white;margin-left:2px;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-content">
+                    <div>
+                        <div class="card-label" data-t="m18_lab">Bilingual Broadcast / KION</div>
+                        <h3 class="card-title" data-t="m18_tit">ESTALLA HUELGA EN SANTA CRUZ: SE PARALIZAN SERVICIOS PÚBLICOS</h3>
+                    </div>
+                    <div class="link-arrow" data-t="m_read_watch">READ / WATCH ↗</div>
+                </div>
+            </a>
+
+            <a href="https://www.santacruzsentinel.com/2025/10/14/editorial-making-the-downtown-santa-cruz-library-safe/" target="_blank" class="media-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read Santa Cruz Sentinel editorial about downtown library safety">
+                <div class="media-thumb-box">
+                    <div class="vmp-overlay"></div>
+                    <img src="site-175.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="Santa Cruz Library Editorial about Safety">
+                    <div class="vmp-title-badge" style="background: #444;">ARTICLE</div>
+                    <div class="vmp-play-wrapper">
+                        <div class="vmp-play-btn" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);">
+                            <i data-lucide="external-link" style="width:24px;height:24px;color:white;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-content">
+                    <div>
+                        <div class="card-label">Editorial / 2025</div>
+                        <h3 class="card-title">SANTA CRUZ LIBRARY EDITORIAL ABOUT SAFETY</h3>
+                    </div>
+                    <div class="link-arrow">READ EDITORIAL ↗</div>
+                </div>
+            </a>
+
             <div class="media-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="240114-SCCDCFS-JG-5-1020x680-3.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="San Jose Spotlight investigative report on Santa Clara County child welfare">
+                    <img src="site-205.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="San Jose Spotlight investigative report on Santa Clara County child welfare">
                     <div class="vmp-title-badge" style="background: #444;">ARTICLE</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);">
@@ -926,7 +981,7 @@
             <a href="https://www.sfgate.com/news/bayarea/article/santa-clara-county-special-education-workers-face-20208037.php" target="_blank" class="media-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Read SFGATE story about Santa Clara County special education workers">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="ratio4x3_960.webp" loading="lazy" class="media-thumbnail card-img-bg" alt="SFGATE article on Santa Clara County special education workers">
+                    <img src="site-214.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="SFGATE article on Santa Clara County special education workers">
                     <div class="vmp-title-badge" style="background: #444;">ARTICLE</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);">
@@ -946,8 +1001,8 @@
             <a href="https://www.kqed.org/news/12022256/santa-clara-county-social-workers-demand-more-staffing-support-in-troubled-agency/" target="_blank" class="media-card reveal" role="button" tabindex="0" aria-label="Listen to KQED feature about Santa Clara County social workers">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="240114-SCCDCFS-JG-5-1020x680-3.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="KQED feature on Santa Clara County social workers demanding support">
-                    <img src="KQED.webp" loading="lazy" class="media-logo-badge" alt="KQED Logo">
+                    <img src="site-201.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="KQED feature on Santa Clara County social workers demanding support">
+                    <img src="site-164.png" loading="lazy" class="media-logo-badge" alt="KQED Logo">
                     <div class="vmp-title-badge" style="background: var(--neon-cyan); color: #000;">AUDIO</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(8, 145, 178, 0.8); border-color: rgba(8, 145, 178, 0.3); box-shadow: 0 0 15px rgba(8, 145, 178, 0.5);">
@@ -967,8 +1022,8 @@
             <a href="https://www.kqed.org/news/12063796/government-reopens-but-santa-cruz-head-start-families-still-face-child-care-crisis" target="_blank" class="media-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Listen to KQED story about Santa Cruz Head Start child care crisis">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="20251112_HEADSTART_SANTACRUZ_GH-1-KQED.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="KQED report thumbnail showing a Head Start facility in Santa Cruz">
-                    <img src="KQED.webp" loading="lazy" class="media-logo-badge" alt="KQED Logo">
+                    <img src="site-200.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="KQED report thumbnail showing a Head Start facility in Santa Cruz">
+                    <img src="site-164.png" loading="lazy" class="media-logo-badge" alt="KQED Logo">
                     <div class="vmp-title-badge" style="background: var(--neon-cyan); color: #000;">AUDIO</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(8, 145, 178, 0.8); border-color: rgba(8, 145, 178, 0.3); box-shadow: 0 0 15px rgba(8, 145, 178, 0.5);">
@@ -988,8 +1043,8 @@
             <a href="https://www.kqed.org/news/12063796/government-reopens-but-santa-cruz-head-start-families-still-face-child-care-crisis" target="_blank" class="media-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Listen to KQED story about families navigating Head Start shortages">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="Daisy1.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="KQED coverage of Santa Cruz families navigating child care shortages">
-                    <img src="KQED.webp" loading="lazy" class="media-logo-badge" alt="KQED Logo">
+                    <img src="site-212.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="KQED coverage of Santa Cruz families navigating child care shortages">
+                    <img src="site-164.png" loading="lazy" class="media-logo-badge" alt="KQED Logo">
                     <div class="vmp-title-badge" style="background: var(--neon-cyan); color: #000;">AUDIO</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(8, 145, 178, 0.8); border-color: rgba(8, 145, 178, 0.3); box-shadow: 0 0 15px rgba(8, 145, 178, 0.5);">
@@ -1009,7 +1064,7 @@
             <a href="https://www.sfgate.com/news/bayarea/article/palo-alto-protesters-rally-outside-office-of-20807528.php" target="_blank" class="media-card reveal" role="button" tabindex="0" aria-label="Read SFGATE story about Palo Alto protesters rallying">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="ratio4x3_960.webp" loading="lazy" class="media-thumbnail card-img-bg" alt="Palo Alto protesters rallying outside office on SFGATE">
+                    <img src="site-198.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="Palo Alto protesters rallying outside office on SFGATE">
                     <div class="vmp-title-badge" style="background: #444;">ARTICLE</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);">
@@ -1026,32 +1081,11 @@
                 </div>
             </a>
 
-            <a href="https://www.sfchronicle.com/" target="_blank" class="media-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Read SF Chronicle story about VTA shooting crisis response">
-                <div class="media-thumb-box">
-                    <div class="vmp-overlay"></div>
-                    <img src="P1150911.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="SF Chronicle coverage of the VTA shooting crisis response">
-                    <img src="SFChronicle.webp" loading="lazy" class="media-logo-badge" alt="SF Chronicle Logo">
-                    <div class="vmp-title-badge" style="background: #444;">ARTICLE</div>
-                    <div class="vmp-play-wrapper">
-                        <div class="vmp-play-btn" style="background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.1); box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);">
-                            <i data-lucide="external-link" style="width:24px;height:24px;color:white;"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="media-content">
-                    <div>
-                        <div class="card-label">Crisis Communications / SF Chronicle</div>
-                        <h3 class="card-title">VTA SHOOTING: COUNTY WORKERS RESPOND TO TRAGEDY</h3>
-                    </div>
-                    <div class="link-arrow">READ FULL STORY ↗</div>
-                </div>
-            </a>
-            
             <a href="https://www.kqed.org" target="_blank" class="media-card reveal" role="button" tabindex="0" aria-label="Listen to KQED feature about A Day Without Childcare">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="250512-DAY-WITHOUT-CHILDCARE-MD-02-KQED-1536x1025.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="A Day Without Childcare protest covered by KQED">
-                    <img src="KQED.webp" loading="lazy" class="media-logo-badge" alt="KQED Logo">
+                    <img src="site-201.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="A Day Without Childcare protest covered by KQED">
+                    <img src="site-164.png" loading="lazy" class="media-logo-badge" alt="KQED Logo">
                     <div class="vmp-title-badge" style="background: var(--neon-cyan); color: #000;">AUDIO</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(8, 145, 178, 0.8); border-color: rgba(8, 145, 178, 0.3); box-shadow: 0 0 15px rgba(8, 145, 178, 0.5);">
@@ -1068,11 +1102,11 @@
                 </div>
             </a>
 
-            <a href="LPJWM-FINAL.pdf" target="_blank" class="media-card reveal pdf-modal-trigger" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read Mercury News story about City of Santa Cruz workers strike">
+            <a href="site-140.pdf" target="_blank" class="media-card reveal pdf-modal-trigger" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read Mercury News story about City of Santa Cruz workers strike">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="STC-L-ASDAYTWO-1019-01_101285624.jpg.webp" loading="lazy" class="media-thumbnail card-img-bg" alt="Mercury News coverage of Santa Cruz city workers strike">
-                    <img src="SJM.png.webp" loading="lazy" class="media-logo-badge" alt="San Jose Mercury News Logo">
+                    <img src="site-186.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="Mercury News coverage of Santa Cruz city workers strike">
+                    <img src="site-258.webp" loading="lazy" class="media-logo-badge" alt="San Jose Mercury News Logo">
                     <div class="vmp-title-badge" style="background: var(--brand-blue);">DOCUMENT</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(37, 99, 235, 0.8); border-color: rgba(37, 99, 235, 0.3); box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);">
@@ -1089,10 +1123,51 @@
                 </div>
             </a>
 
-            <a href="head-start-parents.pdf" target="_blank" class="media-card reveal pdf-modal-trigger" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read bilingual organizing letters from Head Start parents">
+            <a href="site-135.pdf" target="_blank" class="media-card reveal pdf-modal-trigger" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Read Santa Cruz Sentinel op-ed about outsourcing public health">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="P1040473.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="Bilingual organizing letters from Head Start parents">
+                    <img src="site-215.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="Santa Cruz Sentinel op-ed piece on county public health outsourcing">
+                    <img src="site-232.png" loading="lazy" class="media-logo-badge" alt="Santa Cruz Sentinel Logo">
+                    <div class="vmp-title-badge" style="background: var(--brand-blue);">DOCUMENT</div>
+                    <div class="vmp-play-wrapper">
+                        <div class="vmp-play-btn" style="background: rgba(37, 99, 235, 0.8); border-color: rgba(37, 99, 235, 0.3); box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);">
+                            <i data-lucide="file-text" style="width:24px;height:24px;color:white;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-content">
+                    <div>
+                        <div class="card-label" data-t="m2_lab">Op-Ed Strategy / Sentinel</div>
+                        <h3 class="card-title" data-t="m2_tit">THE PUSH TO OUTSOURCE SANTA CRUZ COUNTY PUBLIC HEALTH</h3>
+                    </div>
+                    <div class="link-arrow" data-t="m_read">READ FULL STORY ↗</div>
+                </div>
+            </a>
+
+            <a href="site-138.pdf" target="_blank" class="media-card reveal pdf-modal-trigger" role="button" tabindex="0" aria-label="Read Lookout SC story about animal shelter understaffing">
+                <div class="media-thumb-box">
+                    <div class="vmp-overlay"></div>
+                    <img src="site-260.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="Lookout Santa Cruz investigative piece on the animal shelter crisis">
+                    <div class="vmp-title-badge" style="background: var(--brand-blue);">DOCUMENT</div>
+                    <div class="vmp-play-wrapper">
+                        <div class="vmp-play-btn" style="background: rgba(37, 99, 235, 0.8); border-color: rgba(37, 99, 235, 0.3); box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);">
+                            <i data-lucide="file-text" style="width:24px;height:24px;color:white;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="media-content">
+                    <div>
+                        <div class="card-label" data-t="m5_lab">Investigative / Lookout SC</div>
+                        <h3 class="card-title" data-t="m5_tit">ANIMAL SHELTER HAS TOO MANY PETS AND TOO LITTLE STAFF</h3>
+                    </div>
+                    <div class="link-arrow" data-t="m_read">READ FULL STORY ↗</div>
+                </div>
+            </a>
+
+            <a href="site-133.pdf" target="_blank" class="media-card reveal pdf-modal-trigger" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read bilingual organizing letters from Head Start parents">
+                <div class="media-thumb-box">
+                    <div class="vmp-overlay"></div>
+                    <img src="site-209.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="Bilingual organizing letters from Head Start parents">
                     <div class="vmp-title-badge" style="background: var(--brand-blue);">DOCUMENT</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(37, 99, 235, 0.8); border-color: rgba(37, 99, 235, 0.3); box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);">
@@ -1109,10 +1184,10 @@
                 </div>
             </a>
 
-            <a href="families-first-flier.pdf" target="_blank" class="media-card reveal pdf-modal-trigger" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="View Families First National Day of Action turnout flyer">
+            <a href="site-141.pdf" target="_blank" class="media-card reveal pdf-modal-trigger" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="View Families First National Day of Action turnout flyer">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="IMG_0710.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="Families First National Day of Action turnout flyer">
+                    <img src="site-186.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="Families First National Day of Action turnout flyer">
                     <div class="vmp-title-badge" style="background: var(--brand-blue);">DOCUMENT</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(37, 99, 235, 0.8); border-color: rgba(37, 99, 235, 0.3); box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);">
@@ -1129,10 +1204,10 @@
                 </div>
             </a>
             
-            <a href="#" onclick="openModal('screenshot-2017-press.jpg', 'image'); return false;" class="media-card reveal" role="button" tabindex="0" aria-label="View 2017 historical press coverage archive artifact">
+            <a href="#" onclick="openModal('site-271.jpeg', 'image'); return false;" class="media-card reveal" role="button" tabindex="0" aria-label="View New York & D.C. Political Operations artifact">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="Screen Shot 2017-09-22 at 9.07.18 PM.tiff" loading="lazy" class="media-thumbnail card-img-bg" alt="2017 Digital Archive Press Hit">
+                    <img src="site-271.jpeg" loading="lazy" class="media-thumbnail card-img-bg" alt="Electoral and Legislative Foundations Archive">
                     <div class="vmp-title-badge" style="background: var(--brand-blue);">DOCUMENT</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(37, 99, 235, 0.8); border-color: rgba(37, 99, 235, 0.3); box-shadow: 0 0 15px rgba(37, 99, 235, 0.5);">
@@ -1142,8 +1217,9 @@
                 </div>
                 <div class="media-content">
                     <div>
-                        <div class="card-label">Digital Archive / 2017</div>
-                        <h3 class="card-title">HISTORICAL PRESS COVERAGE ARCHIVE</h3>
+                        <div class="card-label">New York & D.C. Political Operations</div>
+                        <h3 class="card-title">ELECTORAL & LEGISLATIVE FOUNDATIONS</h3>
+                        <p class="card-desc" style="font-size: 0.8rem; margin-top: 10px;">Directed rapid-response communications, managed war-room media relations, and secured high-stakes political endorsements across NYC Council and U.S. Senate campaigns, establishing a foundational edge in high-pressure electoral politics.</p>
                     </div>
                     <div class="link-arrow">VIEW ARTIFACT ↗</div>
                 </div>
@@ -1152,7 +1228,7 @@
             <a href="https://www.kazu.org/kazu-news/2022-10-14/santa-cruz-city-workers-plan-to-strike-next-week" target="_blank" class="media-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Listen to KAZU public radio story about Santa Cruz city workers strike">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="_MG_8813.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="KAZU public radio coverage of Santa Cruz city workers strike">
+                    <img src="site-242.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="KAZU public radio coverage of Santa Cruz city workers strike">
                     <div class="vmp-title-badge" style="background: var(--neon-cyan); color: #000;">AUDIO</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(8, 145, 178, 0.8); border-color: rgba(8, 145, 178, 0.3); box-shadow: 0 0 15px rgba(8, 145, 178, 0.5);">
@@ -1172,7 +1248,7 @@
             <a href="https://www.kazu.org/kazu-news/2022-11-15/uc-santa-cruz-academic-workers-are-on-strike-for-higher-pay" target="_blank" class="media-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="Listen to KAZU public radio story about UC Santa Cruz academic workers strike">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="_MG_9333.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="UC Santa Cruz academic workers striking for higher pay">
+                    <img src="site-265.jpg" loading="lazy" class="media-thumbnail card-img-bg" alt="UC Santa Cruz academic workers striking for higher pay">
                     <div class="vmp-title-badge" style="background: var(--neon-cyan); color: #000;">AUDIO</div>
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(8, 145, 178, 0.8); border-color: rgba(8, 145, 178, 0.3); box-shadow: 0 0 15px rgba(8, 145, 178, 0.5);">
@@ -1201,7 +1277,7 @@
         </div>
         <div class="about-section" id="aboutSectionGrid">
             <div class="headshot-container reveal" id="headshotContainer">
-                <img src="79-JDM03769.jpg" loading="lazy" alt="Ian M. Newman professional profile headshot" onerror="handleImageError(this)">
+                <img src="site-151.jpg" loading="lazy" alt="Ian M. Newman professional profile headshot" onerror="handleImageError(this)">
             </div>
             <div class="about-text reveal" style="transition-delay: 0.1s;">
                 <p data-t="profile_p1">I am a strategic communications and media professional with over a decade of experience advancing labor, racial justice, and public interest campaigns. My work spans successful local, statewide, and regional political initiatives, including minimum wage campaigns, hospital tax efforts, and helping to develop a new healthcare plan serving over 10,000 working families within a monopolized insurance market.</p>
@@ -1234,47 +1310,89 @@
         <div class="swipe-gallery-wrapper reveal" style="margin-top: 80px;">
             <h3 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; text-transform: uppercase; color: var(--brand-red); margin-bottom: 20px;" data-t="gallery_title">Field Documentation</h3>
             <div class="swipe-gallery" style="margin-top: 0;">
-                <div class="gallery-item" role="button" tabindex="0"><img src="90.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Action shot of a worker speaking at a rally"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="_MG_9240.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Campaign rally gathering outdoors"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="SCZ-Strike-WeStand-FB2.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="We Stand Strike Graphic"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="jaime-lopez.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Portrait of frontline worker Jaime Lopez"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="caspers-copy.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Creative photography of an urban street scene"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="Caspers.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Creative photography of an urban street scene alternative"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="P1000015.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field notes and strategic planning documents"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="_MG_9333.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Rally shot of academic workers on strike"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="screenshot-2018-wages.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Early organizing graphic for fair wages"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="stacks-of-labor.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Towering pallets"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="self-portrait-driving.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="360 Night Driving"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="screenshot-2018-bay.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="SF Bay Portrait"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="MG-6716.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Tacoma is a Union Town"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="MG-6703.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Our Pension"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="MG-6655-2.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Teamsters Local 313"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="_MG_8790.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Action shot"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="_MG_8755.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Action shot"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="_MG_7720.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Action shot"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="santa-clara-baby-phoenix.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Baby Phoenix Protest"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="santa-clara-baby-phoenix-2.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Baby Phoenix Protestors 2"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="santa-clara-baby-phoenix-3.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Baby Phoenix Protestors"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="informational-picket.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Informational Picket"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="STC-L-ASLIBRARY-1004-02_241491274.jpg.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Library Action"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="STC-L-NIUCHOMELESS-04XX-01.jpg.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Homelessness Action"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="david.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Portrait of David"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="farm-2.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Farm Workers Environment"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="AviprintAdjustedJMG.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Environmental Print Setup"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="_MG_6130.JPG" loading="lazy" onclick="openModal(this.src, 'image')" alt="Campaign Portrait"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="_MG_6212.JPG" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field Action Portrait"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="38.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field Documentation 38"></div>
-                <div class="gallery-item" role="button" tabindex="0"><img src="screenshot-64.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Digital Archive 64"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-231.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-230.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-229.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-228.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-227.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-226.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-225.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-224.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-223.jpeg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-244.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-243.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-241.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-240.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-239.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-238.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-237.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-236.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-235.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-234.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-232.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-221.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-220.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-219.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-213.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-211.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-207.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-204.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-197.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-188.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-180.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-178.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-177.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-175.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-174.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-173.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-172.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-171.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-170.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-169.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-168.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-166.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-165.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-162.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-265.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-264.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-261.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-259.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-254.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-253.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-252.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-251.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-250.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-249.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-187.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-186.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-185.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-184.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-183.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-182.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-272.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-271.jpeg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-270.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-269.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-268.jpeg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-263.JPG" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-262.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-260.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-257.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-256.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-255.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-266.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-258.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
+                <div class="gallery-item" role="button" tabindex="0"><img src="site-file999.png" loading="lazy" onclick="openModal(this.src, 'image')" alt="Gallery Image"></div>
             </div>
         </div>
 
         <h3 id="expertise" class="reveal" style="font-family:var(--font-display); font-size: 2rem; font-weight: 900; text-transform: uppercase; color: var(--text-main); margin: 6rem 0 2.5rem; text-align: center;" data-t="sec_competencies">Core Competencies</h3>
         <div class="comp-grid">
-            <a href="LPJWM-FINAL.pdf" target="_blank" class="comp-card reveal" role="button" tabindex="0" aria-label="Read document about Public Policy & Systems Impact">
+            <a href="site-130.pdf" target="_blank" class="comp-card reveal" role="button" tabindex="0" aria-label="Read document about Public Policy & Systems Impact">
                 <h3 data-t="comp1_tit">Public Policy & Systems Impact</h3>
-                <p data-t="comp1_des">Strategically prevented thousands of layoffs and improved worker safety through public policy framing. Architected a new healthcare program serving 10,000+ working families within a monopolized insurance market.</p>
+                <p data-t="comp1_des">Architected inside-outside campaigns bridging labor, private sector consultants, and executive municipal offices to drive policy. Secured pivotal endorsements and navigated complex legislative landscapes alongside state representatives and city council leadership to protect vital community services.</p>
             </a>
-            <a href="San Mateo Co NewsletterSpring 2024.pdf" target="_blank" class="comp-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read document about Internal & Bilingual Strategy">
+            <a href="site-122.pdf" target="_blank" class="comp-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="Read document about Internal & Bilingual Strategy">
                 <h3 data-t="comp2_tit">Internal & Bilingual Strategy</h3>
                 <p data-t="comp2_des">Architecting full-spectrum communications for Spanish-language outlets and internal member mobilization. Driving initiatives ensuring equity for people of color in the workplace and labor policies.</p>
             </a>
@@ -1282,15 +1400,15 @@
                 <h3 data-t="comp3_tit">High-Impact Media Production</h3>
                 <p data-t="comp3_des">Executing professional photography, videography, and full-suite editing. Delivering comprehensive media packages in competitive environments and on tight timelines to drive campaign narratives.</p>
             </a>
-            <a href="guest-commentary-public-health.pdf" target="_blank" class="comp-card reveal" role="button" tabindex="0" aria-label="Read Thought Leadership document">
+            <a href="site-135.pdf" target="_blank" class="comp-card reveal" role="button" tabindex="0" aria-label="Read Thought Leadership document">
                 <h3 data-t="comp4_tit">Thought Leadership</h3>
-                <p data-t="comp4_des">Positioning organizations, frontline workers, and executives as authoritative voices on labor, equity, and public policy through high-impact op-eds, executive messaging, and strategic public positioning.</p>
+                <p data-t="comp4_des">Positioned organizations and frontline workers as authoritative voices by cultivating strategic alliances with labor presidents (e.g., CWA Local 1180), Chamber of Commerce executives, and top-tier political advisory firms to shape municipal economic and social policy.</p>
             </a>
-            <a href="Screenshot 2025-10-07 at 3.08.21 PM.png" target="_blank" class="comp-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="View Data Analysis & Reporting examples">
+            <a href="site-204.png" target="_blank" class="comp-card reveal" style="transition-delay: 0.1s;" role="button" tabindex="0" aria-label="View Data Analysis & Reporting examples">
                 <h3 data-t="comp5_tit">Data Analysis & Reporting</h3>
                 <p data-t="comp5_des">Translating complex campaign datasets into actionable insights, providing high-level reporting on digital engagement, reach, and conversion metrics for leadership stakeholders.</p>
             </a>
-            <a href="Screenshot 2025-10-07 at 3.05.30 PM.png" target="_blank" class="comp-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="View Technical Content Systems examples">
+            <a href="site-197.png" target="_blank" class="comp-card reveal" style="transition-delay: 0.2s;" role="button" tabindex="0" aria-label="View Technical Content Systems examples">
                 <h3 data-t="comp6_tit">Technical Content Systems</h3>
                 <p data-t="comp6_des">Directing full-cycle media production paired with HTML/CSS development and website structuring to optimize digital infrastructure for sophisticated advocacy campaigns.</p>
             </a>
@@ -1437,13 +1555,13 @@
                 c4_sub: "End-to-End Media & Web Implementation",
                 sec_competencies: "Core Competencies",
                 comp1_tit: "Public Policy & Systems Impact",
-                comp1_des: "Strategically prevented thousands of layoffs and improved worker safety through public policy framing. Architected a new healthcare program serving 10,000+ working families within a monopolized insurance market.",
+                comp1_des: "Architected inside-outside campaigns bridging labor, private sector consultants, and executive municipal offices to drive policy. Secured pivotal endorsements and navigated complex legislative landscapes alongside state representatives and city council leadership to protect vital community services.",
                 comp2_tit: "Internal & Bilingual Strategy",
                 comp2_des: "Architecting full-spectrum communications for Spanish-language outlets and internal member mobilization. Driving initiatives ensuring equity for people of color in the workplace and labor policies.",
                 comp3_tit: "High-Impact Media Production",
                 comp3_des: "Executing professional photography, videography, and full-suite editing. Delivering comprehensive media packages in competitive environments and on tight timelines to drive campaign narratives.",
                 comp4_tit: "Thought Leadership",
-                comp4_des: "Positioning organizations, frontline workers, and executives as authoritative voices on labor, equity, and public policy through high-impact op-eds, executive messaging, and strategic public positioning.",
+                comp4_des: "Positioned organizations and frontline workers as authoritative voices by cultivating strategic alliances with labor presidents (e.g., CWA Local 1180), Chamber of Commerce executives, and top-tier political advisory firms to shape municipal economic and social policy.",
                 comp5_tit: "Data Analysis & Reporting",
                 comp5_des: "Translating complex campaign datasets into actionable insights, providing high-level reporting on digital engagement, reach, and conversion metrics for leadership stakeholders.",
                 comp6_tit: "Technical Content Systems",
@@ -1556,13 +1674,13 @@
                 c4_sub: "Implementación Integral de Medios y Web",
                 sec_competencies: "Competencias Principales",
                 comp1_tit: "Política Pública e Impacto de Sistemas",
-                comp1_des: "Evitó estratégicamente miles de despidos y mejoró la seguridad de los trabajadores mediante el encuadre de políticas públicas.",
+                comp1_des: "Arquitecturó campañas internas y externas conectando a sindicatos, consultores del sector privado y oficinas ejecutivas municipales para impulsar políticas. Aseguró respaldos clave y navegó complejos panoramas legislativos junto a representantes estatales y líderes de concejos municipales para proteger servicios comunitarios vitales.",
                 comp2_tit: "Estrategia Interna y Bilingüe",
                 comp2_des: "Arquitecto de comunicaciones integrales para medios en español y garantizando la equidad para personas de color en el lugar de trabajo.",
                 comp3_tit: "Producción de Medios de Alto Impacto",
                 comp3_des: "Ejecución de fotografía profesional, videografía y edición completa para impulsar narrativas de campaña en plazos ajustados.",
                 comp4_tit: "Liderazgo de Opinión",
-                comp4_des: "Posicionamiento de organizaciones, trabajadores y ejecutivos como voces autorizadas en temas laborales, de equidad y políticas públicas mediante artículos de opinión y mensajes estratégicos.",
+                comp4_des: "Posicionó a organizaciones y trabajadores de primera línea como voces autorizadas al cultivar alianzas estratégicas con presidentes sindicales (ej. CWA Local 1180), ejecutivos de Cámaras de Comercio y firmas asesoras políticas de primer nivel para moldear la política económica y social municipal.",
                 comp5_tit: "Análisis de Datos e Informes",
                 comp5_des: "Traducción de conjuntos de datos de campañas complejos en conocimientos prácticos, proporcionando informes de alto nivel sobre el compromiso digital, el alcance y las métricas de conversión.",
                 comp6_tit: "Sistemas Técnicos de Contenido",
