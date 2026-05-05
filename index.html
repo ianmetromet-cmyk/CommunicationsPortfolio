@@ -15,26 +15,24 @@
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
 
     <script>
-        // Bulletproof Global Image Fallback: Prevents broken images from shattering the CSS Grid.
+        // Bulletproof Global Image Fallback: Hide broken images but preserve container layouts.
         function handleImageError(img) {
             if (!img) return;
             
-            // 1. Hide the broken image immediately
+            // 1. Hide the broken image immediately to prevent ugly browser icons
             img.style.display = 'none';
 
-            // 2. If it's a card background or thumbnail, hide its entire container so the card degrades gracefully to text-only
-            if (img.classList.contains('card-img-bg') || img.classList.contains('audio-image')) {
-                const thumbBox = img.closest('.media-thumb-box, .project-image, .audio-video-trigger');
-                if (thumbBox) thumbBox.style.display = 'none';
-            } 
-            
-            // 3. If it's the headshot, repair the About section grid
-            else if (img.closest('.headshot-container')) {
+            // 2. If it's the profile headshot, repair the About section grid
+            if (img.closest('.headshot-container')) {
                 const container = img.closest('.headshot-container');
                 container.style.display = 'none';
                 const section = img.closest('.about-section');
                 if (section) section.style.gridTemplateColumns = '1fr';
             }
+            
+            // NOTE: We intentionally no longer hide '.media-thumb-box' or '.project-image' 
+            // so the thumbnail boxes, video play buttons, and badges remain perfectly visible 
+            // even if the background image file is missing or has a typo locally.
         }
 
         // Auto-attach error listeners to all images globally
@@ -240,6 +238,9 @@
         .op-ed-list-item:hover { border-color: var(--brand-blue); background: rgba(37, 99, 235, 0.05); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
         .op-ed-list-item:hover .link-arrow { color: var(--brand-red); }
 
+        .desktop-pdf-link { display: inline-flex; }
+        .mobile-pdf-link { display: none; }
+
         /* --- ABOUT / PROFILE --- */
         .about-section { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: center; max-width: 1400px; margin: 0 auto; }
         .headshot-container { filter: grayscale(1); transition: filter 0.5s ease; overflow: hidden; border-radius: 2px; border: 4px solid var(--border-color); }
@@ -282,14 +283,21 @@
         @media (max-width: 768px) {
             .project-grid, .media-grid { grid-template-columns: 1fr; }
             .media-card.featured { grid-column: span 1; }
-            .lined-header { flex-direction: column; height: auto; margin-top: 70px; }
-            .lined-col { border-right: none; border-bottom: 1px solid var(--border-color); padding: 20px 20px; align-items: flex-start; justify-content: flex-start; min-height: auto; }
-            .vertical-text { position: relative; writing-mode: horizontal-tb; transform: none; bottom: auto; left: auto; font-size: 2.5rem; margin-top: 15px; }
-            .col-index { position: relative; top: auto; left: auto; }
+            
+            .lined-header { flex-direction: column; height: auto; margin-top: 70px; border-bottom: none; }
+            .lined-header > a.lined-col { display: none; }
+            .lined-header .col-index { display: none; }
+            .lined-header > div.lined-col { border-right: none; border-bottom: 1px solid var(--border-color); padding: 40px 20px; align-items: flex-start; justify-content: center; min-height: auto; }
+            .header-desc-block { position: relative; bottom: auto; left: auto; right: auto; max-width: 100%; font-size: 1.1rem; margin-top: 0; }
+            
             .impact-strip { flex-direction: column; gap: 40px; text-align: center; }
             .gallery-item { width: 75vw; }
             .media-logo-strip { gap: 1.5rem; }
             .media-logo-item { height: 28px; }
+            
+            .doc-viewer-wrapper { display: none; }
+            .desktop-pdf-link { display: none !important; }
+            .mobile-pdf-link { display: inline-flex !important; }
         }
     </style>
 </head>
@@ -356,12 +364,18 @@
     </div>
 
     <div class="audio-section reveal">
-        <div class="audio-video-trigger" onclick="openModal('site-280.mp4', 'video')">
-            <div class="vmp-overlay"></div>
-            <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
-            <img src="site-242.jpg" class="card-img-bg" loading="lazy" alt="Fair San Mateo Video Thumbnail">
-            <div class="vmp-play-wrapper">
-                <div class="vmp-play-btn"><i data-lucide="play" style="width:24px;height:24px;color:white;margin-left:2px;"></i></div>
+        <div style="display: flex; flex-direction: column;">
+            <div class="audio-video-trigger" onclick="openModal('site-278.mp4', 'video')" style="flex-grow: 1; min-height: 250px;" tabindex="0">
+                <div class="vmp-overlay"></div>
+                <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
+                <img src="site-242.jpg" class="card-img-bg" loading="lazy" alt="Fair San Mateo Video Thumbnail">
+                <div class="vmp-play-wrapper">
+                    <div class="vmp-play-btn"><i data-lucide="play" style="width:24px;height:24px;color:white;margin-left:2px;"></i></div>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <span class="card-label" style="display:block;">Documentary Short</span>
+                <div style="color: var(--text-main); font-size: 1.1rem; font-weight: 800; font-family: var(--font-display); text-transform: uppercase; margin-top: 5px;">Fair San Mateo: Extra Help Workers</div>
             </div>
         </div>
         <div class="audio-content">
@@ -371,7 +385,7 @@
             <span class="card-label" style="display:block; margin-top:20px;">Raw Testimony: Paraeducator</span>
             <div class="custom-player-wrapper">
                 <audio src="site-274.mp3" preload="none"></audio>
-                <button class="play-pause-btn"><i data-lucide="play"></i></button>
+                <button class="play-pause-btn" aria-label="Play or Pause Audio"><i data-lucide="play"></i></button>
                 <div class="progress-container"><div class="progress-bar"></div></div>
                 <div class="time-display">0:00</div>
             </div>
@@ -380,7 +394,7 @@
             <div style="color: var(--text-main); font-size: 1.1rem; font-weight: 800; font-family: var(--font-display); text-transform: uppercase; margin-top: 5px;">Social Workers Outsmart ICE to Protect Community Residents</div>
             <div class="custom-player-wrapper">
                 <audio src="site-274.mp3" preload="none"></audio>
-                <button class="play-pause-btn"><i data-lucide="play"></i></button>
+                <button class="play-pause-btn" aria-label="Play or Pause Audio"><i data-lucide="play"></i></button>
                 <div class="progress-container"><div class="progress-bar"></div></div>
                 <div class="time-display">0:00</div>
             </div>
@@ -395,26 +409,29 @@
         <div class="reveal" style="max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 60px;">
             <div class="max-w-[1000px] w-full mx-auto">
                 <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
-                    <li onclick="loadIntoViewer('site-144.pdf', 'Hybrid_Work_Defies_Data.pdf')" class="op-ed-list-item">
+                    <li onclick="if(window.innerWidth > 768) loadIntoViewer('site-144.pdf', 'Hybrid_Work_Defies_Data.pdf')" class="op-ed-list-item" tabindex="0">
                         <div style="flex: 1; padding-right: 20px;">
                             <div class="card-label" style="margin-bottom: 5px;">LOOKOUT SANTA CRUZ / SOCIAL SERVICES & HEALTH</div>
                             <div style="color: var(--text-main); font-size: 1.15rem; font-weight: bold;">County's push to reduce hybrid work for health care workers defies data — by Max Olkowski-Laetz</div>
                         </div>
-                        <div class="link-arrow" style="margin-top: 0; flex-shrink: 0;">LOAD DOCUMENT ↘</div>
+                        <div class="link-arrow desktop-pdf-link" style="margin-top: 0; flex-shrink: 0;">LOAD DOCUMENT ↘</div>
+                        <a href="site-144.pdf" target="_blank" class="link-arrow mobile-pdf-link" style="margin-top: 0; flex-shrink: 0;" onclick="event.stopPropagation()">OPEN PDF ↗</a>
                     </li>
-                    <li onclick="loadIntoViewer('site-147.pdf', 'Planned_Parenthood_Funding.pdf')" class="op-ed-list-item">
+                    <li onclick="if(window.innerWidth > 768) loadIntoViewer('site-147.pdf', 'Planned_Parenthood_Funding.pdf')" class="op-ed-list-item" tabindex="0">
                         <div style="flex: 1; padding-right: 20px;">
                             <div class="card-label" style="margin-bottom: 5px;">NATIONAL PRESS / HEALTHCARE ACCESS</div>
                             <div style="color: var(--text-main); font-size: 1.15rem; font-weight: bold;">Defending Planned Parenthood: Budget Threatens Abortion Safe Haven</div>
                         </div>
-                        <div class="link-arrow" style="margin-top: 0; flex-shrink: 0;">LOAD DOCUMENT ↘</div>
+                        <div class="link-arrow desktop-pdf-link" style="margin-top: 0; flex-shrink: 0;">LOAD DOCUMENT ↘</div>
+                        <a href="site-147.pdf" target="_blank" class="link-arrow mobile-pdf-link" style="margin-top: 0; flex-shrink: 0;" onclick="event.stopPropagation()">OPEN PDF ↗</a>
                     </li>
-                    <li onclick="loadIntoViewer('site-145.pdf', 'Public_Education_Defender.pdf')" class="op-ed-list-item">
+                    <li onclick="if(window.innerWidth > 768) loadIntoViewer('site-145.pdf', 'Public_Education_Defender.pdf')" class="op-ed-list-item" tabindex="0">
                         <div style="flex: 1; padding-right: 20px;">
                             <div class="card-label" style="margin-bottom: 5px;">SAN JOSÉ SPOTLIGHT • EDUCATION & POLICY</div>
                             <div style="color: var(--text-main); font-size: 1.15rem; font-weight: bold;">Public education in Santa Clara County needs a defender — by Dolores Huerta</div>
                         </div>
-                        <div class="link-arrow" style="margin-top: 0; flex-shrink: 0;">LOAD DOCUMENT ↘</div>
+                        <div class="link-arrow desktop-pdf-link" style="margin-top: 0; flex-shrink: 0;">LOAD DOCUMENT ↘</div>
+                        <a href="site-145.pdf" target="_blank" class="link-arrow mobile-pdf-link" style="margin-top: 0; flex-shrink: 0;" onclick="event.stopPropagation()">OPEN PDF ↗</a>
                     </li>
                 </ul>
             </div>
@@ -473,26 +490,28 @@
             </div>
         </div>
 
-        <div class="media-grid">
-            <div class="media-card reveal featured">
-                <a href="https://www.nytimes.com/2021/05/26/us/san-jose-mass-shooting.html" target="_blank" class="media-thumb-box" style="display: block;">
+        <div class="reveal w-full flex justify-center mb-12">
+            <div class="media-card w-full max-w-[900px] text-center" style="border-top: 4px solid var(--brand-red);">
+                <a href="https://www.nytimes.com/2021/05/26/us/san-jose-mass-shooting.html" target="_blank" class="media-thumb-box" style="display: block; aspect-ratio: 21/9; min-height: 250px;">
                     <div class="vmp-overlay"></div>
                     <img src="site-a.jpg.webp" class="card-img-bg" loading="lazy" alt="VTA Crisis">
-                    <img src="site-nyt.png" loading="lazy" class="media-logo-badge dark-mode-logo" alt="The New York Times Logo">
+                    <img src="site-nyt.png" loading="lazy" class="media-logo-badge dark-mode-logo" style="right: 0; left: 0; margin-left: auto; margin-right: auto; bottom: 15px;" alt="The New York Times Logo">
                     <div class="vmp-title-badge" style="background: #444;">ARTICLE</div>
                 </a>
-                <div class="media-content">
+                <div class="media-content" style="align-items: center;">
                     <div class="card-label">Crisis Communications / The New York Times</div>
-                    <h3 class="card-title"><a href="https://www.nytimes.com/2021/05/26/us/san-jose-mass-shooting.html" target="_blank">VTA SHOOTING: SEIU RESPONDS TO TRAGEDY</a></h3>
-                    <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                    <h3 class="card-title" style="font-size: 1.5rem; margin-bottom: 20px;"><a href="https://www.nytimes.com/2021/05/26/us/san-jose-mass-shooting.html" target="_blank">VTA SHOOTING: SEIU RESPONDS TO TRAGEDY</a></h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; width: 100%; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
                         <a href="https://www.nytimes.com/live/2021/05/27/us/san-jose-shooting" target="_blank" class="link-arrow" style="margin-top: 0;">NYT: Live Updates ↗</a>
                         <a href="https://www.nytimes.com/2021/05/27/us/taptejdeep-singh-warning.html" target="_blank" class="link-arrow" style="margin-top: 0;">NYT: Hero Warning ↗</a>
                         <a href="https://www.sfchronicle.com/crime/article/San-Jose-mass-shooting-Families-friends-endure-16205834.php" target="_blank" class="link-arrow" style="margin-top: 0;">SF Chronicle: Families Endure ↗</a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="media-card reveal featured" onclick="openModal('site-280.mp4', 'video'); return false;">
+        <div class="media-grid">
+            <div class="media-card reveal featured" onclick="openModal('site-280.mp4', 'video'); return false;" tabindex="0">
                 <div class="media-thumb-box">
                     <div class="video-indicator">▶ WATCH</div>
                     <img src="site-124.jpg" class="card-img-bg" loading="lazy" alt="CBS News">
@@ -506,7 +525,7 @@
                 </div>
             </div>
 
-            <a href="https://kioncentralcoast.com/video/2022/10/13/estalla-huelga-en-santa-cruz-se-paralizan-servicios-publicos/" target="_blank" class="media-card reveal">
+            <div class="media-card reveal" onclick="openModal('site-179.jpg', 'image')" tabindex="0">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
                     <img src="strike-101.jpg" loading="lazy" class="card-img-bg" alt="KION Strike Image">
@@ -615,7 +634,7 @@
         </div>
 
         <div class="project-grid">
-            <div class="project-card reveal" onclick="openModal('mccsequence-1.mov', 'video')" style="transition-delay: 0.1s;">
+            <div class="project-card reveal" onclick="openModal('MCCsequence-1.mov', 'video')" style="transition-delay: 0.1s;" tabindex="0">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
                     <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
@@ -633,7 +652,7 @@
             </div>
 
             <!-- Dynamic Pop-Out Gallery Card -->
-            <div class="project-card reveal" onclick="openGallery(['site-154.jpg', 'site-194.jpg', 'site-209.jpg', 'site-181.png', 'site-158.png', 'site-130.pdf', 'site-207.png', 'site-262.jpg', 'site-214.jpg', 'site-269.jpg', 'site-270.jpg', 'site-241.png', 'site-128.pdf', 'site-124.jpg', 'site-220.png', 'site-148.pdf', 'site-253.jpg'])" style="transition-delay: 0.2s;">
+            <div class="project-card reveal" onclick="openGallery(['site-154.jpg', 'site-194.jpg', 'site-209.jpg', 'site-181.png', 'site-158.png', 'site-130.pdf', 'site-207.png', 'site-262.jpg', 'site-214.jpg', 'site-269.jpg', 'site-270.jpg', 'site-241.png', 'site-128.pdf', 'site-124.jpg', 'site-220.png', 'site-148.pdf', 'site-253.jpg'])" style="transition-delay: 0.2s;" tabindex="0">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
                     <div class="vmp-title-badge" style="background: var(--brand-blue);">GALLERY</div>
@@ -650,7 +669,7 @@
                 </div>
             </div>
 
-            <div class="project-card reveal" onclick="openModal('site-174.jpg', 'image')">
+            <div class="project-card reveal" onclick="openModal('site-174.jpg', 'image')" tabindex="0">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
                     <div class="vmp-title-badge" style="background: var(--brand-blue);">DOCUMENT</div>
@@ -668,7 +687,7 @@
             </div>
 
             <!-- Essential Worker Protections with Gallery -->
-            <div class="project-card reveal" onclick="openGallery(['site-148.pdf', 'site-252.jpg', 'site-220.png', 'site-221.png', 'site-207.png', 'site-181.png', 'site-209.jpg', 'site-213.png', 'site-214.png', 'site-130.pdf', 'site-214.jpg', 'site-270.jpg', 'site-256.jpg', 'site-269.jpg', 'site-128.pdf', 'site-156.png'])" style="transition-delay: 0.1s;">
+            <div class="project-card reveal" onclick="openGallery(['site-148.pdf', 'site-252.jpg', 'site-220.png', 'site-221.png', 'site-207.png', 'site-181.png', 'site-209.jpg', 'site-213.png', 'site-214.png', 'site-130.pdf', 'site-214.jpg', 'site-270.jpg', 'site-256.jpg', 'site-269.jpg', 'site-128.pdf', 'site-156.png'])" style="transition-delay: 0.1s;" tabindex="0">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
                     <div class="vmp-title-badge" style="background: var(--brand-blue);">GALLERY</div>
@@ -685,7 +704,7 @@
                 </div>
             </div>
 
-            <div class="project-card reveal" onclick="openModal('site-280.mp4', 'video')" style="transition-delay: 0.2s;">
+            <div class="project-card reveal" onclick="openModal('site-280.mp4', 'video')" style="transition-delay: 0.2s;" tabindex="0">
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
                     <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
@@ -701,6 +720,25 @@
                     <div class="link-arrow">WATCH RALLY ↗</div>
                 </div>
             </div>
+
+            <!-- Racial Justice / Juneteenth Video Card -->
+            <div class="project-card reveal" onclick="openModal('site-bhah.mp4', 'video')" style="transition-delay: 0.3s;" tabindex="0">
+                <div class="project-image">
+                    <div class="vmp-overlay"></div>
+                    <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
+                    <img src="site-162.jpg" class="card-img-bg" loading="lazy" alt="Racial Justice Campaign Thumbnail">
+                    <div class="vmp-play-wrapper">
+                        <div class="vmp-play-btn" style="background: rgba(225, 29, 72, 0.8); border: 1px solid rgba(225, 29, 72, 0.3); box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);"><i data-lucide="play" style="width:24px;height:24px;color:white;margin-left:2px;"></i></div>
+                    </div>
+                </div>
+                <div class="project-meta">
+                    <div class="card-label" data-t="p11_cat">Racial Justice / Digital Campaign</div>
+                    <h3 class="card-title" data-t="p11_title">Juneteenth: Labor & Equity</h3>
+                    <p class="card-desc" data-t="p11_desc">A digital narrative campaign linking the historical struggle for racial justice with modern labor rights, featuring voices from frontline workers and union leadership.</p>
+                    <div class="link-arrow">WATCH VIDEO ↗</div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -746,16 +784,16 @@
         <div class="swipe-gallery-wrapper reveal">
             <h3 style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 900; text-transform: uppercase; color: var(--brand-red); margin-bottom: 20px;">Field Documentation</h3>
             <div class="swipe-gallery">
-                <div class="gallery-item"><img src="site-231.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo"></div>
-                <div class="gallery-item"><img src="site-244.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo"></div>
-                <div class="gallery-item"><img src="site-234.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo"></div>
-                <div class="gallery-item"><img src="site-221.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo"></div>
-                <div class="gallery-item"><img src="site-213.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo"></div>
-                <div class="gallery-item"><img src="site-188.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo"></div>
-                <div class="gallery-item"><img src="site-175.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo"></div>
-                <div class="gallery-item"><img src="site-162.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo"></div>
-                <div class="gallery-item"><img src="site-252.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo"></div>
-                <div class="gallery-item"><img src="site-270.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo"></div>
+                <div class="gallery-item"><img src="site-231.webp" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo" tabindex="0"></div>
+                <div class="gallery-item"><img src="site-244.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo" tabindex="0"></div>
+                <div class="gallery-item"><img src="site-234.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo" tabindex="0"></div>
+                <div class="gallery-item"><img src="site-221.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo" tabindex="0"></div>
+                <div class="gallery-item"><img src="site-213.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo" tabindex="0"></div>
+                <div class="gallery-item"><img src="site-188.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo" tabindex="0"></div>
+                <div class="gallery-item"><img src="site-175.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo" tabindex="0"></div>
+                <div class="gallery-item"><img src="site-162.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo" tabindex="0"></div>
+                <div class="gallery-item"><img src="site-252.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo" tabindex="0"></div>
+                <div class="gallery-item"><img src="site-270.jpg" loading="lazy" onclick="openModal(this.src, 'image')" alt="Field documentation photo" tabindex="0"></div>
             </div>
         </div>
 
@@ -1016,6 +1054,17 @@
         }
 
         window.onclick = function(e) { if(e.target == document.getElementById('mediaModal')) closeModal(); }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" || event.key === "Esc") {
+                closeModal();
+            }
+            if (event.key === "Enter") {
+                if (document.activeElement && document.activeElement.hasAttribute('onclick')) {
+                    document.activeElement.click();
+                }
+            }
+        });
 
         lucide.createIcons();
         
