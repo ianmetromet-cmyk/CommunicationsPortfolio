@@ -29,10 +29,6 @@
                 const section = img.closest('.about-section');
                 if (section) section.style.gridTemplateColumns = '1fr';
             }
-            
-            // NOTE: We intentionally no longer hide '.media-thumb-box' or '.project-image' 
-            // so the thumbnail boxes, video play buttons, and badges remain perfectly visible 
-            // even if the background image file is missing or has a typo locally.
         }
 
         // Auto-attach error listeners to all images globally
@@ -408,7 +404,7 @@
             <span class="card-label" style="display:block; margin-top:20px;">EARNED MEDIA: CBS RADIO</span>
             <div style="color: var(--text-main); font-size: 1.1rem; font-weight: 800; font-family: var(--font-display); text-transform: uppercase; margin-top: 5px;">SANTA CRUZ COUNTY WORKERS SETTLE STRIKE - WIN BIG</div>
             <div class="custom-player-wrapper">
-                <audio src="site-276.wav" preload="none"></audio>
+                <audio src="site-277.mp4" preload="none"></audio>
                 <button class="play-pause-btn" aria-label="Play or Pause Audio"><i data-lucide="play"></i></button>
                 <div class="progress-container"><div class="progress-bar"></div></div>
                 <div class="time-display">0:00</div>
@@ -496,7 +492,7 @@
             <div class="media-card w-full max-w-[900px] text-center" style="border-top: 4px solid var(--brand-red);">
                 <div class="media-thumb-box" style="aspect-ratio: 21/9; min-height: 250px;">
                     <div class="vmp-overlay"></div>
-                    <img src="site-124.jpg" class="card-img-bg" alt="San Jose Spotlight">
+                    <img src="site-jaxon-124.webp" class="card-img-bg" alt="San Jose Spotlight">
                     <img src="site-SJS.png" loading="lazy" class="media-logo-badge dark-mode-logo" style="right: 0; left: 0; margin-left: auto; margin-right: auto; bottom: 15px;" alt="San Jose Spotlight Logo">
                     <div class="vmp-title-badge" style="background: #444;">ARTICLE</div>
                 </div>
@@ -538,7 +534,7 @@
             <div class="media-card reveal featured" onclick="openModal('site-280.mp4', 'video'); return false;" tabindex="0">
                 <div class="media-thumb-box">
                     <div class="video-indicator">▶ WATCH</div>
-                    <img src="site-124.jpg" class="card-img-bg" loading="lazy" alt="CBS News">
+                    <img src="site-scc.jpg" class="card-img-bg" loading="lazy" alt="CBS News">
                     <img src="site-206.svg" loading="lazy" class="media-logo-badge dark-mode-logo" alt="CBS Logo">
                     <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
                 </div>
@@ -549,11 +545,11 @@
                 </div>
             </div>
 
-            <div class="media-card reveal" onclick="openModal('telemundo-export.mp4', 'video'); return false;" tabindex="0">
+            <div class="media-card reveal" onclick="openModal('site-kion.mp4', 'video'); return false;" tabindex="0">
                 <div class="media-thumb-box">
                     <div class="video-indicator">▶ WATCH</div>
                     <div class="vmp-overlay"></div>
-                    <img src="strike-101.jpg" loading="lazy" class="card-img-bg" alt="KION Strike Image">
+                    <img src="site-imminente-scc.jpg" loading="lazy" class="card-img-bg" alt="KION Strike Image">
                     <img src="site-adc.png.jpeg" loading="lazy" class="media-logo-badge" alt="Telemundo Logo">
                     <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
                 </div>
@@ -567,7 +563,7 @@
             <div class="media-card reveal">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="site-124.jpg" class="card-img-bg" loading="lazy" alt="SFGATE">
+                    <img src="site-201.jpg" class="card-img-bg" loading="lazy" alt="SFGATE">
                     <img src="site-223.jpeg" loading="lazy" class="media-logo-badge dark-mode-logo" alt="SFGATE">
                     <div class="vmp-title-badge" style="background: #444;">ARTICLE</div>
                 </div>
@@ -584,10 +580,10 @@
                 </div>
             </div>
 
-            <div class="media-card reveal" onclick="openModal('site-179.jpg', 'image')" tabindex="0">
+            <div class="media-card reveal" onclick="openModal('site-157.jpg', 'image')" tabindex="0">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="site-179.jpg" class="card-img-bg" loading="lazy" alt="KQED">
+                    <img src="site-157.jpg" class="card-img-bg" loading="lazy" alt="KQED">
                     <img src="site-file999.png" loading="lazy" class="media-logo-badge dark-mode-logo" alt="KQED Logo">
                     <div class="vmp-title-badge" style="background: var(--neon-cyan); color: #000;">AUDIO</div>
                 </div>
@@ -628,7 +624,7 @@
             <div class="media-card reveal featured">
                 <div class="media-thumb-box">
                     <div class="vmp-overlay"></div>
-                    <img src="site-124.jpg" class="card-img-bg" loading="lazy" alt="City of Santa Cruz Strike">
+                    <img src="site-203.webp" class="card-img-bg" loading="lazy" alt="City of Santa Cruz Strike">
                     <img src="site-225.webp" loading="lazy" class="media-logo-badge dark-mode-logo" alt="The Mercury News Logo">
                     <div class="vmp-title-badge" style="background: #444;">ARTICLE</div>
                 </div>
@@ -663,7 +659,7 @@
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
                     <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
-                    <img src="site-241.png" class="card-img-bg" loading="lazy" alt="Digital Dashboard">
+                    <img src="site-243.jpg" class="card-img-bg" loading="lazy" alt="Monterey County Can! Campaign">
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(225, 29, 72, 0.8); border: 1px solid rgba(225, 29, 72, 0.3); box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);"><i data-lucide="play" style="width:24px;height:24px;color:white;margin-left:2px;"></i></div>
                     </div>
@@ -751,7 +747,7 @@
                 <div class="project-image">
                     <div class="vmp-overlay"></div>
                     <div class="vmp-title-badge" style="background: var(--brand-red);">VIDEO</div>
-                    <img src="site-162.jpg" class="card-img-bg" loading="lazy" alt="Racial Justice Campaign Thumbnail">
+                    <img src="site-128.pdf" class="card-img-bg" loading="lazy" alt="Racial Justice Campaign Thumbnail">
                     <div class="vmp-play-wrapper">
                         <div class="vmp-play-btn" style="background: rgba(225, 29, 72, 0.8); border: 1px solid rgba(225, 29, 72, 0.3); box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);"><i data-lucide="play" style="width:24px;height:24px;color:white;margin-left:2px;"></i></div>
                     </div>
@@ -859,6 +855,8 @@
                 <p style="margin-top: 1rem;"><strong style="color: var(--brand-blue);">Email:</strong> Ian.metromet@gmail.com</p>
             </div>
             <form action="https://formsubmit.co/Ian.metromet@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/#contact">
+                <input type="hidden" name="_captcha" value="false">
                 <div class="form-group"><input type="text" name="name" placeholder="Name" required></div>
                 <div class="form-group"><input type="email" name="email" placeholder="Email" required></div>
                 <div class="form-group"><textarea name="message" rows="5" placeholder="Message"></textarea></div>
@@ -1102,9 +1100,16 @@
             });
         });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if(e.isIntersecting) { e.target.style.opacity = "1"; e.target.style.transform = "translateY(0)"; }});
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(e => { 
+                if(e.isIntersecting) { 
+                    e.target.style.opacity = "1"; 
+                    e.target.style.transform = "translateY(0)"; 
+                    obs.unobserve(e.target);
+                }
+            });
         }, { threshold: 0.1 });
+        
         document.querySelectorAll('.reveal').forEach(el => {
             el.style.opacity = "0"; el.style.transform = "translateY(30px)"; el.style.transition = "1s";
             observer.observe(el);
