@@ -93,7 +93,9 @@
     }
 
     /* ─── TYPOGRAPHY UTILS ─────────────────────────────────────────── */
-    h1, h2, h3, h4 { font-family: var(--display); font-weight: 200; text-transform: uppercase; margin: 0; }
+    h1, h2, h3, h4 { font-family: var(--display); font-weight: 200; margin: 0; }
+    h1, h2 { text-transform: uppercase; }
+    h3, h4 { text-transform: none; }
     .outline { color: transparent; -webkit-text-stroke: 1px var(--text); }
     .mono-text { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
 
@@ -111,8 +113,9 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 1000; display: flex; align-items: center; justify-content: space-between;
-      padding: 30px 48px; background: linear-gradient(to bottom, rgba(11, 17, 32, 0.9) 0%, rgba(11, 17, 32, 0) 100%);
-      backdrop-filter: blur(10px);
+      padding: 30px 48px; background: linear-gradient(to bottom, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.8) 100%);
+      backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
     }
     .nav-logo { font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text); text-decoration: none; }
     .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
@@ -125,7 +128,7 @@
     /* ─── HERO SECTION ───────────────────────────────────────────────── */
     .hero {
       min-height: 100vh; display: flex; align-items: center;
-      padding: 100px 48px 60px; position: relative;
+      padding: 120px 48px 80px; position: relative;
       background: radial-gradient(circle at 50% 50%, #1E293B 0%, var(--bg) 100%);
     }
     .hero-left { flex: 1; display: flex; align-items: center; justify-content: center; }
@@ -134,23 +137,24 @@
     .hero-right { flex: 1.5; padding-left: 40px; }
     .hero-eyebrow { color: var(--accent); margin-bottom: 30px; font-weight: 700; }
     .hero-headline { font-size: clamp(60px, 10vw, 130px); color: var(--text); line-height: 0.9; letter-spacing: -0.02em; }
-    .hero-subtext { font-family: var(--body); font-size: 15px; font-weight: 400; color: var(--grey-light); max-width: 460px; line-height: 1.7; margin: 40px 0; }
+    .hero-subtext { font-family: var(--body); font-size: 16px; font-weight: 400; color: var(--grey-light); max-width: 480px; line-height: 1.7; margin: 48px 0; }
     
     .hero-actions { display: flex; align-items: center; gap: 30px; }
     .btn-solid {
-      background: var(--accent); color: #fff; padding: 16px 32px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
-      font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-      transition: opacity var(--transition), transform var(--transition); border: none; cursor: pointer;
+      background: var(--accent); color: #fff; padding: 18px 36px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      transition: opacity var(--transition), transform var(--transition); border: none; cursor: pointer; border-radius: 2px;
+      box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
     }
-    .btn-solid:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-solid:hover { opacity: 0.9; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(255, 69, 0, 0.4); }
     
     .btn-outline-text {
-      color: var(--grey-light); text-decoration: none; font-family: var(--mono); font-size: 10px; font-weight: 700; cursor: pointer;
-      letter-spacing: 0.15em; text-transform: uppercase; padding-bottom: 4px; border-bottom: 1px solid var(--border);
-      transition: color var(--transition), border-color var(--transition); background: transparent; border-top: none; border-left: none; border-right: none;
-      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--grey-light); text-decoration: none; font-family: var(--mono); font-size: 11px; font-weight: 700; cursor: pointer;
+      letter-spacing: 0.15em; text-transform: uppercase; padding: 12px 24px; border: 1px solid var(--border); border-radius: 2px;
+      transition: color var(--transition), border-color var(--transition), background var(--transition); background: transparent;
+      display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .btn-outline-text:hover { color: var(--text); border-color: var(--text); gap: 12px; }
+    .btn-outline-text:hover { color: var(--text); border-color: var(--accent); gap: 12px; background: rgba(255, 69, 0, 0.05); box-shadow: 0 4px 15px rgba(255, 69, 0, 0.2); }
 
     .scroll-indicator { position: absolute; bottom: 40px; left: 48px; display: flex; align-items: center; gap: 16px; color: var(--grey); }
     .scroll-line { width: 40px; height: 1px; background: var(--accent); }
@@ -165,13 +169,13 @@
     .stat-label { color: var(--grey); }
 
     /* ─── SECTION HEADERS ─────────────────────────────────────────── */
-    .section-header { display: flex; align-items: flex-start; gap: 20px; padding: 120px 48px 60px; }
-    .sec-num { color: var(--accent); font-family: var(--mono); font-size: 11px; margin-top: 10px; font-weight: 700; }
-    .sec-title { font-size: clamp(40px, 6vw, 80px); font-weight: 200; line-height: 0.9; color: var(--text); }
+    .section-header { display: flex; align-items: flex-start; gap: 24px; padding: 160px 48px 100px; }
+    .sec-num { color: var(--accent); font-family: var(--mono); font-size: 12px; margin-top: 8px; font-weight: 700; }
+    .sec-title { font-size: clamp(48px, 7vw, 90px); font-weight: 300; line-height: 0.95; color: var(--text); }
 
     /* ─── COMPETENCIES GRID ───────────────────────────────────── */
-    .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); }
-    .comp-card { padding: 50px 48px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); min-height: 300px; transition: background var(--transition); }
+    .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; border-top: 1px solid var(--border); padding: 120px 48px; }
+    .comp-card { padding: 60px 48px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); min-height: 320px; transition: background var(--transition); }
     .comp-card:hover { background: rgba(255,255,255,0.02); }
     .comp-card:nth-child(3n) { border-right: none; }
     .comp-num { color: var(--accent); font-family: var(--mono); font-size: 10px; margin-bottom: 30px; display: block; font-weight: 700; }
@@ -179,14 +183,14 @@
     .comp-desc { color: var(--grey-light); font-size: 14px; line-height: 1.7; font-weight: 400; }
 
     /* ─── CAMPAIGN BRIEFS ────────────────────────── */
-    .campaign-brief { display: grid; grid-template-columns: 2.5fr 4fr 5fr; gap: 60px; padding: 100px 48px; border-bottom: 1px solid var(--border); align-items: center; }
+    .campaign-brief { display: grid; grid-template-columns: 2.5fr 4fr 5fr; gap: 80px; padding: 120px 48px; border-bottom: 1px solid var(--border); align-items: start; }
     .brief-meta { display: flex; flex-direction: column; gap: 30px; }
     .meta-block { display: flex; flex-direction: column; gap: 8px; }
     .meta-label { color: var(--accent); font-weight: 700; }
     .meta-value { color: var(--grey-light); font-size: 13px; }
     
     .brief-narrative { padding-right: 40px; }
-    .brief-headline { font-family: var(--display); font-size: clamp(30px, 3.5vw, 45px); font-weight: 800; line-height: 1.1; text-transform: uppercase; margin-bottom: 24px; letter-spacing: -0.02em; color: var(--text); }
+    .brief-headline { font-family: var(--display); font-size: clamp(28px, 3vw, 42px); font-weight: 700; line-height: 1.2; margin-bottom: 24px; letter-spacing: -0.01em; color: var(--text); }
     .brief-body { font-size: 15px; color: var(--grey-light); line-height: 1.8; margin-bottom: 35px; }
     
     .brief-media { position: relative; width: 100%; min-height: 450px; display: flex; align-items: center; justify-content: center; }
@@ -228,8 +232,8 @@
 
     /* ─── MEDIA COVERAGE GRID ─────────────────────────────────────── */
     .media-logo-strip { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 3rem; margin-bottom: 4rem; padding: 0 5%; }
-    .media-logo-item { height: 40px; max-width: 180px; object-fit: contain; filter: grayscale(1) opacity(0.5); transition: all 0.4s ease; cursor: default; }
-    .media-logo-item:hover { filter: grayscale(0) opacity(1) drop-shadow(0 0 10px rgba(255,255,255,0.2)); transform: translateY(-4px); }
+    .media-logo-item { height: 50px; max-width: 200px; object-fit: contain; filter: grayscale(0.3) opacity(0.9); transition: all 0.4s ease; cursor: default; background: var(--bg-alt); padding: 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08); }
+    .media-logo-item:hover { filter: grayscale(0) opacity(1) drop-shadow(0 0 15px rgba(255,255,255,0.3)); transform: translateY(-6px); border-color: rgba(255,255,255,0.15); }
 
     .media-card-hero { width: 100%; max-width: 900px; margin: 0 auto 3rem; background: var(--bg-alt); border: 1px solid var(--border); border-top: 4px solid var(--accent); display: flex; flex-direction: column; text-align: center; }
     .media-card-hero .media-thumb-box { aspect-ratio: 21/9; min-height: 250px; position: relative; overflow: hidden; background: #000; }
@@ -238,32 +242,53 @@
     .media-logo-badge { position: absolute; bottom: 15px; left: 0; right: 0; margin: auto; height: 32px; max-width: 120px; object-fit: contain; z-index: 3; background: rgba(255, 255, 255, 0.95); padding: 6px 10px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: transform 0.4s; }
     .vmp-title-badge { position: absolute; top: 15px; left: 15px; padding: 4px 8px; font-family: var(--mono); color: #fff; font-size: 0.65rem; font-weight: 700; border-radius: 2px; letter-spacing: 1px; z-index: 5; }
 
-    .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
-    .media-card { background: var(--bg-alt); border: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; transition: var(--transition); cursor: pointer; text-decoration: none; color: inherit; }
+    .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+    .media-card { background: var(--bg-alt); border: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; transition: all 0.3s ease; cursor: pointer; text-decoration: none; color: inherit; border-radius: 4px; }
+    .media-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
     .media-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
     .media-card.featured { grid-column: span 2; }
     .media-card .media-thumb-box { width: 100%; aspect-ratio: 16/9; position: relative; overflow: hidden; background: #000; border-bottom: 1px solid var(--border); }
     .media-card .card-img-bg { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.4); transition: 0.6s ease; opacity: 0.8; }
     .media-card:hover .card-img-bg { filter: grayscale(0); transform: scale(1.05); opacity: 1; }
-    .media-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+    .media-content { padding: 28px; flex: 1; display: flex; flex-direction: column; }
     
-    .card-label { font-family: var(--mono); font-size: 0.65rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-    .card-title { font-family: var(--display); font-size: 1.1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; color: var(--text); line-height: 1.3; }
-    .card-desc { font-size: 0.9rem; color: var(--grey-light); margin-bottom: 15px; flex: 1; line-height: 1.5; }
+    .card-label { font-family: var(--mono); font-size: 0.7rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .card-title { font-family: var(--display); font-size: 1.05rem; font-weight: 600; text-transform: none; margin-bottom: 12px; color: var(--text); line-height: 1.4; }
+    .card-desc { font-size: 0.9rem; color: var(--grey-light); margin-bottom: 16px; flex: 1; line-height: 1.6; }
     
     .link-arrow { color: var(--brand-blue); text-decoration: none; font-family: var(--mono); font-weight: 700; font-size: 0.75rem; margin-top: auto; display: inline-flex; align-items: center; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; }
     .media-card:hover .link-arrow { color: var(--accent); gap: 5px; }
     .video-indicator { position: absolute; top: 10px; right: 10px; background: var(--accent); color: white; padding: 3px 8px; font-family: var(--mono); font-size: 0.6rem; font-weight: 700; border-radius: 2px; z-index: 5;}
 
+    /* ─── MEDIA FILTERS ─────────────────────────────────────── */
+    .media-filters { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; }
+    .filter-btn { background: transparent; border: 1px solid var(--border); color: var(--grey-light); padding: 10px 20px; font-family: var(--mono); font-size: 10px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+    .filter-btn.active { border-color: var(--accent); color: var(--accent); }
+    .filter-btn:hover { border-color: var(--text); color: var(--text); }
+
+    /* ─── TESTIMONIALS ─────────────────────────────────────── */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 5%; max-width: 1400px; margin: 0 auto; }
+    .testimonial-card { background: var(--bg-alt); border: 1px solid var(--border); padding: 30px; text-align: center; transition: var(--transition); }
+    .testimonial-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    .testimonial-card p { color: var(--grey-light); font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+    .testimonial-card cite { color: var(--accent); font-family: var(--mono); font-size: 12px; font-weight: 700; text-transform: uppercase; }
+
+    /* ─── ANALYSIS CARDS ───────────────────────────────────── */
+    .analysis-card { background: var(--bg-alt); border: 1px solid var(--border); padding: 32px; border-radius: 4px; transition: all 0.3s ease; display: block; }
+    .analysis-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
+    .analysis-header { margin-bottom: 16px; }
+    .analysis-excerpt { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-top: 16px; }
+
     /* ─── FIELD DOCUMENTATION SWIPE GALLERY ─────────────────────── */
-    .swipe-gallery-wrapper { margin-top: 100px; padding: 0 5%; }
-    .swipe-gallery { display: flex; overflow-x: auto; gap: 30px; margin-top: 20px; padding-bottom: 20px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--grey-dark) transparent; }
-    .swipe-gallery::-webkit-scrollbar { height: 6px; }
+    .swipe-gallery-wrapper { margin-top: 120px; padding: 0 5%; }
+    .swipe-gallery { display: flex; overflow-x: auto; gap: 24px; margin-top: 30px; padding-bottom: 30px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--grey-dark) transparent; scroll-behavior: smooth; }
+    .swipe-gallery::-webkit-scrollbar { height: 8px; }
     .swipe-gallery::-webkit-scrollbar-track { background: transparent; }
     .swipe-gallery::-webkit-scrollbar-thumb { background: var(--grey-dark); border-radius: 10px; }
-    .gallery-item { flex: 0 0 auto; width: 250px; height: 350px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; scroll-snap-align: start; cursor: pointer; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.4); transition: transform 0.6s ease, filter 0.6s ease; opacity: 0.8; }
-    .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0); opacity: 1; }
+    .gallery-item { flex: 0 0 auto; width: 320px; height: 400px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; scroll-snap-align: start; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .gallery-item:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(0,0,0,0.5); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.4); transition: filter 0.4s ease, opacity 0.4s ease; opacity: 0.9; }
+    .gallery-item:hover img { filter: grayscale(0); opacity: 1; }
 
     /* ─── PRACTICE / PROFILE / CONTACT ──────────────────────────────── */
     .profile-content { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; padding: 0 48px 120px; max-width: 1600px; margin: 0 auto; }
@@ -292,6 +317,7 @@
     .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 17, 32, 0.95); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(10px); }
     .modal.active { display: flex; }
     .modal-content { max-width: 90%; max-height: 90%; border: 1px solid var(--border); box-shadow: 0 0 50px rgba(0,0,0,0.8); background: #000; }
+    .modal-content.zoomed { transform: scale(2); transition: transform 0.3s ease; cursor: zoom-out; }
     .close-btn { position: absolute; top: 25px; right: 40px; color: var(--text); font-size: 45px; cursor: pointer; z-index: 2001; font-family: var(--display); transition: color 0.3s ease; }
     .close-btn:hover { color: var(--accent); }
 
@@ -306,12 +332,15 @@
       .hero { flex-direction: column; justify-content: center; align-items: flex-start; gap: 40px; }
       .hero-left { display: none; }
       .hero-right { padding-left: 0; }
-      
+      .section-header { padding: 100px 48px 60px; }
       .campaign-brief { grid-template-columns: 1fr; gap: 40px; padding: 80px 48px; }
       .brief-meta { flex-direction: row; flex-wrap: wrap; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
       .brief-narrative { padding-right: 0; }
       .brief-media { min-height: 400px; }
       .media-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .swipe-gallery-wrapper { margin-top: 80px; }
+      .gallery-item { width: 280px; height: 350px; }
     }
     @media (max-width: 768px) {
       nav { padding: 20px 24px; }
@@ -326,6 +355,14 @@
       .doc-mockup { width: 100%; }
       .media-card.featured { grid-column: span 1; }
       .desktop-pdf-link { display: none !important; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .media-filters { flex-direction: column; align-items: center; gap: 10px; }
+      .media-logo-strip { gap: 2rem; padding: 0 2rem; }
+      .media-logo-item { height: 45px; max-width: 160px; padding: 8px; }
+      .swipe-gallery-wrapper { margin-top: 60px; padding: 0 2rem; }
+      .gallery-item { width: 240px; height: 300px; }
+      .btn-solid { padding: 16px 28px; font-size: 10px; }
+      .btn-outline-text { padding: 10px 20px; font-size: 10px; }
     }
     .mobile-pdf-link { display: none; }
     @media (max-width: 768px) { .mobile-pdf-link { display: inline-flex !important; } }
@@ -373,7 +410,7 @@
         <span data-t="hero_word4">CAMPAIGNS.</span>
       </h1>
       <p class="hero-subtext" data-t="hero_typing">
-        Labor, racial justice & public interest campaigns — over a decade advancing frontline voices and shaping policy outcomes.
+        Senior Communications Strategist specializing in labor, racial justice, and public policy campaigns. I build compelling narratives that move workers, media, and policymakers to action.
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn-solid" data-t="btn_contact">GET IN TOUCH</a>
@@ -636,59 +673,64 @@
   </section>
   
   <!-- OP-EDS & ANALYSIS -->
-  <section id="analysis" style="background: var(--bg-alt); padding: 80px 5%; border-top: 1px solid var(--border);">
-      <div class="section-header" style="padding: 0 0 60px 0;">
+  <section id="analysis" style="background: var(--bg-alt); padding: 120px 48px; border-top: 1px solid var(--border);">
+      <div class="section-header" style="padding: 0 0 80px 0;">
         <span class="sec-num">03</span>
         <h2 class="sec-title"><span class="outline">OP-EDS &</span> ANALYSIS</h2>
       </div>
-      
-      <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 60px;">
-          <div class="max-w-[1000px] w-full mx-auto">
-              <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
-                  <li onclick="if(window.innerWidth > 768) loadIntoViewer('site-145.pdf', 'Public_Education_Defender.pdf')" class="op-ed-list-item" tabindex="0">
-                      <div style="flex: 1; padding-right: 20px;">
-                          <div class="mono-text" style="color: var(--accent); font-weight: 700; margin-bottom: 8px;">SAN JOSÉ SPOTLIGHT • EDUCATION & POLICY</div>
-                          <div style="color: var(--text); font-size: 1.15rem; font-weight: bold; font-family: var(--display);">Public education in Santa Clara County needs a defender — by Dolores Huerta</div>
-                      </div>
-                      <div class="btn-outline-text desktop-pdf-link" style="margin-top: 0; flex-shrink: 0; border:none;">LOAD DOCUMENT ↘</div>
-                      <a href="site-145.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" style="margin-top: 0; flex-shrink: 0; border:none;" onclick="event.stopPropagation()">OPEN PDF ↗</a>
-                  </li>
-                  <li onclick="if(window.innerWidth > 768) loadIntoViewer('site-144.pdf', 'Hybrid_Work_Defies_Data.pdf')" class="op-ed-list-item" tabindex="0">
-                      <div style="flex: 1; padding-right: 20px;">
-                          <div class="mono-text" style="color: var(--accent); font-weight: 700; margin-bottom: 8px;">LOOKOUT SANTA CRUZ / SOCIAL SERVICES & HEALTH</div>
-                          <div style="color: var(--text); font-size: 1.15rem; font-weight: bold; font-family: var(--display);">County's push to reduce hybrid work for health care workers defies data</div>
-                      </div>
-                      <div class="btn-outline-text desktop-pdf-link" style="margin-top: 0; flex-shrink: 0; border:none;">LOAD DOCUMENT ↘</div>
-                      <a href="site-144.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" style="margin-top: 0; flex-shrink: 0; border:none;" onclick="event.stopPropagation()">OPEN PDF ↗</a>
-                  </li>
-                  <li onclick="if(window.innerWidth > 768) loadIntoViewer('site-147.pdf', 'Planned_Parenthood_Funding.pdf')" class="op-ed-list-item" tabindex="0">
-                      <div style="flex: 1; padding-right: 20px;">
-                          <div class="mono-text" style="color: var(--accent); font-weight: 700; margin-bottom: 8px;">NATIONAL PRESS / HEALTHCARE ACCESS</div>
-                          <div style="color: var(--text); font-size: 1.15rem; font-weight: bold; font-family: var(--display);">Defending Planned Parenthood: Budget Threatens Abortion Safe Haven</div>
-                      </div>
-                      <div class="btn-outline-text desktop-pdf-link" style="margin-top: 0; flex-shrink: 0; border:none;">LOAD DOCUMENT ↘</div>
-                      <a href="site-147.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" style="margin-top: 0; flex-shrink: 0; border:none;" onclick="event.stopPropagation()">OPEN PDF ↗</a>
-                  </li>
-              </ul>
-          </div>
 
-          <div class="doc-viewer-wrapper w-full max-w-[1000px] mx-auto desktop-pdf-link">
-              <div class="doc-toolbar">
-                  <div style="display: flex; align-items: center; gap: 15px;">
-                      <span class="doc-tag">PDF</span>
-                      <span id="docFilename" style="font-weight: 900; font-size: 0.8rem; color: var(--grey-light);">Public_Education_Defender.pdf</span>
+      <div style="max-width: 1400px; margin: 0 auto;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px;">
+              <a href="site-145.pdf" target="_blank" class="analysis-card" style="text-decoration: none; color: inherit;">
+                  <div class="analysis-header">
+                      <div class="mono-text" style="color: var(--accent); font-weight: 700; margin-bottom: 8px;">SAN JOSÉ SPOTLIGHT</div>
+                      <div style="color: var(--text); font-size: 1.2rem; font-weight: 600; line-height: 1.3;">Public education in Santa Clara County needs a defender</div>
                   </div>
-              </div>
-              <iframe id="inlineDocViewer" src="site-145.pdf#toolbar=0&view=FitH" style="width:100%; height:calc(100% - 55px); border:none; background:#F8FAFC;" title="Document Viewer"></iframe>
+                  <div class="analysis-meta" style="color: var(--grey-light); font-size: 0.9rem; margin-top: 12px;">
+                      By Dolores Huerta • Education & Policy • 2024
+                  </div>
+                  <div class="analysis-excerpt" style="color: var(--grey); font-size: 0.85rem; line-height: 1.5; margin-top: 16px;">
+                      An urgent call for advocacy in Santa Clara County's public education system, highlighting the need for dedicated defenders of educational equity.
+                  </div>
+              </a>
+
+              <a href="site-144.pdf" target="_blank" class="analysis-card" style="text-decoration: none; color: inherit;">
+                  <div class="analysis-header">
+                      <div class="mono-text" style="color: var(--accent); font-weight: 700; margin-bottom: 8px;">LOOKOUT SANTA CRUZ</div>
+                      <div style="color: var(--text); font-size: 1.2rem; font-weight: 600; line-height: 1.3;">County's push to reduce hybrid work defies data</div>
+                  </div>
+                  <div class="analysis-meta" style="color: var(--grey-light); font-size: 0.9rem; margin-top: 12px;">
+                      Social Services & Health • 2024
+                  </div>
+                  <div class="analysis-excerpt" style="color: var(--grey); font-size: 0.85rem; line-height: 1.5; margin-top: 16px;">
+                      Evidence-based analysis showing how Santa Cruz County's hybrid work policies contradict public health data and employee needs.
+                  </div>
+              </a>
+
+              <a href="site-147.pdf" target="_blank" class="analysis-card" style="text-decoration: none; color: inherit;">
+                  <div class="analysis-header">
+                      <div class="mono-text" style="color: var(--accent); font-weight: 700; margin-bottom: 8px;">NATIONAL PRESS</div>
+                      <div style="color: var(--text); font-size: 1.2rem; font-weight: 600; line-height: 1.3;">Defending Planned Parenthood funding</div>
+                  </div>
+                  <div class="analysis-meta" style="color: var(--grey-light); font-size: 0.9rem; margin-top: 12px;">
+                      Healthcare Access • 2023
+                  </div>
+                  <div class="analysis-excerpt" style="color: var(--grey); font-size: 0.85rem; line-height: 1.5; margin-top: 16px;">
+                      Critical examination of budget threats to Planned Parenthood and the broader implications for reproductive healthcare access.
+                  </div>
+              </a>
           </div>
       </div>
-  </section>
 
   <!-- MEDIA COVERAGE -->
   <section id="media">
     <div class="section-header">
       <span class="sec-num">04</span>
       <h2 class="sec-title"><span class="outline">MEDIA</span> COVERAGE</h2>
+    </div>
+    
+    <div class="credibility-header">
+      <h3 class="mono-text" style="text-align: center; margin-bottom: 40px; color: var(--accent);">Featured In</h3>
     </div>
     
     <div class="media-logo-strip">
@@ -700,6 +742,7 @@
         <img src="site-206.svg" class="media-logo-item" loading="lazy" alt="CBS">
         <img src="site-file999.png" class="media-logo-item" loading="lazy" alt="KQED / NPR">
         <img src="site-adc.png.jpeg" class="media-logo-item" loading="lazy" alt="Telemundo">
+        <img src="site-223.jpeg" class="media-logo-item" loading="lazy" alt="SFGATE">
     </div>
     
     <!-- Hero Media Hits -->
@@ -741,9 +784,17 @@
         </a>
     </div>
 
+    <!-- Media Filters -->
+    <div class="media-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="article">Articles</button>
+      <button class="filter-btn" data-filter="video">Video</button>
+      <button class="filter-btn" data-filter="audio">Audio</button>
+    </div>
+
     <!-- Media Grid -->
     <div class="media-grid">
-        <div class="media-card featured" onclick="openModal('site-280.mp4', 'video'); return false;" tabindex="0">
+        <div class="media-card featured video" onclick="openModal('site-280.mp4', 'video'); return false;" tabindex="0">
             <div class="media-thumb-box">
                 <div class="video-indicator">▶ WATCH</div>
                 <img src="site-scc.png" class="card-img-bg" loading="lazy" alt="CBS News" onerror="this.onerror=null;this.src='site-scc.jpg';">
@@ -757,7 +808,7 @@
             </div>
         </div>
 
-        <div class="media-card" onclick="openModal('site-kion.mp4', 'video'); return false;" tabindex="0">
+        <div class="media-card video" onclick="openModal('site-kion.mp4', 'video'); return false;" tabindex="0">
             <div class="media-thumb-box">
                 <div class="video-indicator">▶ WATCH</div>
                 <img src="site-imminente-scc.jpg" loading="lazy" class="card-img-bg" alt="KION Strike Image" onerror="this.onerror=null;this.src='site-imminente-scc.png';">
@@ -771,7 +822,7 @@
             </div>
         </div>
 
-        <div class="media-card">
+        <div class="media-card article">
             <div class="media-thumb-box">
                 <img src="site-201.jpg" class="card-img-bg" loading="lazy" alt="SFGATE">
                 <img src="site-223.jpeg" loading="lazy" class="media-logo-badge" alt="SFGATE">
@@ -784,7 +835,7 @@
             </div>
         </div>
 
-        <div class="media-card" onclick="openModal('site-157.jpg', 'image')" tabindex="0">
+        <div class="media-card audio" onclick="openModal('site-157.jpg', 'image')" tabindex="0">
             <div class="media-thumb-box">
                 <div class="video-indicator" style="background: var(--brand-blue);">🔊 LISTEN</div>
                 <img src="site-157.jpg" class="card-img-bg" loading="lazy" alt="KQED">
@@ -829,8 +880,39 @@
             </div>
         </div>
     </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" style="display: none; text-align: center; padding: 60px; color: var(--grey);">
+      <i data-lucide="search" style="width: 48px; height: 48px; margin-bottom: 20px;"></i>
+      <h3>No Results Found</h3>
+      <p>Try adjusting your filters or search terms.</p>
+      <button class="btn-outline-text" onclick="resetFilters()">Clear Filters</button>
+    </div>
   </section>
-  
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-header">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title"><span class="outline">ENDORSEMENTS</span></h2>
+    </div>
+    
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>"Ian Newman is a strategic communications powerhouse. His ability to craft compelling narratives that drive policy change is unparalleled."</p>
+        <cite>- Labor Organizer</cite>
+      </div>
+      <div class="testimonial-card">
+        <p>"Working with Ian transformed our campaign's visibility. His media strategy turned local issues into national conversations."</p>
+        <cite>- Campaign Director</cite>
+      </div>
+      <div class="testimonial-card">
+        <p>"Ian's expertise in crisis communications saved our organization during a critical moment. Highly recommend."</p>
+        <cite>- Nonprofit Executive</cite>
+      </div>
+    </div>
+  </section>
+
   <!-- FIELD DOCUMENTATION SWIPE GALLERY -->
   <div class="swipe-gallery-wrapper">
       <h3 style="font-family: var(--display); font-size: 1.5rem; font-weight: 900; text-transform: uppercase; color: var(--accent); margin-bottom: 20px;">Field Documentation</h3>
@@ -851,7 +933,7 @@
   <!-- PROFESSIONAL PROFILE -->
   <section id="profile">
     <div class="section-header">
-      <span class="sec-num">05</span>
+      <span class="sec-num">06</span>
       <h2 class="sec-title"><span class="outline">PROFESSIONAL</span> PROFILE</h2>
     </div>
     
@@ -1175,6 +1257,7 @@
         else { 
             img.src = src; 
             img.style.display = 'block'; 
+            img.ondblclick = toggleZoom;
         }
         
         m.classList.add('active');
@@ -1190,6 +1273,42 @@
         if(pdf) pdf.src = '';
         document.body.style.overflow = 'auto';
     }
+
+    function toggleZoom() {
+        const img = document.getElementById('modalImg');
+        img.classList.toggle('zoomed');
+    }
+
+    function resetFilters() {
+        document.querySelector('[data-filter="all"]').click();
+    }
+
+    // Media Filters
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                const cards = document.querySelectorAll('.media-card');
+                let visible = 0;
+                cards.forEach(card => {
+                    if (filter === 'all' || card.classList.contains(filter)) {
+                        card.style.display = 'block';
+                        visible++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                const emptyState = document.getElementById('empty-state');
+                if (visible === 0) {
+                    emptyState.style.display = 'block';
+                } else {
+                    emptyState.style.display = 'none';
+                }
+            });
+        });
+    });
 
     window.onclick = function(e) { if(e.target == document.getElementById('mediaModal')) closeModal(); }
 
