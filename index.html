@@ -156,30 +156,6 @@
     }
     .btn-outline-text:hover { color: var(--text); border-color: var(--text); gap: 12px; }
 
-    .hero-featured-carousel { display: grid; grid-template-columns: repeat(3, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem; }
-    .carousel-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 28px; min-height: 180px; transition: transform var(--transition), background var(--transition); }
-    .carousel-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.08); }
-    .carousel-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); }
-    .carousel-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; line-height: 1.2; }
-    .carousel-card p { font-size: 0.95rem; line-height: 1.7; color: var(--grey-light); }
-
-    .highlight-grid, .recent-ticker, .outlet-grid, .coverage-types-grid { display: grid; gap: 1.5rem; max-width: 1200px; margin: 0 auto 4rem; }
-    .highlight-grid { grid-template-columns: repeat(3, minmax(260px, 1fr)); }
-    .highlight-card, .recent-card, .outlet-card, .coverage-type-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; overflow: hidden; transition: transform var(--transition), background var(--transition); }
-    .highlight-card:hover, .recent-card:hover, .outlet-card:hover, .coverage-type-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.06); }
-    .highlight-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
-    .highlight-card-content, .outlet-card-content, .coverage-type-card-content { display: flex; flex-direction: column; gap: 14px; padding: 28px; }
-    .highlight-card .mono-text, .outlet-card .mono-text, .coverage-type-card .mono-text, .recent-card .mono-text { font-size: 10px; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; }
-    .highlight-card h3, .recent-card h3, .outlet-card h3, .coverage-type-card h3 { font-size: clamp(1.1rem, 1.2vw, 1.5rem); line-height: 1.2; color: var(--text); }
-    .highlight-card p, .recent-card p, .coverage-type-card p { color: var(--grey-light); line-height: 1.7; }
-    .recent-ticker { grid-template-columns: repeat(3, minmax(240px, 1fr)); padding: 0 48px; }
-    .recent-card { min-height: 220px; padding: 28px; }
-    .outlet-grid { grid-template-columns: repeat(3, minmax(240px, 1fr)); padding: 0 48px; }
-    .coverage-types-grid { grid-template-columns: repeat(4, minmax(220px, 1fr)); padding: 0 48px; }
-    .coverage-type-card { min-height: 220px; }
-    .coverage-type-card span { font-family: var(--mono); }
-    .btn-outline-text.card-link { width: fit-content; margin-top: auto; }
-
     .scroll-indicator { position: absolute; bottom: 40px; left: 48px; display: flex; align-items: center; gap: 16px; color: var(--grey); }
     .scroll-line { width: 40px; height: 1px; background: var(--accent); }
 
@@ -291,29 +267,10 @@
 
     .mc-text-center { text-align: center; padding: 3rem; align-items: center; justify-content: center; }
     
-    .mc-hero-img-box { position: relative; width: 100%; height: 350px; background: #000; border-bottom: 1px solid var(--border); overflow: hidden; }
-    .mc-hero-img-box img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.7; transition: opacity 0.5s, transform 0.5s; transform: translate3d(0, clamp(-40px, var(--parallax-y, 0px), 40px), 0); max-width: none; max-height: none; }
-    .mc-card:hover .mc-hero-img-box img.bg { opacity: 1; transform: translate3d(0, clamp(-40px, var(--parallax-y, 0px), 40px), 0) scale(1.03); }
-
-    .mc-small-img-box { position: relative; width: 100%; height: 200px; background: #000; border-bottom: 1px solid var(--border); overflow: hidden; }
-    .mc-small-img-box img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.8; transition: 0.5s; max-width: none; max-height: none; }
-    .mc-card:hover .mc-small-img-box img.bg { opacity: 1; transform: scale(1.05); }
-
-    .gallery-item img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-        max-width: none;
-        max-height: none;
-        transform: translate3d(0, clamp(-40px, var(--parallax-y, 0px), 40px), 0);
-        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .gallery-item:hover img { transform: translate3d(0, clamp(-40px, var(--parallax-y, 0px), 40px), 0) scale(1.05); }
-
+    .mc-hero-img-box { position: relative; width: 100%; height: 350px; background: #000; border-bottom: 1px solid var(--border); }
+    .mc-hero-img-box img.bg { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; transition: opacity 0.5s, transform 0.5s; transform: translate3d(0, var(--parallax-y, 0px), 0); }
+    .mc-card:hover .mc-hero-img-box img.bg { opacity: 1; transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.03); }
+    
     .mc-badge-center { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); height: 32px; max-width: 120px; object-fit: contain; background: rgba(255,255,255,0.95); padding: 4px 8px; border-radius: 4px; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.4s; }
     
     .mc-badge-tl { position: absolute; top: 15px; left: 15px; padding: 4px 8px; font-family: var(--mono); font-size: 10px; font-weight: 700; color: #fff; background: var(--grey-dark); border-radius: 2px; letter-spacing: 1px; z-index: 2; text-transform: uppercase; }
@@ -436,19 +393,11 @@
     }
     .gallery-item:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.35); }
     .gallery-item img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-        max-width: none;
-        max-height: none;
-        transform: translate3d(0, clamp(-40px, var(--parallax-y, 0px), 40px), 0);
-        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        width: 100%; height: 100%; object-fit: cover; 
+        transform: translate3d(0, var(--parallax-y, 0px), 0);
+        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
     }
-    .gallery-item:hover img { transform: translate3d(0, clamp(-40px, var(--parallax-y, 0px), 40px), 0) scale(1.05); }
+    .gallery-item:hover img { transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.05); }
     .gallery-overlay {
         position: absolute; bottom: 0; left: 0; right: 0;
         background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
@@ -565,7 +514,6 @@
       .brief-media { min-height: 400px; }
       
       .mc-row-3 { grid-template-columns: 1fr 1fr; }
-      .hero-featured-carousel, .highlight-grid, .recent-ticker, .outlet-grid, .coverage-types-grid { grid-template-columns: 1fr; }
       
       .photo-gallery { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 250px; }
       .span-2-2 { grid-column: span 2; grid-row: span 2; }
@@ -603,11 +551,6 @@
       
       .mc-row-2, .mc-row-3 { grid-template-columns: 1fr; }
       .mc-hero-img-box { height: 250px; }
-      .hero-featured-carousel, .highlight-grid, .recent-ticker, .outlet-grid, .coverage-types-grid { grid-template-columns: 1fr; padding: 0 24px; }
-      .hero-featured-carousel { margin-top: 1.5rem; }
-      .recent-card, .highlight-card, .outlet-card, .coverage-type-card { min-height: auto; }
-      .coverage-types-grid { grid-template-columns: 1fr; }
-
       .mc-text-center { padding: 2rem 1.5rem; }
       .storytelling-layout { grid-template-columns: 1fr; }
       .story-viewer { min-height: auto; padding: 1.5rem; }
@@ -643,14 +586,14 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#hero" class="nav-logo">SEIU 521 MEDIA</a>
+    <a href="#" class="nav-logo">IAN MARK NEWMAN</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#campaigns" data-t="nav_campaigns">CAMPAIGNS</a></li>
-      <li><a href="#outlets" data-t="nav_by_outlet">BY OUTLET</a></li>
-      <li><a href="#coverage-types" data-t="nav_by_type">BY TYPE</a></li>
-      <li><a href="#about" data-t="nav_about">ABOUT</a></li>
-      <li><a href="#media-contact" data-t="nav_media_contact">MEDIA CONTACT</a></li>
-      <li><a href="site-148.pdf" target="_blank" data-t="nav_resume">RESUME</a></li>
+      <li><a href="#media" data-t="nav_media">MEDIA</a></li>
+      <li><a href="#analysis" data-t="doc_opeds_title">OP-EDS</a></li>
+      <li><a href="#profile" data-t="nav_profile">PROFILE</a></li>
+      <li><a href="assets/docs/site-148.pdf" target="_blank" data-t="nav_resume">RESUME</a></li>
+      <li><a href="#contact" class="active" style="color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 4px;" data-t="nav_contact">CONTACT</a></li>
       <li><button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">[ES]</button></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu">
@@ -664,36 +607,19 @@
       <div class="hero-circle-graphic" data-ag-depth="1.5"></div>
     </div>
     <div class="hero-right">
-      <div class="hero-eyebrow mono-text reveal" data-t="hero_tag">SEIU 521 MEDIA PORTFOLIO</div>
+      <div class="hero-eyebrow mono-text reveal" data-t="hero_tag">SENIOR COMMUNICATIONS STRATEGIST</div>
       <h1 class="hero-headline reveal" style="transition-delay: 0.1s;">
-        <span class="outline" data-t="hero_word1">AMPLIFYING</span><br/>
-        <span data-t="hero_word2">WORKER VOICES</span><br/>
-        <span class="outline" data-t="hero_word3">ACROSS</span><br/>
-        <span class="outline" data-t="hero_word4">CALIFORNIA</span>
+        <span class="outline" data-t="hero_word1">DRIVING</span><br/>
+        <span data-t="hero_word2">NARRATIVES.</span><br/>
+        <span class="outline" data-t="hero_word3">WINNING</span><br/>
+        <span class="outline" data-t="hero_word4">CAMPAIGNS.</span>
       </h1>
       <p class="hero-subtext reveal" style="transition-delay: 0.2s;" data-t="hero_typing">
-        Strategic earned media, bilingual outreach, and campaign communications for SEIU 521 union victories and community power.
+        Labor, racial justice & public interest campaigns — over a decade advancing frontline voices and shaping policy outcomes.
       </p>
       <div class="hero-actions reveal" style="transition-delay: 0.3s;">
-        <a href="#media-contact" class="btn-solid" data-t="btn_contact">GET IN TOUCH</a>
+        <a href="#contact" class="btn-solid" data-t="btn_contact">GET IN TOUCH</a>
         <a href="#campaigns" class="btn-outline-text" data-t="btn_work">VIEW STRATEGY</a>
-      </div>
-      <div class="hero-featured-carousel reveal" style="transition-delay: 0.4s;">
-        <article class="carousel-card">
-          <span class="carousel-badge">FEATURED STORY</span>
-          <h3>VTA Transit Strike Coverage</h3>
-          <p>National and local outlets elevated worker demand for safer, better-funded transit service.</p>
-        </article>
-        <article class="carousel-card">
-          <span class="carousel-badge">KEY IMPACT</span>
-          <h3>Election & Organizing Support</h3>
-          <p>Bilingual communications powered member engagement across Spanish-language markets.</p>
-        </article>
-        <article class="carousel-card">
-          <span class="carousel-badge">MEDIA PACKAGE</span>
-          <h3>Broadcast + Digital Stories</h3>
-          <p>Podcast segments, live interviews, and digital features amplified frontline worker leadership.</p>
-        </article>
       </div>
     </div>
     <div class="scroll-indicator mono-text">
@@ -703,89 +629,29 @@
 
   <!-- STATS ROW (Interactive) -->
   <section class="stats-row" id="impact">
-    <div class="stat-box reveal" data-target="23" data-bar="90">
+    <div class="stat-box reveal" data-target="6000000" data-suffix="+" data-bar="82">
       <div class="stat-val">0</div>
-      <div class="stat-label mono-text" data-t="stat_01">📺 Broadcast Placements</div>
+      <div class="stat-label mono-text" data-t="stat_01">VERIFIED AUDIENCE REACH</div>
       <div class="stat-bar"><span class="stat-bar-fill"></span></div>
     </div>
-    <div class="stat-box reveal" style="transition-delay: 0.1s;" data-target="89" data-bar="75">
-      <div class="stat-val">0</div>
-      <div class="stat-label mono-text" data-t="stat_02">📰 Print + Digital Stories</div>
+    <div class="stat-box reveal" style="transition-delay: 0.1s;" data-target="98.6" data-suffix="%" data-bar="98">
+      <div class="stat-val">0%</div>
+      <div class="stat-label mono-text" data-t="stat_02">STRIKE AUTHORIZATION SUCCESS</div>
       <div class="stat-bar"><span class="stat-bar-fill"></span></div>
     </div>
-    <div class="stat-box reveal" style="transition-delay: 0.2s;" data-target="7" data-bar="68">
-      <div class="stat-val">0</div>
-      <div class="stat-label mono-text" data-t="stat_03">🌐 Bilingual Media Drives</div>
+    <div class="stat-box reveal" style="transition-delay: 0.2s;" data-target="87" data-suffix="%" data-bar="87">
+      <div class="stat-val">0%</div>
+      <div class="stat-label mono-text" data-t="stat_03">ENGAGEMENT & CONVERSION</div>
       <div class="stat-bar"><span class="stat-bar-fill"></span></div>
     </div>
-    <div class="stat-box reveal" style="transition-delay: 0.3s;" data-target="8" data-bar="80">
+    <div class="stat-box reveal" style="transition-delay: 0.3s;" data-target="200000" data-suffix="+" data-bar="64">
       <div class="stat-val">0</div>
-      <div class="stat-label mono-text" data-t="stat_04">🎙️ Audio Features</div>
+      <div class="stat-label mono-text" data-t="stat_04">IMPACTED WORKFORCE MEMBERS</div>
       <div class="stat-bar"><span class="stat-bar-fill"></span></div>
     </div>
   </section>
 
-  <section id="highlights">
-    <div class="section-header reveal">
-      <span class="sec-num">01</span>
-      <h2 class="sec-title"><span class="outline">CAMPAIGN</span> HIGHLIGHTS</h2>
-    </div>
-    <div class="highlight-grid reveal">
-      <article class="highlight-card">
-        <img src="site-203.webp" alt="VTA strike narrative" onerror="this.src='https://images.unsplash.com/photo-1534081333815-ae5019106622?auto=format&fit=crop&q=80&w=1200'" />
-        <div class="highlight-card-content">
-          <span class="mono-text">Transit & Labor / New York Times</span>
-          <h3>VTA Strike Narrative Centered Transit Workers</h3>
-          <p>Secured national coverage and local Spanish-language support for bargaining leverage.</p>
-          <a href="#media" class="btn-outline-text card-link">Explore coverage</a>
-        </div>
-      </article>
-      <article class="highlight-card">
-        <img src="site-jaxon-124.webp" alt="Investigative campaign" onerror="this.src='https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&q=80&w=1200'" />
-        <div class="highlight-card-content">
-          <span class="mono-text">Investigative / KQED</span>
-          <h3>Baby Jaxon Investigation Drives System Clarity</h3>
-          <p>Investigative storytelling strengthened public accountability and policy attention.</p>
-          <a href="#media" class="btn-outline-text card-link">View media details</a>
-        </div>
-      </article>
-      <article class="highlight-card">
-        <img src="site-a.jpg.webp" alt="Broadcast campaign" onerror="this.src='https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&q=80&w=1200'" />
-        <div class="highlight-card-content">
-          <span class="mono-text">Broadcast / Telemundo</span>
-          <h3>Bilingual Broadcast Anchors Worker Stories</h3>
-          <p>Live interviews and Spanish-language outreach amplified the union narrative across the region.</p>
-          <a href="#media" class="btn-outline-text card-link">See broadcast highlights</a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="recent-coverage" style="background: var(--bg-alt); padding-bottom: 4rem;">
-    <div class="section-header reveal">
-      <span class="sec-num">02</span>
-      <h2 class="sec-title"><span class="outline">RECENT</span> COVERAGE</h2>
-    </div>
-    <div class="recent-ticker reveal">
-      <article class="recent-card">
-        <span class="mono-text">NYT</span>
-        <h3>Transit safety story reaches national audiences</h3>
-        <p>Coverage spotlighted frontline operator demands ahead of contract negotiations.</p>
-      </article>
-      <article class="recent-card">
-        <span class="mono-text">KQED</span>
-        <h3>Healthcare workers secure community trust</h3>
-        <p>Feature stories emphasized worker health equity and the power of organizing.</p>
-      </article>
-      <article class="recent-card">
-        <span class="mono-text">Telemundo</span>
-        <h3>Spanish-language multimedia campaign boosts member voice</h3>
-        <p>Live interviews and translated assets ensured deeper connection with Latino communities.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- 02: CAMPAIGN BRIEFS -->
+  <!-- 01: CAMPAIGN BRIEFS -->
   <section id="campaigns">
     <div class="section-header reveal">
       <span class="sec-num">01</span>
@@ -825,7 +691,7 @@
       </div>
       <div class="brief-media">
         <video autoplay muted loop playsinline style="width: 100%; height: auto; border-radius: 8px; background: #000; object-fit: cover; max-height: 600px;" preload="metadata">
-          <source src="site-280.mp4" type="video/mp4">
+          <source src="assets/video/site-280.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -851,11 +717,11 @@
         <p class="brief-body">
           Facing severe budget cuts to critical public infrastructure, we launched the <em>Monterey County Can!</em> campaign. By pairing high-impact field videography with frictionless digital advocacy tools, we converted community outrage into actionable legislative pressure, successfully shielding vital public works from the chopping block.
         </p>
-        <a href="#" onclick="openModal('MCCsequence-1.mov', 'video'); return false;" class="btn-outline-text">REVIEW THE CAMPAIGN WEBSITE <i data-lucide="play-circle" style="width:14px;"></i></a>
+        <a href="#" onclick="openModal('assets/video/MCCsequence-1.mov', 'video'); return false;" class="btn-outline-text">REVIEW THE CAMPAIGN WEBSITE <i data-lucide="play-circle" style="width:14px;"></i></a>
       </div>
       <div class="brief-media" style="min-height: auto; align-self: center;">
         <video autoplay muted loop playsinline preload="metadata" style="width: 100%; height: auto; max-height: 620px; border-radius: 12px; object-fit: cover;">
-          <source src="MCCsequence-1.mov" type="video/quicktime">
+          <source src="assets/video/MCCsequence-1.mov" type="video/quicktime">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -883,7 +749,7 @@
         <p class="brief-body">
           During high-stakes negotiations for frontline grocery and retail workers, safety language wasn't just a talking point—it was a lifeline. I designed and distributed targeted print collateral, bridging the gap between the bargaining table and the shop floor to keep members deeply unified, informed, and ready to authorize action.
         </p>
-        <a href="#" onclick="openModal('site-148.pdf', 'pdf'); return false;" class="btn-outline-text">VIEW CAMPAIGN ASSETS <i data-lucide="folder-open" style="width:14px;"></i></a>
+        <a href="#" onclick="openModal('assets/docs/site-148.pdf', 'pdf'); return false;" class="btn-outline-text">VIEW CAMPAIGN ASSETS <i data-lucide="folder-open" style="width:14px;"></i></a>
       </div>
     </article>
 
@@ -894,16 +760,16 @@
     
     <!-- Logos (Moved above header) -->
     <div class="media-logo-strip reveal" style="padding-top: 100px; padding-bottom: 20px;">
-        <a href="#media" class="media-logo-link"><img src="site-nyt.png" class="media-logo-item" loading="lazy" alt="The New York Times" onerror="this.style.display='none'"></a>
-        <a href="#media" class="media-logo-link"><img src="site-223.jpeg" class="media-logo-item" loading="lazy" alt="SFGATE" onerror="this.style.display='none'"></a>
-        <a href="#media" class="media-logo-link"><img src="site-222.webp" class="media-logo-item" loading="lazy" alt="SF Chronicle" onerror="this.style.display='none'"></a>
-        <a href="#media" class="media-logo-link"><img src="site-225.webp" class="media-logo-item" loading="lazy" alt="The Mercury News" onerror="this.style.display='none'"></a>
-        <a href="#media" class="media-logo-link"><img src="site-SJS.png" class="media-logo-item" loading="lazy" alt="San Jose Spotlight" onerror="this.style.display='none'"></a>
-        <a href="#media" class="media-logo-link"><img src="site-look.webp" class="media-logo-item" loading="lazy" alt="Lookout Santa Cruz" onerror="this.style.display='none'"></a>
-        <a href="#media" class="media-logo-link"><img src="site-206.svg" class="media-logo-item" loading="lazy" alt="CBS News" onerror="this.style.display='none'"></a>
-        <a href="#media" class="media-logo-link"><img src="site-file999.png" class="media-logo-item" loading="lazy" alt="KQED / NPR" onerror="this.style.display='none'"></a>
-        <a href="#media" class="media-logo-link"><img src="site-adc.png.jpeg" class="media-logo-item" loading="lazy" alt="Telemundo" onerror="this.style.display='none'"></a>
-        <a href="#media" class="media-logo-link"><img src="site-258.webp" class="media-logo-item" loading="lazy" alt="Univision" onerror="this.style.display='none'"></a>
+        <a href="#media" class="media-logo-link"><img src="assets/images/site-nyt.png" class="media-logo-item" loading="lazy" alt="The New York Times" onerror="this.style.display='none'"></a>
+        <a href="#media" class="media-logo-link"><img src="assets/images/site-223.jpeg" class="media-logo-item" loading="lazy" alt="SFGATE" onerror="this.style.display='none'"></a>
+        <a href="#media" class="media-logo-link"><img src="assets/images/site-222.webp" class="media-logo-item" loading="lazy" alt="SF Chronicle" onerror="this.style.display='none'"></a>
+        <a href="#media" class="media-logo-link"><img src="assets/images/site-225.webp" class="media-logo-item" loading="lazy" alt="The Mercury News" onerror="this.style.display='none'"></a>
+        <a href="#media" class="media-logo-link"><img src="assets/images/site-SJS.png" class="media-logo-item" loading="lazy" alt="San Jose Spotlight" onerror="this.style.display='none'"></a>
+        <a href="#media" class="media-logo-link"><img src="assets/images/site-look.webp" class="media-logo-item" loading="lazy" alt="Lookout Santa Cruz" onerror="this.style.display='none'"></a>
+        <a href="#media" class="media-logo-link"><img src="assets/images/site-206.svg" class="media-logo-item" loading="lazy" alt="CBS News" onerror="this.style.display='none'"></a>
+        <a href="#media" class="media-logo-link"><img src="assets/images/site-file999.png" class="media-logo-item" loading="lazy" alt="KQED / NPR" onerror="this.style.display='none'"></a>
+        <a href="#media" class="media-logo-link"><img src="assets/images/site-adc.png.jpeg" class="media-logo-item" loading="lazy" alt="Telemundo" onerror="this.style.display='none'"></a>
+        <a href="#media" class="media-logo-link"><img src="assets/images/site-258.webp" class="media-logo-item" loading="lazy" alt="Univision" onerror="this.style.display='none'"></a>
     </div>
 
     <div class="section-header reveal" style="padding: 20px 48px 60px;">
@@ -928,7 +794,7 @@
         <div class="mc-card reveal">
             <div class="mc-hero-img-box">
                 <div class="mc-badge-tl">Article</div>
-                <img src="site-planned-parenthood.png" class="bg" alt="Planned Parenthood Mar Monte Workers" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=1200'">
+                <img src="assets/images/site-planned-parenthood.png" class="bg" alt="Planned Parenthood Mar Monte Workers" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=1200'">
             </div>
             <div class="mc-card-content">
                 <div class="mc-label">Labor Organizing / SF Chronicle</div>
@@ -936,7 +802,7 @@
                 <p class="mc-desc" style="margin-left: 0;">Highlighting the historic organizing efforts of healthcare professionals pushing for representation, security, and improved workplace conditions across clinics.</p>
                 <div class="mc-links-col">
                     <span class="mc-followup-label">Coverage:</span>
-                    <a href="#" onclick="openModal('Bay Area Planned Parenthood workers are unionizing, citing Trump cuts-PDF.pdf', 'pdf'); return false;" class="mc-link">SF CHRONICLE: WORKERS FILE FOR UNION ELECTION ↗</a>
+                    <a href="#" onclick="openModal('assets/docs/Bay%20Area%20Planned%20Parenthood%20workers%20are%20unionizing,%20citing%20Trump%20cuts-PDF.pdf', 'pdf'); return false;" class="mc-link">SF CHRONICLE: WORKERS FILE FOR UNION ELECTION ↗</a>
                 </div>
             </div>
         </div>
@@ -944,7 +810,7 @@
         <!-- Row 2: Baby Jaxon -->
         <div class="mc-card reveal">
             <div class="mc-hero-img-box">
-                <img src="site-jaxon-124.webp" class="bg" alt="Baby Jaxon Infant Tragedy" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=1200'">
+                <img src="assets/images/site-jaxon-124.webp" class="bg" alt="Baby Jaxon Infant Tragedy" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=1200'">
             </div>
             <div class="mc-text-center">
                 <div class="mc-label">Investigative / San Jose Spotlight</div>
@@ -963,7 +829,7 @@
         <a href="https://www.nytimes.com/2021/05/26/us/san-jose-mass-shooting.html" target="_blank" class="mc-card reveal">
             <div class="mc-hero-img-box">
                 <div class="mc-badge-tl">Article</div>
-                <img src="site-a.jpg.webp" class="bg" alt="VTA Incident" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=1200'">
+                <img src="assets/images/site-a.jpg.webp" class="bg" alt="VTA Incident" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=1200'">
             </div>
             <div class="mc-text-center">
                 <div class="mc-label">Crisis Communications / The New York Times</div>
@@ -980,7 +846,7 @@
         <div class="mc-card reveal">
             <div class="mc-hero-img-box">
                 <div class="mc-badge-tl">Article</div>
-                <img src="site-203.webp" class="bg" alt="Santa Cruz Strike">
+                <img src="assets/images/site-203.webp" class="bg" alt="Santa Cruz Strike" onerror="this.src='Screenshot 2026-05-07 at 10.52.34 PM.jpg'">
             </div>
             <div class="mc-card-content">
                 <div class="mc-label">Labor Action / City of Santa Cruz</div>
@@ -988,9 +854,9 @@
                 <p class="mc-desc" style="margin-left: 0;">Strategic communication utilizing local press to fuel virality on Reddit regarding library harassment and unsafe conditions, culminating in a city-wide strike mobilization.</p>
                 <div class="mc-links-col">
                     <span class="mc-followup-label">Establishing and follow up stories:</span>
-                    <a href="#" onclick="openModal('site-142.pdf', 'pdf'); return false;" class="mc-link">SENTINEL: SC LIBRARIES ALLEGED HARASSMENT ↗</a>
+                    <a href="#" onclick="openModal('assets/docs/site-142.pdf', 'pdf'); return false;" class="mc-link">SENTINEL: SC LIBRARIES ALLEGED HARASSMENT ↗</a>
                     <a href="https://www.santacruzsentinel.com/2025/10/22/city-of-santa-cruz-workers-approve-strike-authorization/" target="_blank" class="mc-link">SENTINEL: WORKERS APPROVE STRIKE AUTHORIZATION ↗</a>
-                    <a href="#" onclick="openModal('site-124.pdf', 'pdf'); return false;" class="mc-link">MERCURY NEWS: WORKERS WILL STRIKE NEXT WEEK ↗</a>
+                    <a href="#" onclick="openModal('assets/docs/site-124.pdf', 'pdf'); return false;" class="mc-link">MERCURY NEWS: WORKERS WILL STRIKE NEXT WEEK ↗</a>
                     <a href="https://www.sfgate.com/news/bayarea/article/santa-cruz-unionized-city-employees-poised-to-21115411.php" target="_blank" class="mc-link">SFGATE: POISED TO STRIKE ↗</a>
                     <a href="https://www.sfgate.com/news/bayarea/article/santa-cruz-unionized-city-employees-tentatively-21144767.php" target="_blank" class="mc-link">SFGATE: TENTATIVE AGREEMENT ↗</a>
                     <a href="https://www.santacruzsentinel.com/2025/11/18/santa-cruz-city-workers-with-seiu-local-521-ratify-3-year-contract/" target="_blank" class="mc-link">SENTINEL: WORKERS RATIFY 3-YEAR CONTRACT ↗</a>
@@ -1000,10 +866,10 @@
         </div>
 
         <!-- Row 5: CBS / KION -->
-        <div class="mc-card" style="cursor:pointer;" onclick="openModal('site-280.mp4', 'video')">
+        <div class="mc-card" style="cursor:pointer;" onclick="openModal('assets/video/site-280.mp4', 'video')">
             <div class="mc-small-img-box">
                 <div class="mc-badge-tl">Broadcast</div>
-                <img src="site-scc.png" class="bg" alt="Santa Clara County Averts Strike" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=600'">
+                <img src="assets/images/site-scc.png" class="bg" alt="Santa Clara County Averts Strike" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=600'">
             </div>
             <div class="mc-card-content-small">
                 <div class="mc-label">Broadcast News / CBS SF</div>
@@ -1013,10 +879,10 @@
                 </div>
             </div>
         </div>
-        <div class="mc-card" style="cursor:pointer;" onclick="openModal('telemundo-export.mp4', 'video')">
+        <div class="mc-card" style="cursor:pointer;" onclick="openModal('assets/video/telemundo-export.mp4', 'video')">
             <div class="mc-small-img-box">
                 <div class="mc-badge-tl">Broadcast</div>
-                <img src="site-imminente-scc.png" class="bg" alt="Telemundo Strike Coverage" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=600'">
+                <img src="assets/images/site-imminente-scc.png" class="bg" alt="Telemundo Strike Coverage" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=600'">
             </div>
             <div class="mc-card-content-small">
                 <div class="mc-label">Bilingual Broadcast / Telemundo</div>
@@ -1031,7 +897,7 @@
             <div class="mc-card reveal">
                 <div class="mc-small-img-box">
                     <div class="mc-badge-tl">Article</div>
-                    <img src="site-201.jpg" class="bg" alt="SFGATE" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=600'">
+                    <img src="assets/images/site-201.jpg" class="bg" alt="SFGATE" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=600'">
                 </div>
                 <div class="mc-card-content-small">
                     <div class="mc-label">Labor Action / SFGATE</div>
@@ -1046,11 +912,11 @@
                 </div>
             </div>
             
-            <div class="mc-card" style="cursor:pointer;" onclick="openModal('site-157.jpg', 'image')">
+            <div class="mc-card" style="cursor:pointer;" onclick="openModal('assets/images/site-157.jpg', 'image')">
                 <div class="mc-small-img-box">
                     <div class="mc-badge-tl blue">Audio</div>
                     <div class="mc-badge-tr"><i data-lucide="volume-2" style="width:12px; height:12px;"></i> Listen</div>
-                    <img src="site-157.jpg" class="bg" alt="KQED" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=600'">
+                    <img src="assets/images/site-157.jpg" class="bg" alt="KQED" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=600'">
                 </div>
                 <div class="mc-card-content-small">
                     <div class="mc-label">Public Radio Feature / KQED</div>
@@ -1069,7 +935,7 @@
             <div class="mc-card">
                 <div class="mc-small-img-box">
                     <div class="mc-badge-tl red">Press & Audio</div>
-                    <img src="site-162.jpg" class="bg" alt="KQED" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=600'">
+                    <img src="assets/images/site-162.jpg" class="bg" alt="KQED" onerror="this.src='https://images.unsplash.com/photo-1621245084936-a3da1c0e3408?auto=format&fit=crop&q=80&w=600'">
                 </div>
                 <div class="mc-card-content-small">
                     <div class="mc-label">Public Radio & News / KQED</div>
@@ -1117,7 +983,7 @@
           </div>
 
           <div class="op-ed-grid">
-              <article class="op-ed-card" data-filter="analysis" onclick="if(window.innerWidth > 768) loadIntoViewer('site-130.pdf', 'site-130.pdf', 'Santa Cruz wages are so low, some of us live in our cars; city workers need raises, protection and respect', 'BY LESLIE AUERBACH, KEN BARE, ERIC BUMGARNER, BRIAN CLINE, EMILIO GALVAN, DAVID TANNACI', 'Lookout Santa Cruz!', '2022')" tabindex="0">
+              <article class="op-ed-card" data-filter="analysis" onclick="if(window.innerWidth > 768) loadIntoViewer('assets/docs/site-130.pdf', 'site-130.pdf', 'Santa Cruz wages are so low, some of us live in our cars; city workers need raises, protection and respect', 'BY LESLIE AUERBACH, KEN BARE, ERIC BUMGARNER, BRIAN CLINE, EMILIO GALVAN, DAVID TANNACI', 'Lookout Santa Cruz!', '2022')" tabindex="0">
                   <div class="op-ed-card__content">
                       <span class="op-ed-card__label">Lead feature</span>
                       <h3 class="op-ed-title">Santa Cruz wages are so low, some of us live in our cars; city workers need raises, protection and respect</h3>
@@ -1126,24 +992,24 @@
                   </div>
                   <div class="op-ed-actions">
                       <span class="btn-outline-text desktop-pdf-link">LOAD DOCUMENT ↘</span>
-                      <a href="site-130.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
+                      <a href="assets/docs/site-130.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
                   </div>
               </article>
 
-              <article class="op-ed-card" onclick="if(window.innerWidth > 768) loadIntoViewer('site-138.pdf', 'site-138.pdf', 'The Santa Cruz County Animal Shelter has too many pets and too little staff; we need action now', 'By SEIU 521, by Ian Mark Newman', 'Lookout Santa Cruz!', '2024')" tabindex="0">
+              <article class="op-ed-card" onclick="if(window.innerWidth > 768) loadIntoViewer('assets/docs/site-138.pdf', 'site-138.pdf', 'The Santa Cruz County Animal Shelter has too many pets and too little staff; we need action now', 'By SEIU 521, by Ian Mark Newman', 'Lookout Santa Cruz!', '2024')" tabindex="0">
                   <div class="op-ed-card__content">
                       <span class="op-ed-card__label">Investigation</span>
                       <h3 class="op-ed-title">The Santa Cruz County Animal Shelter has too many pets and too little staff; we need action now</h3>
                       <div class="op-ed-meta"><span class="op-ed-pill">Lookout Santa Cruz!</span><span>2024</span><span>By SEIU 521, by Ian Mark Newman</span></div>
-                      <p class="op-ed-excerpt">A critical call to action on staffing shortfalls and public accountability at the county shelter, blending policy urgency con campaign pressure.</p>
+                      <p class="op-ed-excerpt">A critical call to action on staffing shortfalls and public accountability at the county shelter, blending policy urgency with campaign pressure.</p>
                   </div>
                   <div class="op-ed-actions">
                       <span class="btn-outline-text desktop-pdf-link">LOAD DOCUMENT ↘</span>
-                      <a href="site-138.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
+                      <a href="assets/docs/site-138.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
                   </div>
               </article>
 
-              <article class="op-ed-card" onclick="if(window.innerWidth > 768) loadIntoViewer('site-146.pdf', 'site-146.pdf', 'The push to outsource Santa Cruz County to outsource Santa Cruz County Public Health', 'By Cassandra Cheddar, Jacob Ginsburg, Jason Johnston', 'Santa Cruz Sentinel', '2025')" tabindex="0">
+              <article class="op-ed-card" onclick="if(window.innerWidth > 768) loadIntoViewer('assets/docs/site-146.pdf', 'site-146.pdf', 'The push to outsource Santa Cruz County to outsource Santa Cruz County Public Health', 'By Cassandra Cheddar, Jacob Ginsburg, Jason Johnston', 'Santa Cruz Sentinel', '2025')" tabindex="0">
                   <div class="op-ed-card__content">
                       <span class="op-ed-card__label">Policy alert</span>
                       <h3 class="op-ed-title">The push to outsource Santa Cruz County to outsource Santa Cruz County Public Health</h3>
@@ -1152,11 +1018,11 @@
                   </div>
                   <div class="op-ed-actions">
                       <span class="btn-outline-text desktop-pdf-link">LOAD DOCUMENT ↘</span>
-                      <a href="site-146.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
+                      <a href="assets/docs/site-146.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
                   </div>
               </article>
 
-              <article class="op-ed-card" onclick="if(window.innerWidth > 768) loadIntoViewer('site-123.pdf', 'site-123.pdf', 'Editorial: Making the Downtown Library Safe', 'By Santa Cruz Sentinel Hearst Company Editorial Board', 'Santa Cruz Sentinel', '2025')" tabindex="0">
+              <article class="op-ed-card" onclick="if(window.innerWidth > 768) loadIntoViewer('assets/docs/site-123.pdf', 'site-123.pdf', 'Editorial: Making the Downtown Library Safe', 'By Santa Cruz Sentinel Hearst Company Editorial Board', 'Santa Cruz Sentinel', '2025')" tabindex="0">
                   <div class="op-ed-card__content">
                       <span class="op-ed-card__label">Editorial</span>
                       <h3 class="op-ed-title">Editorial: Making the Downtown Library Safe</h3>
@@ -1165,11 +1031,11 @@
                   </div>
                   <div class="op-ed-actions">
                       <span class="btn-outline-text desktop-pdf-link">LOAD DOCUMENT ↘</span>
-                      <a href="site-123.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
+                      <a href="assets/docs/site-123.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
                   </div>
               </article>
 
-              <article class="op-ed-card" data-filter="policy" onclick="if(window.innerWidth > 768) loadIntoViewer('site-145.pdf', 'site-145.pdf', 'Public education in Santa Clara County needs a defender', 'By Dolores Huerta, Supervisors Sylvia Arenas and Betty Duong', 'San Jose Spotlight', '2024')" tabindex="0">
+              <article class="op-ed-card" data-filter="policy" onclick="if(window.innerWidth > 768) loadIntoViewer('assets/docs/site-145.pdf', 'site-145.pdf', 'Public education in Santa Clara County needs a defender', 'By Dolores Huerta, Supervisors Sylvia Arenas and Betty Duong', 'San Jose Spotlight', '2024')" tabindex="0">
                   <div class="op-ed-card__content">
                       <span class="op-ed-card__label">Education</span>
                       <h3 class="op-ed-title">Public education in Santa Clara County needs a defender</h3>
@@ -1178,11 +1044,11 @@
                   </div>
                   <div class="op-ed-actions">
                       <span class="btn-outline-text desktop-pdf-link">LOAD DOCUMENT ↘</span>
-                      <a href="site-145.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
+                      <a href="assets/docs/site-145.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
                   </div>
               </article>
 
-              <article class="op-ed-card" data-filter="policy" onclick="if(window.innerWidth > 768) loadIntoViewer('site-147.pdf', 'site-147.pdf', 'Newsom Budget threatens California Status as ’Safe Haven’ for Abortion ; Accompanying Article “Planned Parenthood Must Choose Between Abortion or Millions in Federal Funding”', 'Lupita Fernandez, NYTimes Staff', 'San Francisco Chronicle, NYTimes', '2025')" tabindex="0">
+              <article class="op-ed-card" data-filter="policy" onclick="if(window.innerWidth > 768) loadIntoViewer('assets/docs/site-147.pdf', 'site-147.pdf', 'Newsom Budget threatens California Status as ’Safe Haven’ for Abortion ; Accompanying Article “Planned Parenthood Must Choose Between Abortion or Millions in Federal Funding”', 'Lupita Fernandez, NYTimes Staff', 'San Francisco Chronicle, NYTimes', '2025')" tabindex="0">
                   <div class="op-ed-card__content">
                       <span class="op-ed-card__label">State politics</span>
                       <h3 class="op-ed-title">Newsom Budget threatens California Status as ’Safe Haven’ for Abortion; Accompanying Article “Planned Parenthood Must Choose Between Abortion or Millions in Federal Funding”</h3>
@@ -1191,11 +1057,11 @@
                   </div>
                   <div class="op-ed-actions">
                       <span class="btn-outline-text desktop-pdf-link">LOAD DOCUMENT ↘</span>
-                      <a href="site-147.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
+                      <a href="assets/docs/site-147.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
                   </div>
               </article>
 
-              <article class="op-ed-card" onclick="if(window.innerWidth > 768) loadIntoViewer('site-editorial.pdf', 'site-editorial.pdf', 'Editorial: About the Santa Cruz Worker’s Strike and Rising Discontent', 'By Santa Cruz Sentinel Hearst Company Editorial Board', 'Santa Cruz Sentinel', '2022')" tabindex="0">
+              <article class="op-ed-card" onclick="if(window.innerWidth > 768) loadIntoViewer('assets/docs/site-editorial.pdf', 'site-editorial.pdf', 'Editorial: About the Santa Cruz Worker’s Strike and Rising Discontent', 'By Santa Cruz Sentinel Hearst Company Editorial Board', 'Santa Cruz Sentinel', '2022')" tabindex="0">
                   <div class="op-ed-card__content">
                       <span class="op-ed-card__label">Strike coverage</span>
                       <h3 class="op-ed-title">Editorial: About the Santa Cruz Worker’s Strike and Rising Discontent</h3>
@@ -1204,7 +1070,7 @@
                   </div>
                   <div class="op-ed-actions">
                       <span class="btn-outline-text desktop-pdf-link">LOAD DOCUMENT ↘</span>
-                      <a href="site-editorial.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
+                      <a href="assets/docs/site-editorial.pdf" target="_blank" class="btn-outline-text mobile-pdf-link" onclick="event.stopPropagation()">OPEN PDF ↗</a>
                   </div>
               </article>
           </div>
@@ -1217,7 +1083,7 @@
                   </div>
                   <div id="docSubline" class="doc-meta">Santa Cruz Sentinel • 2025 • By Santa Cruz Sentinel Hearst Company Editorial Board</div>
               </div>
-              <iframe id="inlineDocViewer" src="site-123.pdf#view=FitH" style="width:100%; height:calc(100% - 86px); border:none; background:#F8FAFC;" title="Document Viewer"></iframe>
+              <iframe id="inlineDocViewer" src="assets/docs/site-123.pdf#view=FitH" style="width:100%; height:calc(100% - 86px); border:none; background:#F8FAFC;" title="Document Viewer"></iframe>
           </div>
       </div>
   </section>
@@ -1230,19 +1096,19 @@
       </div>
       <div class="reveal storytelling-layout">
           <div class="story-cards">
-              <div class="story-card" onclick="openMultimodal('video','Draft-Rowan.mov','Draft Rowan / Field Feature')" tabindex="0">
+              <div class="story-card" onclick="openMultimodal('video','assets/video/Draft-Rowan.mov','Draft Rowan / Field Feature')" tabindex="0">
                   <span class="story-tag">Video</span>
                   <h3>Draft Rowan / Field Feature</h3>
                   <p>A narrative-driven documentary edit designed to amplify frontline voices through moving image and earned media framing.</p>
                   <span class="story-action">Preview in panel</span>
               </div>
-              <div class="story-card" onclick="openMultimodal('audio','site-276.wav','CBS Radio Hit')" tabindex="0">
+              <div class="story-card" onclick="openMultimodal('audio','assets/video/site-276.wav','CBS Radio Hit')" tabindex="0">
                   <span class="story-tag">Audio</span>
                   <h3>CBS Radio Hit</h3>
                   <p>Broadcast-ready audio craft for public radio coverage, syncing campaign narrative with expert testimony and local urgency.</p>
                   <span class="story-action">Preview in panel</span>
               </div>
-              <div class="story-card" onclick="openMultimodal('video','site-277.mp4','Multimedia Reel')" tabindex="0">
+              <div class="story-card" onclick="openMultimodal('video','assets/video/site-277.mp4','Multimedia Reel')" tabindex="0">
                   <span class="story-tag">Video</span>
                   <h3>Multimedia Reel</h3>
                   <p>Engagement-first motion content tailored for cross-platform campaign outreach and storytelling impact.</p>
@@ -1256,14 +1122,14 @@
                   <p class="viewer-copy">Click a card to load the right-side preview panel, then cycle supporting imagery using the frames below.</p>
               </div>
               <div class="viewer-display">
-                  <img id="viewerImage" src="site-150.png" alt="Story detail preview" />
+                  <img id="viewerImage" src="assets/images/site-150.png" alt="Story detail preview" />
                   <video id="viewerVideo" controls preload="metadata" style="display:none;"></video>
                   <audio id="viewerAudio" controls style="display:none;"></audio>
               </div>
               <div class="viewer-gallery" id="viewerGallery">
-                  <button type="button" class="viewer-thumb" onclick="setViewerImage('site-150.png')"><img src="site-150.png" alt="Story frame 1"></button>
-                  <button type="button" class="viewer-thumb" onclick="setViewerImage('site-156.png')"><img src="site-156.png" alt="Story frame 2"></button>
-                  <button type="button" class="viewer-thumb" onclick="setViewerImage('site-159.png')"><img src="site-159.png" alt="Story frame 3"></button>
+                  <button type="button" class="viewer-thumb" onclick="setViewerImage('assets/images/site-150.png')"><img src="assets/images/site-150.png" alt="Story frame 1"></button>
+                  <button type="button" class="viewer-thumb" onclick="setViewerImage('assets/images/site-156.png')"><img src="assets/images/site-156.png" alt="Story frame 2"></button>
+                  <button type="button" class="viewer-thumb" onclick="setViewerImage('assets/images/site-159.png')"><img src="assets/images/site-159.png" alt="Story frame 3"></button>
               </div>
               <button class="btn-outline-text viewer-open-btn" type="button" onclick="openCurrentViewer()">OPEN FULL PREVIEW</button>
           </aside>
@@ -1279,92 +1145,25 @@
           </div>
       </div>
       <div class="photo-gallery">
-          <div class="gallery-item" onclick="openModal('site-241.png', 'image')"><img src="site-241.png" loading="lazy" alt="Opening documentary image"></div>
-          <div class="gallery-item" onclick="openModal('UAW-Portrait of Theresa.png', 'image')"><img src="UAW-Portrait of Theresa.png" loading="lazy" alt="Portrait of Theresa"></div>
-          <div class="gallery-item" onclick="openModal('site-harriet-computer.png', 'image')"><img src="site-harriet-computer.png" loading="lazy" alt="Worker at computer"></div>
-          <div class="gallery-item" onclick="openModal('site-street.png', 'image')"><img src="site-street.png" loading="lazy" alt="Street action"></div>
-          <div class="gallery-item" onclick="openModal('_MG_9773.JPG', 'image')"><img src="_MG_9773.JPG" loading="lazy" alt="Field work"></div>
-          <div class="gallery-item" onclick="openModal('site-library.png', 'image')"><img src="site-library.png" loading="lazy" alt="Library services"></div>
-          <div class="gallery-item" onclick="openModal('site-raul-right.png', 'image')"><img src="site-raul-right.png" loading="lazy" alt="Worker context"></div>
-          <div class="gallery-item" onclick="openModal('IMG_0436.JPG', 'image')"><img src="IMG_0436.JPG" loading="lazy" alt="Documentary moment"></div>
-          <div class="gallery-item" onclick="openModal('site-254.png', 'image')"><img src="site-254.png" loading="lazy" alt="Field documentation"></div>
-          <div class="gallery-item" onclick="openModal('IMG_5032.JPG', 'image')"><img src="IMG_5032.JPG" loading="lazy" alt="Closing photo"></div>
-          <div class="gallery-item" onclick="openModal('site-8755.jpeg', 'image')"><img src="site-8755.jpeg" loading="lazy" alt="Closing documentary image"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/site-241.png', 'image')"><img src="assets/images/site-241.png" loading="lazy" alt="Opening documentary image"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/UAW-Portrait of Theresa.png', 'image')"><img src="assets/images/UAW-Portrait of Theresa.png" loading="lazy" alt="Portrait of Theresa"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/site-harriet-computer.png', 'image')"><img src="assets/images/site-harriet-computer.png" loading="lazy" alt="Worker at computer"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/site-street.png', 'image')"><img src="assets/images/site-street.png" loading="lazy" alt="Street action"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/_MG_9773.JPG', 'image')"><img src="assets/images/_MG_9773.JPG" loading="lazy" alt="Field work"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/site-library.png', 'image')"><img src="assets/images/site-library.png" loading="lazy" alt="Library services"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/site-raul-right.png', 'image')"><img src="assets/images/site-raul-right.png" loading="lazy" alt="Worker context"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/IMG_0436.JPG', 'image')"><img src="assets/images/IMG_0436.JPG" loading="lazy" alt="Documentary moment"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/site-254.png', 'image')"><img src="assets/images/site-254.png" loading="lazy" alt="Field documentation"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/IMG_5032.JPG', 'image')"><img src="assets/images/IMG_5032.JPG" loading="lazy" alt="Closing photo"></div>
+          <div class="gallery-item" onclick="openModal('assets/images/site-8755.jpeg', 'image')"><img src="assets/images/site-8755.jpeg" loading="lazy" alt="Closing documentary image"></div>
       </div>
   </section>
 
-  <section id="outlets" style="background: var(--bg); padding-bottom: 60px;">
-    <div class="section-header reveal" style="padding-top: 60px;">
-      <span class="sec-num">03</span>
-      <h2 class="sec-title"><span class="outline">BY</span> OUTLET</h2>
-    </div>
-    <div class="outlet-grid reveal">
-      <article class="outlet-card">
-        <div class="outlet-card-content">
-          <span class="mono-text">National / The New York Times</span>
-          <h3>Earned coverage across major national newsrooms</h3>
-          <p>Strategic outreach led to feature stories that elevated core SEIU 521 priorities at the national level.</p>
-        </div>
-      </article>
-      <article class="outlet-card">
-        <div class="outlet-card-content">
-          <span class="mono-text">Regional / KQED</span>
-          <h3>Bilingual reporting in key California markets</h3>
-          <p>Spanish-language and English outlets both amplified worker voices in communities of color.</p>
-        </div>
-      </article>
-      <article class="outlet-card">
-        <div class="outlet-card-content">
-          <span class="mono-text">Broadcast / Telemundo</span>
-          <h3>Television and digital broadcast reach</h3>
-          <p>Live segments and multimedia placement supported message consistency across formats.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="coverage-types" style="background: var(--bg-alt); padding-bottom: 60px;">
+  <!-- 04: PROFILE -->
+  <section id="profile" style="background: var(--bg); padding-bottom: 60px;">
     <div class="section-header reveal" style="padding-top: 60px;">
       <span class="sec-num">04</span>
-      <h2 class="sec-title"><span class="outline">COVERAGE</span> TYPES</h2>
-    </div>
-    <div class="coverage-types-grid reveal">
-      <article class="coverage-type-card">
-        <div class="coverage-type-card-content">
-          <span class="mono-text">Article</span>
-          <h3>Investigative reporting</h3>
-          <p>In-depth stories that connect workplace conditions to broader policy outcomes.</p>
-        </div>
-      </article>
-      <article class="coverage-type-card">
-        <div class="coverage-type-card-content">
-          <span class="mono-text">Broadcast</span>
-          <h3>TV & radio segments</h3>
-          <p>Short-form storytelling built urgency and public pressure through trusted broadcast outlets.</p>
-        </div>
-      </article>
-      <article class="coverage-type-card">
-        <div class="coverage-type-card-content">
-          <span class="mono-text">Op-Ed</span>
-          <h3>Thought leadership</h3>
-          <p>Opinion pieces that shape the debate and amplify union policy priorities.</p>
-        </div>
-      </article>
-      <article class="coverage-type-card">
-        <div class="coverage-type-card-content">
-          <span class="mono-text">Audio</span>
-          <h3>Podcast & radio features</h3>
-          <p>Audio storytelling that brings worker experience to life for new audiences.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- 06: ABOUT -->
-  <section id="about" style="background: var(--bg); padding-bottom: 60px;">
-    <div class="section-header reveal" style="padding-top: 60px;">
-      <span class="sec-num">06</span>
-      <h2 class="sec-title"><span class="outline">ABOUT</span></h2>
+      <h2 class="sec-title"><span class="outline">PROFILE</span></h2>
     </div>
     
     <div class="profile-content reveal">
@@ -1410,7 +1209,7 @@
   </section>
 
   <!-- CONTACT & FOOTER -->
-  <section id="media-contact" style="border-top: 1px solid var(--border); padding: 80px 48px;">
+  <section id="contact" style="border-top: 1px solid var(--border); padding: 80px 48px;">
     <div class="reveal" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; max-width: 1600px; margin: 0 auto;">
         <div style="flex: 1; min-width: 300px;">
             <h2 style="font-size: clamp(30px, 4vw, 50px); line-height: 1; font-family: var(--display); text-transform: uppercase;">LET'S BUILD<br/><span class="outline">YOUR NARRATIVE.</span></h2>
@@ -1425,7 +1224,7 @@
         
         <div style="flex: 1; min-width: 300px; width: 100%; max-width: 600px;">
             <form action="https://formsubmit.co/Ian.metromet@gmail.com" method="POST">
-                <input type="hidden" name="_next" value="https://ianmarknewman.com/#media-contact">
+                <input type="hidden" name="_next" value="https://ianmarknewman.com/#contact">
                 <input type="hidden" name="_captcha" value="false">
                 <div class="form-group"><input class="form-input" type="text" name="name" placeholder="Name" required/></div>
                 <div class="form-group"><input class="form-input" type="email" name="email" placeholder="Email" required/></div>
@@ -1437,13 +1236,12 @@
   </section>
 
   <footer>
-    <div class="footer-logo">SEIU 521 MEDIA</div>
+    <div class="footer-logo">IAN MARK NEWMAN</div>
     <div class="footer-links mono-text">
         <a href="#campaigns">CAMPAIGNS</a>
-        <a href="#outlets">BY OUTLET</a>
-        <a href="#coverage-types">BY TYPE</a>
-        <a href="#about">ABOUT</a>
-        <a href="#media-contact">MEDIA CONTACT</a>
+        <a href="#media">MEDIA</a>
+        <a href="#analysis">OP-EDS</a>
+        <a href="#profile">PROFILE</a>
     </div>
   </footer>
 
@@ -1460,12 +1258,12 @@
     // ─── TRANSLATIONS & BILINGUAL TOGGLE ────────────────────────────────
     const translations = {
         en: {
-            nav_campaigns: "Campaigns", nav_by_outlet: "By outlet", nav_by_type: "By type", nav_about: "About", nav_media_contact: "Media contact", nav_resume: "Resume",
-            hero_tag: "SEIU 521 MEDIA PORTFOLIO", scroll: "SCROLL",
-            hero_word1: "AMPLIFYING", hero_word2: "WORKER VOICES", hero_word3: "ACROSS", hero_word4: "CALIFORNIA",
-            hero_typing: "Strategic earned media, bilingual outreach, and campaign communications for SEIU 521 union victories and community power.",
+            nav_campaigns: "Campaigns", nav_media: "Media", doc_opeds_title: "OP-EDS", nav_profile: "Profile", nav_contact: "Contact", nav_resume: "Resume",
+            hero_tag: "SENIOR COMMUNICATIONS STRATEGIST", scroll: "SCROLL",
+            hero_word1: "DRIVING", hero_word2: "NARRATIVES.", hero_word3: "WINNING", hero_word4: "CAMPAIGNS.",
+            hero_typing: "Labor, racial justice & public interest campaigns — over a decade advancing frontline voices and shaping policy outcomes.",
             btn_contact: "GET IN TOUCH", btn_work: "VIEW STRATEGY",
-            stat_01: "📺 Broadcast Placements", stat_02: "📰 Print + Digital Stories", stat_03: "🌐 Bilingual Media Drives", stat_04: "🎙️ Audio Features",
+            stat_01: "VERIFIED AUDIENCE REACH", stat_02: "STRIKE AUTHORIZATION SUCCESS", stat_03: "ENGAGEMENT & CONVERSION", stat_04: "IMPACTED WORKFORCE MEMBERS",
             comp_head: "COMPETENCIES",
             comp1_tit: "PUBLIC POLICY & SYSTEMS IMPACT", comp1_des: "Architected inside-outside campaigns bridging labor, private sector consultants, and executive municipal offices to drive policy. Secured pivotal endorsements and navigated complex legislative landscapes to protect vital community services.",
             comp2_tit: "EQUITY & BILINGUAL STRATEGY", comp2_des: "Architecting full-spectrum communications for Spanish-language outlets and internal member mobilization. Driving initiatives ensuring equity for people of color in the workplace and labor policies.",
@@ -1473,12 +1271,12 @@
             c1_tit: "MFA, DIGITAL ARTS & NEW MEDIA", c2_tit: "ADVANCED SPANISH PROFICIENCY", c2_sub: "Bilingual Communications Strategy"
         },
         es: {
-            nav_campaigns: "Campañas", nav_by_outlet: "Por medio", nav_by_type: "Por tipo", nav_about: "Acerca", nav_media_contact: "Contacto de prensa", nav_resume: "Currículum",
-            hero_tag: "PORTAFOLIO DE MEDIOS SEIU 521", scroll: "DESLIZAR",
-            hero_word1: "IMPULSANDO", hero_word2: "VOCES LABORALES", hero_word3: "EN", hero_word4: "CALIFORNIA",
-            hero_typing: "Medios estratégicos, alcance bilingüe y comunicaciones de campaña para victorias sindicales de SEIU 521 y poder comunitario.",
+            nav_campaigns: "Campañas", nav_media: "Prensa", doc_opeds_title: "Análisis", nav_profile: "Perfil", nav_contact: "Contacto", nav_resume: "Currículum",
+            hero_tag: "ESTRATEGA SENIOR DE COMUNICACIONES", scroll: "DESLIZAR",
+            hero_word1: "IMPULSANDO", hero_word2: "NARRATIVAS.", hero_word3: "GANANDO", hero_word4: "CAMPAÑAS.",
+            hero_typing: "Campañas laborales, de justicia racial e interés público — más de una década impulsando voces de primera línea y moldeando políticas.",
             btn_contact: "CONTÁCTANOS", btn_work: "VER ESTRATEGIA",
-            stat_01: "📺 Colocaciones de transmisión", stat_02: "📰 Historias impresas y digitales", stat_03: "🌐 Cobertura bilingüe", stat_04: "🎙️ Características de audio",
+            stat_01: "ALCANCE DE AUDIENCIA", stat_02: "ÉXITO EN AUTORIZACIÓN", stat_03: "PARTICIPACIÓN Y CONVERSIÓN", stat_04: "TRABAJADORES IMPACTADOS",
             comp_head: "COMPETENCIAS",
             comp1_tit: "POLÍTICA PÚBLICA E IMPACTO", comp1_des: "Campañas articuladas conectando sindicatos, consultores y oficinas municipales para proteger servicios vitales. Aseguró respaldos clave y navegó paisajes legislativos.",
             comp2_tit: "ESTRATEGIA BILINGÜE Y EQUIDAD", comp2_des: "Arquitectura de comunicaciones para medios en español y movilización interna. Iniciativas impulsando la equidad para personas de color en el trabajo.",
@@ -1835,7 +1633,7 @@
         document.getElementById('analysis').scrollIntoView({ behavior: 'smooth' });
     }
 
-    let currentViewerState = { type: 'image', src: 'site-150.png', title: 'Select an asset to preview' };
+    let currentViewerState = { type: 'image', src: 'assets/images/site-150.png', title: 'Select an asset to preview' };
 
     function openMultimodal(type, src, title) {
         currentViewerState = { type, src, title };
